@@ -4,7 +4,7 @@ import sys
 
 HOST = 'localhost'
 ADRESS = "127.0.0.1"
-PORT = 53020
+PORT = 6000
 
 s =socket(AF_INET, SOCK_DGRAM)
 s.setsockopt(SOL_SOCKET, SO_BROADCAST, 1)
