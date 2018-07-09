@@ -46,6 +46,8 @@ class Player1(threading.Thread):
     def analyzeMessage(self, message):
         if message.startswith("(init"):
             analyzeInitialMessage(message)
+        else:
+            print(message)
 
 
 if __name__ == "__main__":
