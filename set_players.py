@@ -1,9 +1,9 @@
 from socket import *
 import threading
-import set_one_player.Player0
+import Player0
 
 
-class Player1(Player0, threading.Thread):
+class Player1(set_one_player.Player0, threading.Thread):
     def __init__(self):
         self.socket = socket(AF_INET, SOCK_DGRAM)
 
