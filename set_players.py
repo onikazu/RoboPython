@@ -26,7 +26,7 @@ class Player1(threading.Thread):
             command = "(init " + m_strTeamName + "(goalie))"
         else:
             command = "(init " + m_strTeamName + ")"
-        send(command)
+        self.send(command)
 
     def run(self):
         while True:
