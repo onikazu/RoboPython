@@ -5,7 +5,7 @@ from socket import *
 
 class Player2(set_players.Player1, threading.Thread):
     def __init__(self):
-        super.__init__()
+        super(Player2, self).__init__()
         self.m_dKickOffX = 0.0
         self.m_dKickOffY = 0.0
 
