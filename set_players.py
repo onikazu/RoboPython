@@ -2,7 +2,10 @@ from socket import *
 import threading
 
 
-class Player0():
+class Player1(threading.Thread):
+    def __init__(self):
+        self.socket = socket(AF_INET, SOCK_DGRAM)
+
     HOSTNAME = "localhost"
     PORT = 6000
     ADDRESS = gethostbyname(HOSTNAME)
@@ -17,11 +20,6 @@ class Player0():
     def receive(self):
         data, addr = self.socket.recvfrom(4096)
         # print(data)
-
-
-class Player1(Player0, threading.Thread):
-    def __init__(self):
-        self.socket = socket(AF_INET, SOCK_DGRAM)
 
     def initialize(self, number, team_name, server_name, server_port):
         m_iNumber = number
