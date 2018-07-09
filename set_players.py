@@ -1,9 +1,25 @@
 from socket import *
 import threading
-import Player0
 
 
-class Player1(set_one_player.Player0, threading.Thread):
+class Player0():
+    HOSTNAME = "localhost"
+    PORT = 6000
+    ADDRESS = gethostbyname(HOSTNAME)
+
+    def __init__(self):
+        self.socket = socket(AF_INET, SOCK_DGRAM)
+
+    def send(self, command):
+        to_byte_command = command.encode(encoding='utf_8')
+        self.socket.sendto(to_byte_command, (ADDRESS, PORT))
+
+    def receive(self):
+        data, addr = self.socket.recvfrom(4096)
+        # print(data)
+
+
+class Player1(Player0, threading.Thread):
     def __init__(self):
         self.socket = socket(AF_INET, SOCK_DGRAM)
 
