@@ -30,7 +30,7 @@ class Player1(threading.Thread):
 
     def run(self):
         while True:
-            message = receive()
+            message = self.receive()
             analyzeMessage(message)
 
     def analyzeInitialMessage(self, message):
