@@ -13,7 +13,8 @@ class Player0():
         self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
 
     def receive(self):
-        return self.socket.recvfrom(4096)
+        message = self.socket.recvfrom(4096)
+        return message
         # print(data)
 
 
