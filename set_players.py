@@ -45,11 +45,13 @@ class Player1(threading.Thread):
 
     def analyzeMessage(self, message):
         if isinstance(message, type(None)):
-            print(message)
+            pass
+            # print(message)
         elif message.startswith("(init"):
             analyzeInitialMessage(message)
         else:
-            print(message)
+            pass
+            # print(message)
 
 
 if __name__ == "__main__":
