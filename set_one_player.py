@@ -9,12 +9,12 @@ class Player0():
         self.ADDRESS = gethostbyname(self.HOSTNAME)
 
     def send(self, command):
-        to_byte_command = command.encode(encoding='utf_8')
+        to_byte_command = command.encode(encoding='UTF-8')
         self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
 
     def receive(self):
         message = self.socket.recvfrom(4096)
-        message = message.decode("utf_8")
+        message = message.decode("UTF-8")
         return message
         # print(data)
 
