@@ -14,6 +14,7 @@ class Player0():
 
     def receive(self):
         message = self.socket.recvfrom(4096)
+        message = message.decode("utf_8")
         return message
         # print(data)
 
