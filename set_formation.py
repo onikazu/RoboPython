@@ -64,7 +64,7 @@ class Player2(set_players.Player1, threading.Thread):
         send(command)
 
     def analyzeMessage(self, message):
-        super.analyzeMessage(message)
+        super().analyzeMessage(message)
         if message.startswith("(see "):
             analyzeVisualMessage()
             play(message)
