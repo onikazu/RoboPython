@@ -18,7 +18,7 @@ class Player0():
 
 
 if __name__ == "__main__":
-    player = Player()
+    player = Player0()
     command = "(init teamKazu (goalie))"
     player.send(command)
     print("送信：", command)
