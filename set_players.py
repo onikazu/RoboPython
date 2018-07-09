@@ -3,16 +3,15 @@ import threading
 
 
 class Player1(threading.Thread):
-    HOSTNAME = "localhost"
-    PORT = 6000
-    ADDRESS = gethostbyname(HOSTNAME)
-
     def __init__(self):
         self.socket = socket(AF_INET, SOCK_DGRAM)
+        self.HOSTNAME = "localhost"
+        self.PORT = 6000
+        self.ADDRESS = gethostbyname(self.HOSTNAME)
 
     def send(self, command):
         to_byte_command = command.encode(encoding='utf_8')
-        self.socket.sendto(to_byte_command, (ADDRESS, PORT))
+        self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
 
     def receive(self):
         data, addr = self.socket.recvfrom(4096)
