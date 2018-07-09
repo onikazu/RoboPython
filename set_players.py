@@ -31,7 +31,7 @@ class Player1(threading.Thread):
     def run(self):
         while True:
             message = self.receive()
-            analyzeMessage(message)
+            self.analyzeMessage(message)
 
     def analyzeInitialMessage(self, message):
         index0 = message.index(" ")
