@@ -2,11 +2,11 @@ from socket import *
 import sys
 
 
-HOST = "localhost"
+HOST = gethostname()
 PORT = 6000
-ADRRESS = socket.gethostbyname(HOST)
+ADRRESS = gethostbyname(HOST)
 
-s =socket(AF_INET, SOCK_DGRAM)
+s = socket(AF_INET, SOCK_DGRAM)
 s.setsockopt(SOL_SOCKET, SO_BROADCAST, 1)
 s.bind((HOST, PORT))
 
