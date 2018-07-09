@@ -1,9 +1,9 @@
 from socket import *
 import threading
-import set_one_player
+import set_one_player.Player0
 
 
-class player1(player0, threading.Thread):
+class Player1(Player0, threading.Thread):
     def __init__(self):
         self.socket = socket(AF_INET, SOCK_DGRAM)
 
@@ -40,6 +40,6 @@ class player1(player0, threading.Thread):
 if __name__ == "__main__":
     players = []
     for i in range(11):
-        players.append(player1())
+        players.append(Player1())
         players[i].initialize(i+1, "kazu", "localhost", 6000)
         players[i].start()
