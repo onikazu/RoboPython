@@ -12,7 +12,7 @@ class Player():
 
     def send(self, command):
         to_byte_command = command.encode(encoding='utf_8')
-        self.socket.sendto(command, (ADDRESS, PORT))
+        self.socket.sendto(to_byte_command, (ADDRESS, PORT))
 
     def receive(self):
         data, addr = self.socket.recvfrom(4096)
