@@ -8,8 +8,7 @@ class Player():
 
     def send(self, command):
         socket.sendto(command, (ADDRESS, PORT))
-        if msg == ".":
-            break
+
 
     def receive(self):
         data, addr = client.recvfrom(4096)
