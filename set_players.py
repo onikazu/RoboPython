@@ -44,7 +44,9 @@ class Player1(threading.Thread):
         m_strPlayMode = message[index2+1:index3]
 
     def analyzeMessage(self, message):
-        if message.startswith("(init"):
+        if isinstance(message, None):
+            print(message)
+        elif message.startswith("(init"):
             analyzeInitialMessage(message)
         else:
             print(message)
