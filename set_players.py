@@ -3,9 +3,6 @@ import threading
 
 
 class Player1(threading.Thread):
-    def __init__(self):
-        self.socket = socket(AF_INET, SOCK_DGRAM)
-
     HOSTNAME = "localhost"
     PORT = 6000
     ADDRESS = gethostbyname(HOSTNAME)
