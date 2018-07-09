@@ -50,6 +50,7 @@ class Player1(threading.Thread):
 if __name__ == "__main__":
     players = []
     for i in range(11):
-        players.append(Player1())
+        p = Player1()
+        players.append(p)
         players[i].initialize(i+1, "kazu", "localhost", 6000)
         players[i].start()
