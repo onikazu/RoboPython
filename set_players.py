@@ -4,6 +4,7 @@ import threading
 
 class Player1(threading.Thread):
     def __init__(self):
+        threading.Thread.__init__(self)
         self.socket = socket(AF_INET, SOCK_DGRAM)
         self.HOSTNAME = "localhost"
         self.PORT = 6000
