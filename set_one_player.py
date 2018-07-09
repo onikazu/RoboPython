@@ -13,7 +13,7 @@ class Player0():
         self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
 
     def receive(self):
-        message = self.socket.recvfrom(4096)
+        message, arr = self.socket.recvfrom(4096)
         message = message.decode("UTF-8")
         return message
         # print(data)
