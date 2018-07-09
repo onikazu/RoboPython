@@ -3,7 +3,7 @@ import threading
 from socket import *
 
 
-class Player2(Player1, threading.Thread):
+class Player2(set_players.Player1, threading.Thread):
     def __init__(self):
         super.__init__()
         self.m_dKickOffX = 0.0
@@ -73,7 +73,7 @@ class Player2(Player1, threading.Thread):
 if __name__ == "__main__":
     players = []
     for i in range(22):
-        p = Player1()
+        p = Player2()
         players.append(p)
         if i < 11:
             teamname = "left"
