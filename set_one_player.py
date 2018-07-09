@@ -22,9 +22,9 @@ if __name__ == "__main__":
     player = Player0()
     command = "(init teamKazu (goalie))"
     player.send(command)
-    print("送信：", command)
+    print("send:", command)
     message = player.receive()
-    print("受信：", message)
-    print("試合登録完了")
+    print("receive:", message)
+    print("completed")
     while True:
         message = player.receive()
