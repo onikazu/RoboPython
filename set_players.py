@@ -59,3 +59,4 @@ if __name__ == "__main__":
         players.append(p)
         players[i].initialize(i+1, "kazu", "localhost", 6000)
         players[i].start()
+        print("試合登録完了")
