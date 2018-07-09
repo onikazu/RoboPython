@@ -2,7 +2,7 @@ from socket import *
 import sys
 
 
-HOST = gethostname()
+HOST = "localhost"
 PORT = 6000
 ADRRESS = gethostbyname(HOST)
 
