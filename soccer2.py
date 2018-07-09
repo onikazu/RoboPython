@@ -1,5 +1,9 @@
+from socket import *
+
+
 HOSTNAME = "localhost"
 PORT = 6000
+ADDRESS = gethostbyname(HOSTNAME)
 
 
 class Player():
@@ -7,11 +11,10 @@ class Player():
         self.socket = socket(AF_INET, SOCK_DGRAM)
 
     def send(self, command):
-        socket.sendto(command, (ADDRESS, PORT))
-
+        self.socket.sendto(command, (ADDRESS, PORT))
 
     def receive(self):
-        data, addr = client.recvfrom(4096)
+        data, addr = self.socket.recvfrom(4096)
         print(data)
 
 
