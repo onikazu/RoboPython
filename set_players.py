@@ -19,7 +19,6 @@ class Player1(threading.Thread):
         message, arr = self.socket.recvfrom(4096)
         message = message.decode("UTF-8")
         return message
-        # print(data)
 
     def initialize(self, number, team_name, server_name, server_port):
         m_iNumber = number

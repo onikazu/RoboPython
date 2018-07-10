@@ -22,38 +22,38 @@ class Player2(set_players.Player1, threading.Thread):
 
     def setKickOffPosition(self):
         if self.m_iNumber == 1:
-            m_dKickOffX = -50.0
-            m_dKickOffY = -0.0
+            self.m_dKickOffX = -50.0
+            self.m_dKickOffY = -0.0
         elif self.m_iNumber == 2:
-            m_dKickOffX = -40.0
-            m_dKickOffY = -15.0
+            self.m_dKickOffX = -40.0
+            self.m_dKickOffY = -15.0
         elif self.m_iNumber == 3:
-            m_dKickOffX = -40.0
-            m_dKickOffY = -5.0
+            self.m_dKickOffX = -40.0
+            self.m_dKickOffY = -5.0
         elif self.m_iNumber == 4:
-            m_dKickOffX = -40.0
-            m_dKickOffY = +5.0
+            self.m_dKickOffX = -40.0
+            self.m_dKickOffY = +5.0
         elif self.m_iNumber == 5:
-            m_dKickOffX = -40.0
-            m_dKickOffY = +15.0
+            self.m_dKickOffX = -40.0
+            self.m_dKickOffY = +15.0
         elif self.m_iNumber == 6:
-            m_dKickOffX = -20.0
-            m_dKickOffY = -15.0
+            self.m_dKickOffX = -20.0
+            self.m_dKickOffY = -15.0
         elif self.m_iNumber == 7:
-            m_dKickOffX = -20.0
-            m_dKickOffY = -5.0
+            self.m_dKickOffX = -20.0
+            self.m_dKickOffY = -5.0
         elif self.m_iNumber == 8:
-            m_dKickOffX = -20.0
-            m_dKickOffY = +5.0
+            self.m_dKickOffX = -20.0
+            self.m_dKickOffY = +5.0
         elif self.m_iNumber == 9:
-            m_dKickOffX = -20.0
-            m_dKickOffY = +15.0
+            self.m_dKickOffX = -20.0
+            self.m_dKickOffY = +15.0
         elif self.m_iNumber == 10:
-            m_dKickOffX = -1.0
-            m_dKickOffY = -5.0
+            self.m_dKickOffX = -1.0
+            self.m_dKickOffY = -5.0
         elif self.m_iNumber == 11:
-            m_dKickOffX = -4.0
-            m_dKickOffY = +10.0
+            self.m_dKickOffX = -4.0
+            self.m_dKickOffY = +10.0
         else:
             print("範囲外の背番号の選手です")
 
