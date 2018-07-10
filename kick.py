@@ -44,7 +44,7 @@ class Player5(face_ball.Player4, threading.Thread):
                 else:
                     command = "(turn 30)"
                     self.send(command)
-                    print(command)
+                    print("a:",command)
         # ボールが見えているときのplay
         else:
             command = ""
