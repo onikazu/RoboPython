@@ -50,7 +50,7 @@ class Player1(threading.Thread):
             pass
             # print(message)
         elif message.startswith("(init"):
-            analyzeInitialMessage(message)
+            self.analyzeInitialMessage(message)
         else:
             pass
             # print(message)
