@@ -22,34 +22,43 @@ class Player5(face_ball.Player4, threading.Thread):
             return "(kick 20 135)"
 
     def play(self, message, ballDist=None, ballDir=None):
-        # if ballDist is None and ballDir is None:
-        #     if self.checkInitialMode():
-        #         self.setKickOffPosition()
-        #         command = "(move " + str(self.m_dKickOffX) + " " \
-        #             + str(self.m_dKickOffY) + ")"
-        #         self.send(command)
-        #     else:
-        #         message = message.replace("B", "b")
-        #         ball = self.getObjectMessage(message, "((b")
-        #         if ball.startswith("((b"):
-        #             ballDist = self.getPram(ball, "(b)", 1)
-        #             ballDir = self.getPram(ball, "(b)", 2)
-        #             self.play(message, ballDist, ballDir)
-        #         else:
-        #             command = "(turn 30)"
-        #             self.send(command)
-        # # ボールが見えているときのplay
-        # else:
-        command = ""
-        if abs(ballDir) < 20.0:
-            if ballDist < 1.0:
-                command = self.kick(message)
-            elif self.checkNearest(message, ballDist, ballDir):
-                command = "(dash 80)"
-
+        # ボールが視界に無いとき
+        if ballDist is None and ballDir is None:
+            # 初期化
+            if self.checkInitialMode():
+                self.setKickOffPosition()
+                command = "(move " + str(self.m_dKickOffX) + " " \
+                    + str(self.m_dKickOffY) + ")"
+                self.send(command)
+            # 初期ではない
+            else:
+                message = message.replace("B", "b")
+                ball = self.getObjectMessage(message, "((b")
+                # ボールが見えるようになった
+                if ball.startswith("((b"):
+                    ballDist = self.getPram(ball, "(b)", 1)
+                    ballDir = self.getPram(ball, "(b)", 2)
+                    # ボールが見えているときのplayへ
+                    self.play(message, ballDist, ballDir)
+                # 見えない
+                else:
+                    command = "(turn 30)"
+                    self.send(command)
+        # ボールが見えているときのplay
         else:
-            command = "(turn " + str(ballDir) + ")"
-        self.send(command)
+            command = ""
+            # 体の正面にある
+            if abs(ballDir) < 20.0:
+                # そして近い
+                if ballDist < 1.0:
+                    command = self.kick(message)
+                # 遠い
+                elif self.checkNearest(message, ballDist, ballDir):
+                    command = "(dash 80)"
+            # 体の正面にはない
+            else:
+                command = "(turn " + str(ballDir) + ")"
+            self.send(command)
 
     def checkNearest(self, message, ballDist, ballDir):
         return True
