@@ -15,7 +15,9 @@ class Player1(threading.Thread):
         self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
 
     def receive(self):
-        data, addr = self.socket.recvfrom(4096)
+        message, arr = self.socket.recvfrom(4096)
+        message = message.decode("UTF-8")
+        return message
         # print(data)
 
     def initialize(self, number, team_name, server_name, server_port):
