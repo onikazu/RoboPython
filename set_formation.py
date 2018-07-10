@@ -60,7 +60,7 @@ class Player2(set_players.Player1, threading.Thread):
     def play(self, message):
         if self.checkInitialMode():
             self.setKickOffPosition()
-            command = "(move " + m_dKickOffX + " " + m_dKickOffY + ")"
+            command = "(move " + self.m_dKickOffX + " " + self.m_dKickOffY + ")"
         self.send(command)
 
     def analyzeMessage(self, message):
