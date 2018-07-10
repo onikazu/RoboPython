@@ -37,8 +37,9 @@ class Player5(face_ball.Player4, threading.Thread):
                 print("メッセージ", message)
                 # ボールが見えるようになった
                 if ball.startswith("((b"):
-                    ballDist = self.getPram(ball, "(b)", 1)
-                    ballDir = self.getPram(ball, "(b)", 2)
+                    ballDist = self.getPram(ball, "(ball)", 1)
+                    # ここがおかしい
+                    ballDir = self.getPram(ball, "(ball)", 2)
                     # ボールが見えているときのplayへ
                     self.play(message, ballDist, ballDir)
                 # 見えない
@@ -59,7 +60,7 @@ class Player5(face_ball.Player4, threading.Thread):
                 elif self.checkNearest(message, ballDist, ballDir):
                     command = "(dash 80)"
                     print("d", command)
-            # 体の正面にはない
+            # 体の正面にはない　ここがおかしいと見て間違いない
             else:
                 command = "(turn " + str(ballDir) + ")"
                 print("c", command)
