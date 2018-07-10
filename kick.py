@@ -48,7 +48,7 @@ class Player5(face_ball.Player4, threading.Thread):
                     command = "(dash 80)"
 
             else:
-                command = "(dash 80)"
+                command = "(turn " + ballDir + ")"
             self.send(command)
 
     def checkNearest(self, message, ballDist, ballDir):
