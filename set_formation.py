@@ -58,6 +58,7 @@ class Player2(set_players.Player1, threading.Thread):
             print("範囲外の背番号の選手です")
 
     def play(self, message):
+        command = ""
         if self.checkInitialMode():
             self.setKickOffPosition()
             command = "(move " + self.m_dKickOffX + " " + self.m_dKickOffY + ")"
