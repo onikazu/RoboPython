@@ -17,7 +17,7 @@ class Player5(face_ball.Player4, threading.Thread):
         if index0 > -1:
             goalDist = self.getPram(message, target_goal, 1)
             goalDir = self.getPram(message, target_goal, 2)
-            return "(kick 100 " + goalDir + ")"
+            return "(kick 100 " + str(goalDir) + ")"
         else:
             return "(kick 20 135)"
 
