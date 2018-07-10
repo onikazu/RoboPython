@@ -44,6 +44,7 @@ class Player5(face_ball.Player4, threading.Thread):
                 else:
                     command = "(turn 30)"
                     self.send(command)
+                    print(command)
         # ボールが見えているときのplay
         else:
             command = ""
@@ -59,6 +60,7 @@ class Player5(face_ball.Player4, threading.Thread):
             else:
                 command = "(turn " + str(ballDir) + ")"
             self.send(command)
+            print(command)
 
     def checkNearest(self, message, ballDist, ballDir):
         return True
