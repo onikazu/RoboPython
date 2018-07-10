@@ -37,9 +37,9 @@ class Player5(face_ball.Player4, threading.Thread):
                 print("メッセージ", message)
                 # ボールが見えるようになった
                 if ball.startswith("((b"):
-                    ballDist = self.getPram(ball, "(ball)", 1)
+                    ballDist = self.getPram(ball, "(b)", 1)
                     # ここがおかしい
-                    ballDir = self.getPram(ball, "(ball)", 2)
+                    ballDir = self.getPram(ball, "(b)", 2)
                     # ボールが見えているときのplayへ
                     self.play(message, ballDist, ballDir)
                 # 見えない
