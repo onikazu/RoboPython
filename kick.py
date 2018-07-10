@@ -10,9 +10,9 @@ class Player5(face_ball.Player4, threading.Thread):
     def kick(self, message):
         target_goal = ""
         if self.m_strSide.startswith("r"):
-            target_goal = "(g l)"
+            target_goal = "(goal l)"
         else:
-            target_goal = "(g r)"
+            target_goal = "(goal r)"
         index0 = message.find(target_goal)
         if index0 > -1:
             goalDist = self.getPram(message, target_goal, 1)
