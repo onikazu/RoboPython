@@ -61,8 +61,8 @@ class Player2(set_players.Player1, threading.Thread):
         command = ""
         if self.checkInitialMode():
             self.setKickOffPosition()
-            command = "(move " + self.m_dKickOffX + " " \
-                + self.m_dKickOffY + ")"
+            command = "(move " + str(self.m_dKickOffX) + " " \
+                + str(self.m_dKickOffY) + ")"
         self.send(command)
 
     def analyzeMessage(self, message):
