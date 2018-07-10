@@ -39,7 +39,7 @@ class Player1(threading.Thread):
         index0 = message.index(" ")
         index1 = message.index(" ", index0 + 1)
         index2 = message.index(" ", index1 + 1)
-        index3 = message.index(" ", index2 + 1)
+        index3 = message.index(")", index2 + 1)
 
         m_strSide = message[index0+1:index1]
         m_iNumber = int(message[index1+1:index2])
