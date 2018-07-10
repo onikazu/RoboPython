@@ -40,6 +40,7 @@ class Player5(face_ball.Player4, threading.Thread):
                     ballDist = self.getPram(ball, "(b)", 1)
                     # ここがおかしい
                     ballDir = self.getPram(ball, "(b)", 2)
+                    print("ballDir", ballDir)
                     # ボールが見えているときのplayへ
                     self.play(message, ballDist, ballDir)
                 # 見えない
