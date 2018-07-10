@@ -14,6 +14,7 @@ class Player1(threading.Thread):
     def send(self, command):
         to_byte_command = command.encode(encoding='utf_8')
         self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
+        print("sending is done")
 
     def receive(self):
         message, arr = self.socket.recvfrom(4096)
@@ -33,7 +34,7 @@ class Player1(threading.Thread):
     def run(self):
         while True:
             message = self.receive()
-            print(message)
+            # print(message)
             self.analyzeMessage(message)
 
     def analyzeInitialMessage(self, message):
