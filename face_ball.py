@@ -21,12 +21,12 @@ class Player4(hearing_player.Player3, threading.Thread):
 
     def getPram(self, message, keyword, number):
         OUT_OF_RANGE = 999
-        str = "(" + keyword
-        index0 = message.find(str)
+        key = "(" + keyword
+        index0 = message.find(key)
         if index0 < 0:
-            return OUT_OF_RANGE
+            return OUT_OF_RANGE + 1
 
-        index1 = message.find(" ", index0 + str.length())
+        index1 = message.find(" ", index0 + len(key))
         if number == 4:
             index1 = message.find(" ", index1 + 1)
         elif number == 3:
