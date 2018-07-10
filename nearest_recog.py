@@ -12,13 +12,13 @@ class Player6(kick.Player5, threading.Thread):
     def checkNearest(self, message, ballDist, ballDir):
         teamname = "(p \"" + self.m_strTeamName + "\""
         player = self.getObjectMessage(message, "((p")
-        index0 = player.index(teamname, 0)
+        index0 = player.find(teamname, 0)
         while index0 > -1:
-            index1 = player.index(")", index0)
-            index2 = player.index(" ", index1 + 1)
-            index3 = player.index(" ", index2 + 1)
-            index4 = player.index(" ", index3 + 1)
-            index5 = player.index(")", index3 + 1)
+            index1 = player.find(")", index0)
+            index2 = player.find(" ", index1 + 1)
+            index3 = player.find(" ", index2 + 1)
+            index4 = player.find(" ", index3 + 1)
+            index5 = player.find(")", index3 + 1)
             if index5 < index4 or index4 == -1:
                 index4 = index5
             playerDist = float(player[index2:index3])
@@ -29,7 +29,7 @@ class Player6(kick.Player5, threading.Thread):
             dist = math.sqrt(A * A + B * B - 2 * A * B * math.cos(rad))
             if dist < ballDist:
                 return False
-            index0 = player.index(teamname, index0 + len(teamname))
+            index0 = player.find(teamname, index0 + len(teamname))
         return True
 
     def getCommandAsDefence(self, message, ballDist, ballDir):
@@ -37,7 +37,7 @@ class Player6(kick.Player5, threading.Thread):
         goal = "(goal l)"
         if  self.m_strSide.startswith("r"):
             goal = "(goal r)"
-        if message.index(goal) > -1:
+        if message.find(goal) > -1:
             goalDist = self.getParam(message, goal, 1)
             if goalDist > 50.0:
                 command = "(dash 80)"
