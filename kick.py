@@ -34,6 +34,7 @@ class Player5(face_ball.Player4, threading.Thread):
             else:
                 message = message.replace("B", "b")
                 ball = self.getObjectMessage(message, "((b")
+                print("メッセージ", message)
                 # ボールが見えるようになった
                 if ball.startswith("((b"):
                     ballDist = self.getPram(ball, "(b)", 1)
@@ -63,7 +64,6 @@ class Player5(face_ball.Player4, threading.Thread):
                 command = "(turn " + str(ballDir) + ")"
                 print("c", command)
             self.send(command)
-
 
     def checkNearest(self, message, ballDist, ballDir):
         return True
