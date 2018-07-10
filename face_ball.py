@@ -49,7 +49,7 @@ class Player4(hearing_player.Player3, threading.Thread):
 
     def play(self, message, ballDist=None, ballDir=None):
         # ボールが見えているときのplay
-        if ballDist　is None and ballDir is None:
+        if ballDist is None and ballDir is None:
             if self.checkInitialMode():
                 self.setKickOffPosition()
                 command = "(move " + str(self.m_dKickOffX) + " " \
