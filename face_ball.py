@@ -10,7 +10,7 @@ class Player4(hearing_player.Player3, threading.Thread):
 
     def getObjectMessage(self, message, keyword):
         result = ""
-        index0 = message.index(keyword)
+        index0 = message.find(keyword)
         while -1 < index0:
             index1 = message.find(")", index0+2)
             index2 = message.find(")", index1+1)
