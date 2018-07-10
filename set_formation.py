@@ -10,9 +10,9 @@ class Player2(set_players.Player1, threading.Thread):
         self.m_dKickOffY = 0.0
 
     def checkInitialMode(self):
-        if m_strPlayMode.startswith("before_kick_off") or \
-            m_strPlayMode.startswith("goal_l") or \
-            m_strPlayMode.startswith("goal_r"):
+        if self.m_strPlayMode.startswith("before_kick_off") or \
+            self.m_strPlayMode.startswith("goal_l") or \
+            self.m_strPlayMode.startswith("goal_r"):
             return True
         else:
             return False

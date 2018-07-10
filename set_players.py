@@ -9,6 +9,7 @@ class Player1(threading.Thread):
         self.HOSTNAME = "localhost"
         self.PORT = 6000
         self.ADDRESS = gethostbyname(self.HOSTNAME)
+        self.m_strPlayMode = ""
 
     def send(self, command):
         to_byte_command = command.encode(encoding='utf_8')
