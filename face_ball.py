@@ -48,7 +48,7 @@ class Player4(hearing_player.Player3, threading.Thread):
         return result
 
     def play(self, message, ballDist=None, ballDir=None):
-        # ボールが見えているときのplay
+        # ボールが見えていないときのplay
         if ballDist is None and ballDir is None:
             if self.checkInitialMode():
                 self.setKickOffPosition()
@@ -65,7 +65,7 @@ class Player4(hearing_player.Player3, threading.Thread):
                 else:
                     command = "(turn 30)"
                     self.send(command)
-        # ボールが見えてないときのplay
+        # ボールが見えているときのplay
         else:
             pass
 
