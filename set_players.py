@@ -10,6 +10,11 @@ class Player1(threading.Thread):
         self.PORT = 6000
         self.ADDRESS = gethostbyname(self.HOSTNAME)
         self.m_strPlayMode = ""
+        self.m_iNumber = 0
+        self.m_strTeamName = ""
+        self.m_strHostName = ""
+        self.m_strSide = ""
+        self.m_iNumber = 0
 
     def send(self, command):
         to_byte_command = command.encode(encoding='utf_8')
@@ -22,13 +27,13 @@ class Player1(threading.Thread):
         return message
 
     def initialize(self, number, team_name, server_name, server_port):
-        m_iNumber = number
-        m_strTeamName = team_name
-        m_strHostName = server_name
-        if m_iNumber == 1:
-            command = "(init " + m_strTeamName + "(goalie))"
+        self.m_iNumber = number
+        self.m_strTeamName = team_name
+        self.m_strHostName = server_name
+        if self.m_iNumber == 1:
+            command = "(init " + self.m_strTeamName + "(goalie))"
         else:
-            command = "(init " + m_strTeamName + ")"
+            command = "(init " + self.m_strTeamName + ")"
         self.send(command)
 
     def run(self):
@@ -43,9 +48,9 @@ class Player1(threading.Thread):
         index2 = message.index(" ", index1 + 1)
         index3 = message.index(")", index2 + 1)
 
-        m_strSide = message[index0+1:index1]
-        m_iNumber = int(message[index1+1:index2])
-        m_strPlayMode = message[index2+1:index3]
+        self.m_strSide = message[index0+1:index1]
+        self.m_iNumber = int(message[index1+1:index2])
+        self.m_strPlayMode = message[index2+1:index3]
 
     def analyzeMessage(self, message):
         if isinstance(message, type(None)):
