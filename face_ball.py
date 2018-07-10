@@ -36,7 +36,7 @@ class Player4(hearing_player.Player3, threading.Thread):
         else:
             pass
         index2 = message.find(" ", index1+1)
-        index2 = message.find(")", index1+1)
+        index3 = message.find(")", index1+1)
         if index3 < index2 and index3 != -1 or index2 == -1:
             index2 = index3
         result = 0.0
@@ -47,27 +47,28 @@ class Player4(hearing_player.Player3, threading.Thread):
             result = OUT_OF_RANGE
         return result
 
-    #　ボールが見えているときのplay
-    def play(self, message, ballDist, ballDir):
-        pass
-
-    # ボールが見えていないときのplay
-    def play(self, message):
-        if self.checkInitialMode():
-            self.setKickOffPosition()
-            command = "(move " + str(self.m_dKickOffX) + " " \
-                + str(self.m_dKickOffY) + ")"
-            self.send(command)
-        else:
-            message = message.replace("B", "b")
-            ball = self.getObjectMessage(message, "((b")
-            if ball.startswith("((b"):
-                ballDist = self.getPram(ball, "(b)", 1)
-                ballDir = self.getPram(ball, "(b)", 2)
-                self.play(message, ballDist, ballDir)
-            else:
-                command = "(turn 30)"
+    def play(self, message, ballDist=None, ballDir=None):
+        # ボールが見えているときのplay
+        if ballDist　is None and ballDir is None:
+            if self.checkInitialMode():
+                self.setKickOffPosition()
+                command = "(move " + str(self.m_dKickOffX) + " " \
+                    + str(self.m_dKickOffY) + ")"
                 self.send(command)
+            else:
+                message = message.replace("B", "b")
+                ball = self.getObjectMessage(message, "((b")
+                if ball.startswith("((b"):
+                    ballDist = self.getPram(ball, "(b)", 1)
+                    ballDir = self.getPram(ball, "(b)", 2)
+                    self.play(message, ballDist, ballDir)
+                else:
+                    command = "(turn 30)"
+                    self.send(command)
+        # ボールが見えてないときのplay
+        else:
+            pass
+
 
 if __name__ == "__main__":
     players = []
