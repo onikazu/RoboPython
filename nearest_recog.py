@@ -14,6 +14,7 @@ class Player6(kick.Player5, threading.Thread):
         player = self.getObjectMessage(message, "((p")
         index0 = player.find(teamname, 0)
         while index0 > -1:
+            print("judged 1")
             index1 = player.find(")", index0)
             index2 = player.find(" ", index1 + 1)
             index3 = player.find(" ", index2 + 1)
