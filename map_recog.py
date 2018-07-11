@@ -109,22 +109,25 @@ class Player8(no_look_shoot.Player7, threading.Thread):
         return result
 
     # @override
-    def analyzeVisualMessage(self, message):
-        OUT_OF_RANGE = 999.0
-        time = int(self.getParam(message, "see", 1))
-        if time < 1:
-            return
-        self.m_dNeck = self.getNeckDir(message)
-        if self.m_dNeck == OUT_OF_RANGE:
-            return
-        if self.checkInitialMode():
-            self.m_dX = self.m_dKickOffX
-            self.m_dY = self.m_dKickOffY
+    def analyzeVisualMessage(self, message = None):
+        if message is None:
+            pass
+        else:
+            OUT_OF_RANGE = 999.0
+            time = int(self.getParam(message, "see", 1))
+            if time < 1:
+                return
+            self.m_dNeck = self.getNeckDir(message)
+            if self.m_dNeck == OUT_OF_RANGE:
+                return
+            if self.checkInitialMode():
+                self.m_dX = self.m_dKickOffX
+                self.m_dY = self.m_dKickOffY
 
-        pos = self.estimatePosition(message, self.m_dNeck, self.m_dX, self.m_dY)
-        self.m_dX = pos["x"]
-        self.m_dY = pos["y"]
-        
+            pos = self.estimatePosition(message, self.m_dNeck, self.m_dX, self.m_dY)
+            self.m_dX = pos["x"]
+            self.m_dY = pos["y"]
+
 
 
 if __name__ == "__main__":
