@@ -8,7 +8,7 @@ import math
 class Player10(player9.Player9, threading.Thread):
     def __init__(self):
         super(Player10, self).__init__()
-        m_listCommand = []
+        self.m_listCommand = []
 
     def getDirection(self, x0, y0, x1, y1):
         if abs(x1 - x0) < 0.1:
