@@ -31,7 +31,7 @@ class Player6(kick.Player5, threading.Thread):
             dist = math.sqrt(A * A + B * B - 2 * A * B * math.cos(rad))
             if dist < ballDist:
                 return False
-                print("judged")
+                # print("judged")
             index0 = player.find(teamname, index0 + len(teamname))
         return True
 
@@ -59,13 +59,13 @@ class Player6(kick.Player5, threading.Thread):
             else:
                 message = message.replace("B", "b")
                 ball = self.getObjectMessage(message, "((b")
-                print("メッセージ", message)
+                # print("メッセージ", message)
                 # ボールが見えるようになった
                 if ball.startswith("((b"):
                     ballDist = self.getPram(ball, "(ball)", 1)
                     # ここがおかしい
                     ballDir = self.getPram(ball, "(ball)", 2)
-                    print("ballDir", ballDir)
+                    # print("ballDir", ballDir)
                     # ボールが見えているときのplayへ
                     self.play(message, ballDist, ballDir)
                 # 見えない
@@ -81,17 +81,17 @@ class Player6(kick.Player5, threading.Thread):
                 # そして近い
                 if ballDist < 1.0:
                     command = self.kick(message)
-                    print("b", command)
+                    # print("b", command)
                 # 遠い
                 elif self.checkNearest(message, ballDist, ballDir):
                     command = "(dash 80)"
-                    print("d", command)
+                    # print("d", command)
                 else:
                     command = self.getCommandAsDefence(message, ballDist, ballDir)
             # 体の正面にはない　ここがおかしいと見て間違いない
             else:
                 command = "(turn " + str(ballDir) + ")"
-                print("c", command)
+                # print("c", command)
             self.send(command)
 
 
