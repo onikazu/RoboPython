@@ -79,7 +79,7 @@ class Player7(nearest_recog.Player6, threading.Thread):
             goalDir = 0.0
             goalDist = self.getPram(message, targetGoal, 1)
             goalDir = self.getPram(message, targetGoal, 2)
-            return "(kick 100 " + goalDir + ")"
+            return "(kick 100 " + str(goalDir) + ")"
         else:
         # ゴールが見えない
             print("i cant look goal")
@@ -89,9 +89,9 @@ class Player7(nearest_recog.Player6, threading.Thread):
                 attackDir = 180.0
             kickDir = self.normalizeAngle(attackDir - neckDir)
             if self.m_strPlayMode.startswith("play_on"):
-                return "(kick 30 " + kickDir + ")"
+                return "(kick 30 " + str(kickDir) + ")"
             else:
-                return "(kick 100 " + kickDir + ")"
+                return "(kick 100 " + str(kickDir) + ")"
 
 
 if __name__ == "__main__":
