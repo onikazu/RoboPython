@@ -52,10 +52,54 @@ class Player10(player9.Player9, threading.Thread):
             return "(kick 100 180)"
         return super().kick(message)
 
-    # @override
-    def play(self, message):
-        if len(self.m_listCommand) == 0:
-            super().play(message)
+    def play(self, message, ballDist=None, ballDir=None):
+        # ボールが視界に無いとき
+        if ballDist is None and ballDir is None:
+            if len(self.m_listCommand) == 0:
+                # 初期化
+                if self.checkInitialMode():
+                    self.setKickOffPosition()
+                    command = "(move " + str(self.m_dKickOffX) + " " \
+                        + str(self.m_dKickOffY) + ")"
+                    self.send(command)
+                # 初期ではない
+                else:
+                    message = message.replace("B", "b")
+                    ball = self.getObjectMessage(message, "((b")
+                    # print("メッセージ", message)
+                    # ボールが見えるようになった
+                    if ball.startswith("((b"):
+                        ballDist = self.getParam(ball, "(ball)", 1)
+                        # ここがおかしい
+                        ballDir = self.getParam(ball, "(ball)", 2)
+                        # print("ballDir", ballDir)
+                        # ボールが見えているときのplayへ
+                        self.play(message, ballDist, ballDir)
+                    # 見えない
+                    else:
+                        command = "(turn 30)"
+                        self.send(command)
+                        # print("a:", command)
+            # ボールが見えているときのplay
+        else:
+            command = ""
+            # 体の正面にある
+            if abs(ballDir) < 20.0:
+                # そして近い
+                if ballDist < 1.0:
+                    command = self.kick(message)
+                    # print("b", command)
+                # 遠い
+                elif self.checkNearest(message, ballDist, ballDir):
+                    command = "(dash 80)"
+                    # print("d", command)
+                else:
+                    command = self.getCommandAsDefence(message, ballDist, ballDir)
+            # 体の正面にはない　ここがおかしいと見て間違いない
+            else:
+                command = "(turn " + str(ballDir) + ")"
+                # print("c", command)
+            self.send(command)
 
     # @override
     def analyzeMessage(self, message):
@@ -71,7 +115,7 @@ if __name__ == "__main__":
     for i in range(11):
         p10 = Player10()
         player10s.append(p10)
-        teamname = "p8s"
+        teamname = "p10s"
         player10s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         player10s[i].start()
     player9s = []
