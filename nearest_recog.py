@@ -15,7 +15,7 @@ class Player6(kick.Player5, threading.Thread):
         print("player: ", player)
         index0 = player.find(teamname, 0)
         while index0 > -1:
-            print("judged 1")
+            # print("judged 最寄り判定")
             index1 = player.find(")", index0)
             index2 = player.find(" ", index1 + 1)
             index3 = player.find(" ", index2 + 1)

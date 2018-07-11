@@ -64,6 +64,7 @@ class Player7(nearest_recog.Player6, threading.Thread):
 
     # @override
     def kick(self, message):
+        print("player7 into kick section")
         targetGoal = ""
         if self.m_strSide.startswith("r"):
             targetGoal = "(goal l)"
@@ -73,6 +74,7 @@ class Player7(nearest_recog.Player6, threading.Thread):
         index0 = message.find(targetGoal)
         # ゴールが見える
         if index0 > -1:
+            print("i can look goal!!")
             goalDist = 0.0
             goalDir = 0.0
             goalDist = self.getPram(message, targetGoal, 1)
@@ -80,6 +82,7 @@ class Player7(nearest_recog.Player6, threading.Thread):
             return "(kick 100 " + goalDir + ")"
         else:
         # ゴールが見えない
+            print("i cant look goal")
             neckDir = self.getNeckDir(message)
             attackDir = 0.0
             if self.m_strSide.startswith("r"):
