@@ -92,19 +92,16 @@ class Player6(kick.Player5, threading.Thread):
             self.send(command)
 
 
-
-
-
 if __name__ == "__main__":
     player6s = []
-    for i in range(22):
+    for i in range(11):
         p6 = Player6()
         player6s.append(p6)
         teamname = "p6s"
         player6s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         player6s[i].start()
     player5s = []
-    for i in range(22):
+    for i in range(11):
         p5 = kick.Player5()
         player5s.append(p5)
         teamname = "p5s"
