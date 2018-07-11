@@ -12,6 +12,7 @@ class Player6(kick.Player5, threading.Thread):
     def checkNearest(self, message, ballDist, ballDir):
         teamname = "(player" + self.m_strTeamName
         player = self.getObjectMessage(message, "((p")
+        print("player: ", player)
         index0 = player.find(teamname, 0)
         while index0 > -1:
             print("judged 1")
