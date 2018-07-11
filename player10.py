@@ -99,6 +99,7 @@ class Player10(player9.Player9, threading.Thread):
             else:
                 command = "(turn " + str(ballDir) + ")"
                 print("c", command)
+            print("e", command)
             self.send(command)
 
     # @override
