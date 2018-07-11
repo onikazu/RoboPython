@@ -62,9 +62,9 @@ class Player6(kick.Player5, threading.Thread):
                 # print("メッセージ", message)
                 # ボールが見えるようになった
                 if ball.startswith("((b"):
-                    ballDist = self.getPram(ball, "(ball)", 1)
+                    ballDist = self.getParam(ball, "(ball)", 1)
                     # ここがおかしい
-                    ballDir = self.getPram(ball, "(ball)", 2)
+                    ballDir = self.getParam(ball, "(ball)", 2)
                     # print("ballDir", ballDir)
                     # ボールが見えているときのplayへ
                     self.play(message, ballDist, ballDir)

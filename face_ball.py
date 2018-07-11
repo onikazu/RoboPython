@@ -19,7 +19,7 @@ class Player4(hearing_player.Player3, threading.Thread):
             index0 = message.find(keyword, index2)
         return result
 
-    def getPram(self, message, keyword, number):
+    def getParam(self, message, keyword, number):
         OUT_OF_RANGE = 999
         key = "(" + keyword
         index0 = message.find(key)
@@ -59,8 +59,8 @@ class Player4(hearing_player.Player3, threading.Thread):
                 message = message.replace("B", "b")
                 ball = self.getObjectMessage(message, "((b")
                 if ball.startswith("((b"):
-                    ballDist = self.getPram(ball, "(b)", 1)
-                    ballDir = self.getPram(ball, "(b)", 2)
+                    ballDist = self.getParam(ball, "(b)", 1)
+                    ballDir = self.getParam(ball, "(b)", 2)
                     self.play(message, ballDist, ballDir)
                 else:
                     command = "(turn 30)"

@@ -30,8 +30,8 @@ class Player7(nearest_recog.Player6, threading.Thread):
             line = "(" + lineName
             index2 = message.find(")", index1+1)
             line += message[index1+1:index2+1]
-            dist = self.getPram(line, lineName, 1)
-            dir = self.getPram(line, lineName, 2)
+            dist = self.getParam(line, lineName, 1)
+            dir = self.getParam(line, lineName, 2)
             if dist > lineDist:
                 lineDist = dist
                 lineDir = dir
@@ -77,8 +77,8 @@ class Player7(nearest_recog.Player6, threading.Thread):
             print("i can look goal!!")
             goalDist = 0.0
             goalDir = 0.0
-            goalDist = self.getPram(message, targetGoal, 1)
-            goalDir = self.getPram(message, targetGoal, 2)
+            goalDist = self.getParam(message, targetGoal, 1)
+            goalDir = self.getParam(message, targetGoal, 2)
             return "(kick 100 " + str(goalDir) + ")"
         else:
         # ゴールが見えない

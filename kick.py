@@ -15,8 +15,8 @@ class Player5(face_ball.Player4, threading.Thread):
             target_goal = "(goal r)"
         index0 = message.find(target_goal)
         if index0 > -1:
-            goalDist = self.getPram(message, target_goal, 1)
-            goalDir = self.getPram(message, target_goal, 2)
+            goalDist = self.getParam(message, target_goal, 1)
+            goalDir = self.getParam(message, target_goal, 2)
             return "(kick 100 " + str(goalDir) + ")"
         else:
             return "(kick 20 135)"
@@ -37,9 +37,9 @@ class Player5(face_ball.Player4, threading.Thread):
                 print("メッセージ", message)
                 # ボールが見えるようになった
                 if ball.startswith("((b"):
-                    ballDist = self.getPram(ball, "(ball)", 1)
+                    ballDist = self.getParam(ball, "(ball)", 1)
                     # ここがおかしい
-                    ballDir = self.getPram(ball, "(ball)", 2)
+                    ballDir = self.getParam(ball, "(ball)", 2)
                     print("ballDir", ballDir)
                     # ボールが見えているときのplayへ
                     self.play(message, ballDist, ballDir)
