@@ -12,7 +12,7 @@ class Player6(kick.Player5, threading.Thread):
     def checkNearest(self, message, ballDist, ballDir):
         teamname = "(player " + self.m_strTeamName
         player = self.getObjectMessage(message, "((p")
-        print("player: ", player)
+        # print("player infomation: ", player)
         index0 = player.find(teamname, 0)
         while index0 > -1:
             # print("judged 最寄り判定")
@@ -72,7 +72,7 @@ class Player6(kick.Player5, threading.Thread):
                 else:
                     command = "(turn 30)"
                     self.send(command)
-                    print("a:", command)
+                    # print("a:", command)
         # ボールが見えているときのplay
         else:
             command = ""
