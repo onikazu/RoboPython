@@ -29,6 +29,7 @@ class Player6(kick.Player5, threading.Thread):
             dist = math.sqrt(A * A + B * B - 2 * A * B * math.cos(rad))
             if dist < ballDist:
                 return False
+                print("judged")
             index0 = player.find(teamname, index0 + len(teamname))
         return True
 
