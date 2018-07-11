@@ -50,12 +50,12 @@ class Player7(nearest_recog.Player6, threading.Thread):
                 playerNeck = -lineDir
             else:
                 playerNeck = -180 - lineDir
-        elif lineName.startswith(line l):
+        elif lineName.startswith("(line l)"):
             if 0 < lineDir and lineDir <= 90:
                 playerNeck = -90 - lineDir
             else:
                 playerNeck = 90 - lineDir
-        elif lineName.startswith(line r):
+        elif lineName.startswith("(line r)"):
             if 0 < lineDir and lineDir <= 90:
                 playerNeck = 90 - lineDir
             else:
@@ -65,7 +65,7 @@ class Player7(nearest_recog.Player6, threading.Thread):
     # @override
     def kick(self, message):
         targetGoal = ""
-        if m_strSide.startswith(r):
+        if self.m_strSide.startswith("r"):
             targetGoal = "(goal l)"
         else:
             targetGoal = "(goal r)"
@@ -89,9 +89,6 @@ class Player7(nearest_recog.Player6, threading.Thread):
                 return "(kick 30 " + kickDir + ")"
             else:
                 return "(kick 100 " + kickDir + ")"
-
-
-
 
 
 if __name__ == "__main__":
