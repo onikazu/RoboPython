@@ -91,7 +91,7 @@ class Player8(player7.Player7, threading.Thread):
             index2 = flag.find(")", index1 + 1)
             name = flag[index0+2:index1]
             j = 0
-            while self.m_strFlagName.endswith(name) is False:
+            while self.m_strFlagName[j].endswith(name) is False:
                 j += 1
             dist = self.getParam(flag, name, 1)
             dir = self.getParam(flag, name, 2)
