@@ -41,7 +41,7 @@ class Player10(player9.Player9, threading.Thread):
             self.m_listCommand = []
             for _ in range(6):
                 self.m_listCommand.append("(dash 70)")
-            return "(turn " + moment + ")"
+            return "(turn " + str(moment) + ")"
         print("m_listCommand", self.m_listCommand)
 
     # @override
