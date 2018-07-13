@@ -16,6 +16,7 @@ class Player1(threading.Thread):
         self.m_strSide = ""
 
     def send(self, command):
+        print("p1command:", command)
         to_byte_command = command.encode(encoding='utf_8')
         self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
         # print("sending ", command, " is done")
