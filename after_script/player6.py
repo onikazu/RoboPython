@@ -54,17 +54,18 @@ class Player6(player5.Player5, threading.Thread):
             # そして近い
             if ballDist < 1.0:
                 command = self.kick(message)
-                print("b", command)
+                print("b No",self.m_iNumber, command)
             # 遠い
             elif self.checkNearest(message, ballDist, ballDir):
                 command = "(dash 80)"
-                print("d", command)
+                print("d No",self.m_iNumber, command)
             else:
                 command = self.getCommandAsDefence(message, ballDist, ballDir)
+                print("defencecommandNo",self.m_iNumber, command)
         # 体の正面にはない　ここがおかしいと見て間違いない
         else:
             command = "(turn " + str(ballDir) + ")"
-            print("c", command)
+            print("c No",self.m_iNumber, command)
 
         self.send(command)
         print("p6 command No", self.m_iNumber, command)
