@@ -13,61 +13,61 @@ class Player8(player7.Player7, threading.Thread):
         self.m_dX = 0.0
         self.m_dY = 0.0
         self.m_dNeck = 0.0
-        self.m_strFlagName.append("goal r");     self.m_dFlagX.append(52.5);self.m_dFlagY.append(0.0  )
-        self.m_strFlagName.append("goal l");     self.m_dFlagX.append(-52.5);self.m_dFlagY.append(0.0  )
-        self.m_strFlagName.append("flag c t");   self.m_dFlagX.append(0.0  );self.m_dFlagY.append(-34.0)
-        self.m_strFlagName.append("flag c b");   self.m_dFlagX.append(0.0)  ;self.m_dFlagY.append(+34.0)
-        self.m_strFlagName.append("flag c");     self.m_dFlagX.append(0.0	);self.m_dFlagY.append(0.0  )
-        self.m_strFlagName.append("flag p l t"); self.m_dFlagX.append(-36.0);self.m_dFlagY.append(-20.16)
-        self.m_strFlagName.append("flag p l b"); self.m_dFlagX.append(-36.0);self.m_dFlagY.append( 20.16)
-        self.m_strFlagName.append("flag p l c"); self.m_dFlagX.append(-36.0);self.m_dFlagY.append( 0.0 )
-        self.m_strFlagName.append("flag p r t"); self.m_dFlagX.append( 36.0);self.m_dFlagY.append(-20.16)
-        self.m_strFlagName.append("flag p r b"); self.m_dFlagX.append( 36.0);self.m_dFlagY.append( 20.16)
-        self.m_strFlagName.append("flag p r c"); self.m_dFlagX.append( 36.0);self.m_dFlagY.append(  0.0)
-        self.m_strFlagName.append("flag g l t"); self.m_dFlagX.append(-52.5);self.m_dFlagY.append(-7.01)
-        self.m_strFlagName.append("flag g l b"); self.m_dFlagX.append(-52.5);self.m_dFlagY.append( 7.01)
-        self.m_strFlagName.append("flag g r t"); self.m_dFlagX.append( 52.5);self.m_dFlagY.append(-7.01)
-        self.m_strFlagName.append("flag g r b"); self.m_dFlagX.append( 52.5);self.m_dFlagY.append( 7.01)
-        self.m_strFlagName.append("flag t l 50");self.m_dFlagX.append(-50.0);self.m_dFlagY.append(-39.0)
-        self.m_strFlagName.append("flag t l 40");self.m_dFlagX.append(-40.0);self.m_dFlagY.append(-39.0)
-        self.m_strFlagName.append("flag t l 30");self.m_dFlagX.append(-30.0);self.m_dFlagY.append(-39.0)
-        self.m_strFlagName.append("flag t l 20");self.m_dFlagX.append(-20.0);self.m_dFlagY.append(-39.0)
-        self.m_strFlagName.append("flag t l 10");self.m_dFlagX.append(-10.0);self.m_dFlagY.append(-39.0)
-        self.m_strFlagName.append("flag t 0");   self.m_dFlagX.append(  0.0);self.m_dFlagY.append(-39.0)
-        self.m_strFlagName.append("flag t r 10");self.m_dFlagX.append( 10.0);self.m_dFlagY.append(-39.0)
-        self.m_strFlagName.append("flag t r 20");self.m_dFlagX.append( 20.0);self.m_dFlagY.append(-39.0)
-        self.m_strFlagName.append("flag t r 30");self.m_dFlagX.append( 30.0);self.m_dFlagY.append(-39.0)
-        self.m_strFlagName.append("flag t r 40");self.m_dFlagX.append( 40.0);self.m_dFlagY.append(-39.0)
-        self.m_strFlagName.append("flag t r 50");self.m_dFlagX.append( 50.0);self.m_dFlagY.append(-39.0)
-        self.m_strFlagName.append("flag b l 50");self.m_dFlagX.append(-50.0);self.m_dFlagY.append( 39.0)
-        self.m_strFlagName.append("flag b l 40");self.m_dFlagX.append(-40.0);self.m_dFlagY.append( 39.0)
-        self.m_strFlagName.append("flag b l 30");self.m_dFlagX.append(-30.0);self.m_dFlagY.append( 39.0)
-        self.m_strFlagName.append("flag b l 20");self.m_dFlagX.append(-20.0);self.m_dFlagY.append( 39.0)
-        self.m_strFlagName.append("flag b l 10");self.m_dFlagX.append(-10.0);self.m_dFlagY.append( 39.0)
-        self.m_strFlagName.append("flag b 0");   self.m_dFlagX.append(  0.0);self.m_dFlagY.append( 39.0)
-        self.m_strFlagName.append("flag b r 10");self.m_dFlagX.append( 10.0);self.m_dFlagY.append( 39.0)
-        self.m_strFlagName.append("flag b r 20");self.m_dFlagX.append( 20.0);self.m_dFlagY.append( 39.0)
-        self.m_strFlagName.append("flag b r 30");self.m_dFlagX.append( 30.0);self.m_dFlagY.append( 39.0)
-        self.m_strFlagName.append("flag b r 40");self.m_dFlagX.append( 40.0);self.m_dFlagY.append( 39.0)
-        self.m_strFlagName.append("flag b r 50");self.m_dFlagX.append( 50.0);self.m_dFlagY.append( 39.0)
-        self.m_strFlagName.append("flag l t 30");self.m_dFlagX.append(-57.5);self.m_dFlagY.append(-30.0)
-        self.m_strFlagName.append("flag l t 20");self.m_dFlagX.append(-57.5);self.m_dFlagY.append(-20.0)
-        self.m_strFlagName.append("flag l t 10");self.m_dFlagX.append(-57.5);self.m_dFlagY.append(-10.0)
-        self.m_strFlagName.append("flag l 0");   self.m_dFlagX.append(-57.5);self.m_dFlagY.append(  0.0)
-        self.m_strFlagName.append("flag l b 10");self.m_dFlagX.append(-57.5);self.m_dFlagY.append( 10.0)
-        self.m_strFlagName.append("flag l b 20");self.m_dFlagX.append(-57.5);self.m_dFlagY.append( 20.0)
-        self.m_strFlagName.append("flag l b 30");self.m_dFlagX.append(-57.5);self.m_dFlagY.append( 30.0)
-        self.m_strFlagName.append("flag r t 30");self.m_dFlagX.append( 57.5);self.m_dFlagY.append(-30.0)
-        self.m_strFlagName.append("flag r t 20");self.m_dFlagX.append( 57.5);self.m_dFlagY.append(-20.0)
-        self.m_strFlagName.append("flag r t 10");self.m_dFlagX.append( 57.5);self.m_dFlagY.append(-10.0)
-        self.m_strFlagName.append("flag r 0");   self.m_dFlagX.append( 57.5);self.m_dFlagY.append(  0.0)
-        self.m_strFlagName.append("flag r b 10");self.m_dFlagX.append( 57.5);self.m_dFlagY.append( 10.0)
-        self.m_strFlagName.append("flag r b 20");self.m_dFlagX.append( 57.5);self.m_dFlagY.append( 20.0)
-        self.m_strFlagName.append("flag r b 30");self.m_dFlagX.append( 57.5);self.m_dFlagY.append( 30.0)
-        self.m_strFlagName.append("flag l t");   self.m_dFlagX.append(-52.5);self.m_dFlagY.append(-34.0)
-        self.m_strFlagName.append("flag l b");   self.m_dFlagX.append(-52.5);self.m_dFlagY.append( 34.0)
-        self.m_strFlagName.append("flag r t");   self.m_dFlagX.append( 52.5);self.m_dFlagY.append(-34.0)
-        self.m_strFlagName.append("flag r b");   self.m_dFlagX.append( 52.5);self.m_dFlagY.append( 34.0)
+        self.m_strFlagName.append("(goal r)");     self.m_dFlagX.append(52.5);self.m_dFlagY.append(0.0  )
+        self.m_strFlagName.append("(goal l)");     self.m_dFlagX.append(-52.5);self.m_dFlagY.append(0.0  )
+        self.m_strFlagName.append("(flag c t)");   self.m_dFlagX.append(0.0  );self.m_dFlagY.append(-34.0)
+        self.m_strFlagName.append("(flag c b)");   self.m_dFlagX.append(0.0)  ;self.m_dFlagY.append(+34.0)
+        self.m_strFlagName.append("(flag c)");     self.m_dFlagX.append(0.0	);self.m_dFlagY.append(0.0  )
+        self.m_strFlagName.append("(flag p l t)"); self.m_dFlagX.append(-36.0);self.m_dFlagY.append(-20.16)
+        self.m_strFlagName.append("(flag p l b)"); self.m_dFlagX.append(-36.0);self.m_dFlagY.append( 20.16)
+        self.m_strFlagName.append("(flag p l c)"); self.m_dFlagX.append(-36.0);self.m_dFlagY.append( 0.0 )
+        self.m_strFlagName.append("(flag p r t)"); self.m_dFlagX.append( 36.0);self.m_dFlagY.append(-20.16)
+        self.m_strFlagName.append("(flag p r b)"); self.m_dFlagX.append( 36.0);self.m_dFlagY.append( 20.16)
+        self.m_strFlagName.append("(flag p r c)"); self.m_dFlagX.append( 36.0);self.m_dFlagY.append(  0.0)
+        self.m_strFlagName.append("(flag g l t)"); self.m_dFlagX.append(-52.5);self.m_dFlagY.append(-7.01)
+        self.m_strFlagName.append("(flag g l b)"); self.m_dFlagX.append(-52.5);self.m_dFlagY.append( 7.01)
+        self.m_strFlagName.append("(flag g r t)"); self.m_dFlagX.append( 52.5);self.m_dFlagY.append(-7.01)
+        self.m_strFlagName.append("(flag g r b)"); self.m_dFlagX.append( 52.5);self.m_dFlagY.append( 7.01)
+        self.m_strFlagName.append("(flag t l 50)");self.m_dFlagX.append(-50.0);self.m_dFlagY.append(-39.0)
+        self.m_strFlagName.append("(flag t l 40)");self.m_dFlagX.append(-40.0);self.m_dFlagY.append(-39.0)
+        self.m_strFlagName.append("(flag t l 30)");self.m_dFlagX.append(-30.0);self.m_dFlagY.append(-39.0)
+        self.m_strFlagName.append("(flag t l 20)");self.m_dFlagX.append(-20.0);self.m_dFlagY.append(-39.0)
+        self.m_strFlagName.append("(flag t l 10)");self.m_dFlagX.append(-10.0);self.m_dFlagY.append(-39.0)
+        self.m_strFlagName.append("(flag t 0)");   self.m_dFlagX.append(  0.0);self.m_dFlagY.append(-39.0)
+        self.m_strFlagName.append("(flag t r 10)");self.m_dFlagX.append( 10.0);self.m_dFlagY.append(-39.0)
+        self.m_strFlagName.append("(flag t r 20)");self.m_dFlagX.append( 20.0);self.m_dFlagY.append(-39.0)
+        self.m_strFlagName.append("(flag t r 30)");self.m_dFlagX.append( 30.0);self.m_dFlagY.append(-39.0)
+        self.m_strFlagName.append("(flag t r 40)");self.m_dFlagX.append( 40.0);self.m_dFlagY.append(-39.0)
+        self.m_strFlagName.append("(flag t r 50)");self.m_dFlagX.append( 50.0);self.m_dFlagY.append(-39.0)
+        self.m_strFlagName.append("(flag b l 50)");self.m_dFlagX.append(-50.0);self.m_dFlagY.append( 39.0)
+        self.m_strFlagName.append("(flag b l 40)");self.m_dFlagX.append(-40.0);self.m_dFlagY.append( 39.0)
+        self.m_strFlagName.append("(flag b l 30)");self.m_dFlagX.append(-30.0);self.m_dFlagY.append( 39.0)
+        self.m_strFlagName.append("(flag b l 20)");self.m_dFlagX.append(-20.0);self.m_dFlagY.append( 39.0)
+        self.m_strFlagName.append("(flag b l 10)");self.m_dFlagX.append(-10.0);self.m_dFlagY.append( 39.0)
+        self.m_strFlagName.append("(flag b 0)");   self.m_dFlagX.append(  0.0);self.m_dFlagY.append( 39.0)
+        self.m_strFlagName.append("(flag b r 10)");self.m_dFlagX.append( 10.0);self.m_dFlagY.append( 39.0)
+        self.m_strFlagName.append("(flag b r 20)");self.m_dFlagX.append( 20.0);self.m_dFlagY.append( 39.0)
+        self.m_strFlagName.append("(flag b r 30)");self.m_dFlagX.append( 30.0);self.m_dFlagY.append( 39.0)
+        self.m_strFlagName.append("(flag b r 40)");self.m_dFlagX.append( 40.0);self.m_dFlagY.append( 39.0)
+        self.m_strFlagName.append("(flag b r 50)");self.m_dFlagX.append( 50.0);self.m_dFlagY.append( 39.0)
+        self.m_strFlagName.append("(flag l t 30)");self.m_dFlagX.append(-57.5);self.m_dFlagY.append(-30.0)
+        self.m_strFlagName.append("(flag l t 20)");self.m_dFlagX.append(-57.5);self.m_dFlagY.append(-20.0)
+        self.m_strFlagName.append("(flag l t 10)");self.m_dFlagX.append(-57.5);self.m_dFlagY.append(-10.0)
+        self.m_strFlagName.append("(flag l 0)");   self.m_dFlagX.append(-57.5);self.m_dFlagY.append(  0.0)
+        self.m_strFlagName.append("(flag l b 10)");self.m_dFlagX.append(-57.5);self.m_dFlagY.append( 10.0)
+        self.m_strFlagName.append("(flag l b 20)");self.m_dFlagX.append(-57.5);self.m_dFlagY.append( 20.0)
+        self.m_strFlagName.append("(flag l b 30)");self.m_dFlagX.append(-57.5);self.m_dFlagY.append( 30.0)
+        self.m_strFlagName.append("(flag r t 30)");self.m_dFlagX.append( 57.5);self.m_dFlagY.append(-30.0)
+        self.m_strFlagName.append("(flag r t 20)");self.m_dFlagX.append( 57.5);self.m_dFlagY.append(-20.0)
+        self.m_strFlagName.append("(flag r t 10)");self.m_dFlagX.append( 57.5);self.m_dFlagY.append(-10.0)
+        self.m_strFlagName.append("(flag r 0)");   self.m_dFlagX.append( 57.5);self.m_dFlagY.append(  0.0)
+        self.m_strFlagName.append("(flag r b 10)");self.m_dFlagX.append( 57.5);self.m_dFlagY.append( 10.0)
+        self.m_strFlagName.append("(flag r b 20)");self.m_dFlagX.append( 57.5);self.m_dFlagY.append( 20.0)
+        self.m_strFlagName.append("(flag r b 30)");self.m_dFlagX.append( 57.5);self.m_dFlagY.append( 30.0)
+        self.m_strFlagName.append("(flag l t)");   self.m_dFlagX.append(-52.5);self.m_dFlagY.append(-34.0)
+        self.m_strFlagName.append("(flag l b)");   self.m_dFlagX.append(-52.5);self.m_dFlagY.append( 34.0)
+        self.m_strFlagName.append("(flag r t)");   self.m_dFlagX.append( 52.5);self.m_dFlagY.append(-34.0)
+        self.m_strFlagName.append("(flag r b)");   self.m_dFlagX.append( 52.5);self.m_dFlagY.append( 34.0)
 
     def getDistance(self, x0, y0, x1, y1):
         dx = x1 - x0
@@ -109,24 +109,21 @@ class Player8(player7.Player7, threading.Thread):
         return result
 
     # @override
-    def analyzeVisualMessage(self, message = None):
-        if message is None:
-            pass
-        else:
-            OUT_OF_RANGE = 999.0
-            time = int(self.getParam(message, "see", 1))
-            if time < 1:
-                return
-            self.m_dNeck = self.getNeckDir(message)
-            if self.m_dNeck == OUT_OF_RANGE:
-                return
-            if self.checkInitialMode():
-                self.m_dX = self.m_dKickOffX
-                self.m_dY = self.m_dKickOffY
+    def analyzeVisualMessage_1(self, message):
+        OUT_OF_RANGE = 999.0
+        time = int(self.getParam(message, "see", 1))
+        if time < 1:
+            return
+        self.m_dNeck = self.getNeckDir(message)
+        if self.m_dNeck == OUT_OF_RANGE:
+            return
+        if self.checkInitialMode():
+            self.m_dX = self.m_dKickOffX
+            self.m_dY = self.m_dKickOffY
 
-            pos = self.estimatePosition(message, self.m_dNeck, self.m_dX, self.m_dY)
-            self.m_dX = pos["x"]
-            self.m_dY = pos["y"]
+        pos = self.estimatePosition(message, self.m_dNeck, self.m_dX, self.m_dY)
+        self.m_dX = pos["x"]
+        self.m_dY = pos["y"]
 
 
 if __name__ == "__main__":

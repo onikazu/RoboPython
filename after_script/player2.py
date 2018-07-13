@@ -17,7 +17,7 @@ class Player2(player1.Player1, threading.Thread):
         else:
             return False
 
-    def analyzeVisualMessage(self):
+    def analyzeVisualMessage(self, message):
         pass
 
     def setKickOffPosition(self):
@@ -72,7 +72,7 @@ class Player2(player1.Player1, threading.Thread):
             pass
             # print(message)
         elif message.startswith("(see "):
-            self.analyzeVisualMessage()
+            self.analyzeVisualMessage(message)
             self.play_1(message)
         else:
             pass
