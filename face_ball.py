@@ -59,8 +59,8 @@ class Player4(hearing_player.Player3, threading.Thread):
                 message = message.replace("B", "b")
                 ball = self.getObjectMessage(message, "((b")
                 if ball.startswith("((b"):
-                    ballDist = self.getParam(ball, "(b)", 1)
-                    ballDir = self.getParam(ball, "(b)", 2)
+                    ballDist = self.getParam(ball, "(ball)", 1)
+                    ballDir = self.getParam(ball, "(ball)", 2)
                     self.play(message, ballDist, ballDir)
                 else:
                     command = "(turn 30)"
