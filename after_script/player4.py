@@ -60,6 +60,7 @@ class Player4(player3.Player3, threading.Thread):
             if ball.startswith("((b"):
                 ballDist = self.getParam(ball, "(ball)", 1)
                 ballDir = self.getParam(ball, "(ball)", 2)
+                print("p4 message", message)
                 self.play_3(message, ballDist, ballDir)
             else:
                 command = "(turn 30)"
