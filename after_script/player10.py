@@ -54,7 +54,7 @@ class Player10(player9.Player9, threading.Thread):
 
     def play_1(self, message):
         # ボールが視界に無いとき
-        if len(self.m_listCommand):
+        if len(self.m_listCommand) == 0:
             super().play_1(message)
 
     # @override
