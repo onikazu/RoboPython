@@ -24,12 +24,15 @@ class Player10(player9.Player9, threading.Thread):
         super().getCommandAsDefence(message, ballDist, ballDir)
         OUT_OF_RANGE = 999.0
         dist = self.getDistance(self.m_dDefenceX, self.m_dDefenceY, self.m_dX, self.m_dY)
+        print("dist:", dist)
         if dist < 2.0:
             return ""
         if self.m_dNeck == OUT_OF_RANGE:
             return ""
         dir = self.getDistance(self.m_dX, self.m_dY, self.m_dDefenceX, self.m_dDefenceY)
         moment = self.normalizeAngle(dir - self.m_dNeck)
+        print("dir:", dir)
+        print("moment:", moment)
         if abs(moment < 20.0):
             return "(dash 60)"
         elif abs(moment > 160.0):
