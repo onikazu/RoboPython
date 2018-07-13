@@ -25,9 +25,10 @@ class Player11(player10.Player10, threading.Thread):
 
     def analyzePlayerType(self, message):
         id = int(self.getParam(message, "see", 1))
+        self.m_strPlayerType[id] = message
 
     def analyzePhysicalMessage(self, message):
-        m_iTime = int(self.getParam(message, "sense_body", 1))
+        self.m_iTime = int(self.getParam(message, "sense_body", 1))
 
     def predictMoveCommand(self, i):
         pass
