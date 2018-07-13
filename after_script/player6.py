@@ -67,7 +67,7 @@ class Player6(player5.Player5, threading.Thread):
             print("c", command)
 
         self.send(command)
-        print("p3 command", command)
+        print("p6 command No", self.m_iNumber, command)
 
 
 if __name__ == "__main__":
