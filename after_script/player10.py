@@ -34,9 +34,9 @@ class Player10(player9.Player9, threading.Thread):
         moment = self.normalizeAngle(dir - self.m_dNeck)
         print("dir:", dir)
         print("moment:", moment)
-        if abs(moment < 20.0):
+        if abs(moment) < 20.0:
             return "(dash 60)"
-        elif abs(moment > 160.0):
+        elif abs(moment) > 160.0:
             self.m_listCommand = []
             for _ in range(4):
                 self.m_listCommand.append("(dash -40)")
