@@ -34,12 +34,12 @@ class Player10(player9.Player9, threading.Thread):
             return "(dash 60)"
         elif abs(moment > 160.0):
             self.m_listCommand = []
-            for i in range(4):
+            for _ in range(4):
                 self.m_listCommand.append("(dash -40)")
             return "(dash -30)"
         else:
             self.m_listCommand = []
-            for i in range(6):
+            for _ in range(6):
                 self.m_listCommand.append("(dash 70)")
             return "(turn " + moment + ")"
 
@@ -54,14 +54,14 @@ class Player10(player9.Player9, threading.Thread):
 
     def play_1(self, message):
         # ボールが視界に無いとき
-        if len(self.m_listCommand) == 0:
+        if not self.m_listCommand:
             super().play_1(message)
 
     # @override
     def analyzeMessage(self, message):
         super().analyzeMessage(message)
         if message.startswith("(sense"):
-            if len(self.m_listCommand) > 0:
+            if self.m_listCommand:
                 command = str(self.m_listCommand.pop(0))
                 self.send(command)
 
