@@ -76,7 +76,7 @@ class Player11(player10.Player10, threading.Thread):
             self.analyzePhysicalMessage(message)
             if self.m_iVisualTime < self.m_iTime:
                 self.predict(self.m_iVisualTime, self.m_iTime)
-            self.play()
+            self.play_0()
             self.send(self.m_strCommand[self.m_iTime])
         # 聴覚メッセージの処理
         elif message.startswith("(hear "):
