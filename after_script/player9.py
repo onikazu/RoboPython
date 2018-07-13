@@ -47,11 +47,11 @@ class Player9(player8.Player8, threading.Thread):
             self.m_dDefenceY = 0.0
         else:
             if self.m_strSide.startswith("r"):
-                m_dDefenceX = ballX / 2.0 - offsetX
-                m_dDefenceY = ballY / 2.0 - offsetY
+                self.m_dDefenceX = ballX / 2.0 - offsetX
+                self.m_dDefenceY = ballY / 2.0 - offsetY
             else:
-                m_dDefenceX = ballX / 2.0 + offsetX
-                m_dDefenceY = ballY / 2.0 + offsetY
+                self.m_dDefenceX = ballX / 2.0 + offsetX
+                self.m_dDefenceY = ballY / 2.0 + offsetY
 
     def analyzeVisualMessage(self, message):
         OUT_OF_RANGE = 999.0
