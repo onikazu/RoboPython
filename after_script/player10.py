@@ -1,4 +1,4 @@
-# ボール位置の絶対座標を用いる
+# ゾーンディフェンスを行う
 import player9
 import threading
 from socket import *
@@ -65,7 +65,7 @@ class Player10(player9.Player9, threading.Thread):
         super().analyzeMessage(message)
         if message.startswith("(sense"):
             if self.m_listCommand:
-                command = str(self.m_listCommand.pop(0))
+                command = self.m_listCommand.pop(0)
                 print("10ana", command)
                 self.send(command)
 
