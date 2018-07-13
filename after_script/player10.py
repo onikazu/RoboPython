@@ -70,6 +70,7 @@ class Player10(player9.Player9, threading.Thread):
         if message.startswith("(sense"):
             if self.m_listCommand:
                 command = self.m_listCommand.pop(0)
+                print("command from list", command)
                 print("listcommand", self.m_listCommand)
                 self.send(command)
 
