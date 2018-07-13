@@ -40,6 +40,7 @@ class Player9(player8.Player8, threading.Thread):
             pass
 
         if self.m_iNumber == 1:
+            print("set gk")
             if self.m_strSide.startswith("r"):
                 self.m_dDefenceX = 52.5
             else:
