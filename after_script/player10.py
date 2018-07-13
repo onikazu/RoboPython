@@ -25,9 +25,9 @@ class Player10(player9.Player9, threading.Thread):
         OUT_OF_RANGE = 999.0
         dist = self.getDistance(self.m_dDefenceX, self.m_dDefenceY, self.m_dX, self.m_dY)
         if dist < 2.0:
-            return
+            return ""
         if self.m_dNeck == OUT_OF_RANGE:
-            return
+            return ""
         dir = self.getDistance(self.m_dX, self.m_dY, self.m_dDefenceX, self.m_dDefenceY)
         moment = self.normalizeAngle(dir - self.m_dNeck)
         if abs(moment < 20.0):
