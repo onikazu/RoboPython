@@ -54,6 +54,7 @@ class Player10(player9.Player9, threading.Thread):
 
     def play_1(self, message):
         # ボールが視界に無いとき
+        print("p10", message)
         if not self.m_listCommand:
             super().play_1(message)
 
