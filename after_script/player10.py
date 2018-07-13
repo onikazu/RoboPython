@@ -61,6 +61,7 @@ class Player10(player9.Player9, threading.Thread):
 
     # @override
     def analyzeMessage(self, message):
+        print("anamessage", message)
         super().analyzeMessage(message)
         if message.startswith("(sense"):
             if self.m_listCommand:
