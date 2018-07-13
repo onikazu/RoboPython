@@ -24,6 +24,7 @@ class Player10(player9.Player9, threading.Thread):
         super().getCommandAsDefence(message, ballDist, ballDir)
         OUT_OF_RANGE = 999.0
         dist = self.getDistance(self.m_dDefenceX, self.m_dDefenceY, self.m_dX, self.m_dY)
+        print(self.m_dDefenceX, self.m_dDefenceY, self.m_dX, self.m_dY)
         print("dist:", dist)
         if dist < 2.0:
             return ""
