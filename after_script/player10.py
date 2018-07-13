@@ -42,6 +42,7 @@ class Player10(player9.Player9, threading.Thread):
             for _ in range(6):
                 self.m_listCommand.append("(dash 70)")
             return "(turn " + moment + ")"
+        print("m_listCommand", self.m_listCommand)
 
     # @override
     def kick(self, message):
