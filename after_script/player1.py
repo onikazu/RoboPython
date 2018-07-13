@@ -17,6 +17,9 @@ class Player1(threading.Thread):
 
     def send(self, command):
         print("p1command:", command)
+        # 強引な文字列化あとで検証すべき？
+        if command is None:
+            command = ""
         to_byte_command = command.encode(encoding='utf_8')
         self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
         # print("sending ", command, " is done")
