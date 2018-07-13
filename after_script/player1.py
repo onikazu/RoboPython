@@ -16,7 +16,7 @@ class Player1(threading.Thread):
         self.m_strSide = ""
 
     def send(self, command):
-        print("p1command No", self.m_iNumber, command)
+        # print("p1command No", self.m_iNumber, command)
         to_byte_command = command.encode(encoding='utf_8')
         self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
         # print("sending ", command, " is done")
@@ -24,7 +24,7 @@ class Player1(threading.Thread):
     def receive(self):
         message, arr = self.socket.recvfrom(4096)
         message = message.decode("UTF-8")
-        print("メッセージ（サーバーから", self.m_iNumber, "番）：", message)
+        # print("メッセージ（サーバーから", self.m_iNumber, "番）：", message)
         return message
 
     def initialize(self, number, team_name, server_name, server_port):

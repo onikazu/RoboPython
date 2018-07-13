@@ -110,7 +110,7 @@ class Player8(player7.Player7, threading.Thread):
         return result
 
     # @override
-    def analyzeVisualMessage_1(self, message):
+    def analyzeVisualMessage(self, message):
         OUT_OF_RANGE = 999.0
         time = int(self.getParam(message, "see", 1))
         if time < 1:
