@@ -69,6 +69,7 @@ class Player9(player8.Player8, threading.Thread):
         pos = self.estimatePosition(message, self.m_dNeck, self.m_dX, self.m_dY)
         self.m_dX = pos["x"]
         self.m_dY = pos["y"]
+
         if message.find("(ball)") == -1:
             return
         ballDist = self.getParam(message, "(ball)", 1)
@@ -77,6 +78,7 @@ class Player9(player8.Player8, threading.Thread):
         self.m_dBallX = self.m_dX + ballDist * math.cos(rad)
         self.m_dBallY = self.m_dY + ballDist * math.sin(rad)
         self.setDefencePosition(self.m_dBallX, self.m_dBallY)
+
 
 
 if __name__ == "__main__":

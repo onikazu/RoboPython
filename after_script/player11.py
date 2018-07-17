@@ -15,7 +15,7 @@ class Player11(player10.Player10, threading.Thread):
         self.m_iPlayerType = 0
         self.m_strCommand = []
         for _ in range(6000):
-            self.m_strCommand.append(0)
+            self.m_strCommand.append("")
         self.m_iTime = -1
         self.m_iVisualTime = -1
 
@@ -64,7 +64,7 @@ class Player11(player10.Player10, threading.Thread):
         if self.checkInitialMode():
             self.setKickOffPosition()
             command = \
-            "(move " + str(self.m_dKickOffX) + " " + str(self.m_dKickOffY) + ")"
+                "(move " + str(self.m_dKickOffX) + " " + str(self.m_dKickOffY) + ")"
             self.m_strCommand[self.m_iTime] = command
 
     def analyzeMessage(self, message):
@@ -96,6 +96,7 @@ class Player11(player10.Player10, threading.Thread):
         # エラーの処理
         else:
             print("error from server")
+
 
 if __name__ == "__main__":
     player11s = []

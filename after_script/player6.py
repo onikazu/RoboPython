@@ -38,7 +38,7 @@ class Player6(player5.Player5, threading.Thread):
     def getCommandAsDefence(self, message, ballDist, ballDir):
         command = ""
         goal = "(goal l)"
-        if  self.m_strSide.startswith("r"):
+        if self.m_strSide.startswith("r"):
             goal = "(goal r)"
         if message.find(goal) > -1:
             goalDist = self.getParam(message, goal, 1)
