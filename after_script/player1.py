@@ -37,6 +37,7 @@ class Player1(threading.Thread):
             command = "(init " + self.m_strTeamName + ")"
         self.send(command)
 
+    # thread を動かしている最中に行われる関数
     def run(self):
         while True:
             message = self.receive()
@@ -53,14 +54,15 @@ class Player1(threading.Thread):
         self.m_iNumber = int(message[index1+1:index2])
         self.m_strPlayMode = message[index2+1:index3]
 
+
     def analyzeMessage(self, message):
         if isinstance(message, type(None)):
-            pass
+            return
             # print(message)
         elif message.startswith("(init"):
             self.analyzeInitialMessage(message)
         else:
-            pass
+            return
             # print(message)
 
 

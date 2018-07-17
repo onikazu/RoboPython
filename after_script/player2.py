@@ -18,7 +18,7 @@ class Player2(player1.Player1, threading.Thread):
             return False
 
     def analyzeVisualMessage(self, message):
-        pass
+        return
 
     def setKickOffPosition(self):
         if self.m_iNumber == 1:
