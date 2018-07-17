@@ -25,8 +25,9 @@ class Player10(player9.Player9, threading.Thread):
         OUT_OF_RANGE = 999.0
         dist = self.getDistance(self.m_dDefenceX, self.m_dDefenceY, self.m_dX, self.m_dY)
         # print(self.m_dDefenceX, self.m_dDefenceY, self.m_dX, self.m_dY)
-        print(self.m_iNumber, "の理想守備位置までのdist:", dist, "理想守備位置", self.m_dDefenceX, "現在地", self.m_dX)
-        # 2.0だと誤作動？
+        print(self.m_iNumber, "の理想守備位置までのdist:", dist, "理想守備位置x", self.m_dDefenceX, \
+             "理想守備位置y", self.m_dDefenceY, "現在地x", self.m_dX, "現在地y", self.m_dY)
+        # 2.0だと誤作動？10に変更した
         if dist < 10.0:
             return ""
         if self.m_dNeck == OUT_OF_RANGE:
