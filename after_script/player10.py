@@ -25,7 +25,7 @@ class Player10(player9.Player9, threading.Thread):
         OUT_OF_RANGE = 999.0
         dist = self.getDistance(self.m_dDefenceX, self.m_dDefenceY, self.m_dX, self.m_dY)
         print(self.m_dDefenceX, self.m_dDefenceY, self.m_dX, self.m_dY)
-        print("dist:", dist)
+        print(self.m_iNumber, "の理想守備位置までのdist:", dist)
         if dist < 2.0:
             return ""
         if self.m_dNeck == OUT_OF_RANGE:
