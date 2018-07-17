@@ -34,7 +34,7 @@ class Player13(player12.Player12, threading.Thread):
         # 予測確認
 
     def play_0(self):
-        super().play()
+        super().play_0()
         if self.m_strPlayMode.startswith("kick_off"):
             command = ""
             if self.m_iTime % 10 < 5:
