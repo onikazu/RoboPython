@@ -24,16 +24,16 @@ class Player10(player9.Player9, threading.Thread):
         super().getCommandAsDefence(message, ballDist, ballDir)
         OUT_OF_RANGE = 999.0
         dist = self.getDistance(self.m_dDefenceX, self.m_dDefenceY, self.m_dX, self.m_dY)
-        print(self.m_dDefenceX, self.m_dDefenceY, self.m_dX, self.m_dY)
-        print(self.m_iNumber, "の理想守備位置までのdist:", dist)
+        # print(self.m_dDefenceX, self.m_dDefenceY, self.m_dX, self.m_dY)
+        print(self.m_iNumber, "の理想守備位置までのdist:", dist, "理想守備位置", self.m_dDefenceX, "現在地", self.m_dX)
         if dist < 2.0:
             return ""
         if self.m_dNeck == OUT_OF_RANGE:
             return ""
         dir = self.getDistance(self.m_dX, self.m_dY, self.m_dDefenceX, self.m_dDefenceY)
         moment = self.normalizeAngle(dir - self.m_dNeck)
-        print("dir:", dir)
-        print("moment:", moment)
+        # print("dir:", dir)
+        # print("moment:", moment)
         if abs(moment) < 20.0:
             return "(dash 60)"
         elif abs(moment) > 160.0:
@@ -46,7 +46,7 @@ class Player10(player9.Player9, threading.Thread):
             for _ in range(6):
                 self.m_listCommand.append("(dash 70)")
             return "(turn " + str(moment) + ")"
-        print("m_listCommand", self.m_listCommand)
+        # print("m_listCommand", self.m_listCommand)
 
     # @override
     def kick(self, message):
