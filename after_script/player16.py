@@ -34,7 +34,7 @@ class Player16(player15.Player15, threading.Thread):
 
     def predictTurnCommand(self, i):
         next = (i + 1) % self.GAME_LENGTH
-        if self.m_dNeck[i] == 999.0:
+        if self.m_dNeck[i] == self.OUT_OF_RANGE:
             return
         command = self.m_strCommand[i]
         if command.startswith("(turn"):

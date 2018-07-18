@@ -20,7 +20,7 @@ class Player4(player3.Player3, threading.Thread):
         return result
 
     def getParam(self, message, keyword, number):
-        OUT_OF_RANGE = 999
+        OUT_OF_RANGE = 999.9
         key = "(" + keyword
         index0 = message.find(key)
         if index0 < 0:
@@ -43,7 +43,7 @@ class Player4(player3.Player3, threading.Thread):
         try:
             result = float(message[index1:index2])
         except Exception:
-            print("文字データによるエラー")
+            print("player4:文字データによるエラー")
             result = OUT_OF_RANGE
         return result
 
