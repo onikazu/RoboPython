@@ -7,6 +7,8 @@ from socket import *
 class Player4(player3.Player3, threading.Thread):
     def __init__(self):
         super(Player4, self).__init__()
+        self.OUT_OF_RANGE = 999.9
+        self.m_debugLv04 = False
 
     def getObjectMessage(self, message, keyword):
         result = ""
@@ -20,11 +22,10 @@ class Player4(player3.Player3, threading.Thread):
         return result
 
     def getParam(self, message, keyword, number):
-        OUT_OF_RANGE = 999.9
         key = "(" + keyword
         index0 = message.find(key)
         if index0 < 0:
-            return OUT_OF_RANGE + 1
+            return self.OUT_OF_RANGE
 
         index1 = message.find(" ", index0 + len(key))
         if number == 4:
@@ -43,8 +44,8 @@ class Player4(player3.Player3, threading.Thread):
         try:
             result = float(message[index1:index2])
         except Exception:
-            print("player4:文字データによるエラー")
-            result = OUT_OF_RANGE
+            print("player4[getParam]:文字データによるエラー")
+            result = self.OUT_OF_RANGE
         return result
 
     def play_1(self, message):
@@ -83,3 +84,4 @@ if __name__ == "__main__":
         players[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         players[i].start()
     print("試合登録完了")
+    players[10].m_debugLv04 = True

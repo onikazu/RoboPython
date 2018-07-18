@@ -6,6 +6,7 @@ from socket import *
 class Player5(player4.Player4, threading.Thread):
     def __init__(self):
         super(Player5, self).__init__()
+        self.m_debugLv05 = False
 
     def kick(self, message):
         target_goal = ""
