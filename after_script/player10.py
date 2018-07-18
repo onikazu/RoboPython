@@ -29,7 +29,7 @@ class Player10(player9.Player9, threading.Thread):
              "理想守備位置y", self.m_dDefenceY, "現在地x", self.m_dX, "現在地y", self.m_dY)
         # 距離が近いときは何もしない
         # 2.0だと誤作動？10に変更した
-        if dist < 10.0:
+        if dist < 2.0:
             return ""
         if self.m_dNeck == OUT_OF_RANGE:
             return ""
