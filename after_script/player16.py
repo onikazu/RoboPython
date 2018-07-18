@@ -11,12 +11,13 @@ class Player16(player15.Player15, threading.Thread):
         self.maxneckang = 90.0
         self.minneckang = -90.0
         self.m_dHeadAngle = []
+        self.OUT_OF_RANGE = 999.9
         for _ in range(self.GAME_LENGTH):
             self.m_dHeadAngle.append(0.0)
 
     def analyzePhysicalMessage(self, message):
         super().analyzePhysicalMessage(message)
-        if self.m_dNeck[self.m_iTime] == 999.0:
+        if self.m_dNeck[self.m_iTime] == self.OUT_OF_RANGE:
             return
 
         speed = self.getParam(message, "speed", 1)
@@ -51,7 +52,7 @@ class Player16(player15.Player15, threading.Thread):
         if index0 > -1:
             index1 = command.find(" ", index0+9)
             index2 = command.find(")", index1+1)
-            angle = float(command[index1:index2])
+            angle = float(str(command[index1:index2]))
             head_angle = self.normalizeAngle(self.m_dNeck[i] - self.m_dBody[i])
             if self.maxneckang < head_angle + angle:
                 self.m_dNeck[next] = self.normalizeAngle(self.m_dBody[i] + self.maxneckang)
