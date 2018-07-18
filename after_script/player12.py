@@ -20,17 +20,17 @@ class Player12(player11.Player11, threading.Thread):
         self.m_dRecovery = []
         self.m_debugLv12 = False
         for _ in range(self.GAME_LENGTH):
-            self.m_dY.append(0.0)
-            self.m_dX.append(0.0)
-            self.m_dVX.append(0.0)
-            self.m_dVY.append(0.0)
-            self.m_dAX.append(0.0)
-            self.m_dAY.append(0.0)
-            self.m_dNeck.append(0.0)
-            self.m_dBody.append(0.0)
-            self.m_dStamina.append(0.0)
-            self.m_dEffort.append(0.0)
-            self.m_dRecovery.append(0.0)
+            self.m_dY.append(0)
+            self.m_dX.append(0)
+            self.m_dVX.append(0)
+            self.m_dVY.append(0)
+            self.m_dAX.append(0)
+            self.m_dAY.append(0)
+            self.m_dNeck.append(0)
+            self.m_dBody.append(0)
+            self.m_dStamina.append(0)
+            self.m_dEffort.append(0)
+            self.m_dRecovery.append(0)
 
     def predictMoveCommand(self, i):
         command = self.m_strCommand[i]
