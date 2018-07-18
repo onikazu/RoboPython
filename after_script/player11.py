@@ -70,7 +70,7 @@ class Player11(player10.Player10, threading.Thread):
 
     def analyzeMessage(self, message):
         # 初期メッセージの処理
-        print("p11:message:", message)
+        # print("p11:message:", message)
         if message.startswith("(init "):
             self.analyzeInitialMessage(message)
         # 視覚メッセージの処理
