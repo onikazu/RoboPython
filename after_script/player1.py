@@ -14,6 +14,7 @@ class Player1(threading.Thread):
         self.m_strTeamName = ""
         self.m_strHostName = ""
         self.m_strSide = ""
+        self.m_debugLv01 = False
 
     def send(self, command):
         # print("p1command No", self.m_iNumber, command)
@@ -73,4 +74,6 @@ if __name__ == "__main__":
         players.append(p)
         players[i].initialize(i+1, "kazu", "localhost", 6000)
         players[i].start()
-        print("試合登録完了")
+
+    players[0].m_debugLv01 = True
+    print("試合登録完了")
