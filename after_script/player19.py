@@ -48,4 +48,13 @@ class Player19(player18.Player18, threading.Thread):
             vy = self.m_dVY[t]
             speed = math.sqrt(vx * vx + vy * vy)
             turn_angle = moment / (1 + self.inertia_moment * speed)
+        face_dir = self.getDirection(self.m_dX[t], self.m_dY[t], faceX, faceY)
+        neck_diff = self.normalizeAngle(face_dir - turn_angle - self.m_dNeck[t])
+        body_diff = self.normalizeAngle(face_dir - turn_angle - self.m_dBody[t])
+        if self.m_dHeadAngle[t] + neck_diff > self.maxneckang:
+            neck_diff = self.normalizeAngle(self.maxneckang - self.m_dHeadAngle[t])
+        elif self.m_dHeadAngle[t] + neck_diff < self.minneckang:
+            neck_diff = self.normalizeAngle(self.minneckang - self.m_dHeadAngle[t])
 
+        if abs(body_diff) < 90 + 22.5 / 2 and abs(neck_diff) < 22.5:
+            self.m_strCommand[self.m_iTime] += "(turn_neck " +

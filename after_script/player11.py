@@ -96,7 +96,7 @@ class Player11(player10.Player10, threading.Thread):
             self.analyzePlayerType(message)
         # エラーの処理
         else:
-            print("error from server")
+            print("p11 error from server")
 
 
 if __name__ == "__main__":
