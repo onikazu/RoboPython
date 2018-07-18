@@ -9,6 +9,7 @@ class Player13(player12.Player12, threading.Thread):
         super(Player13, self).__init__()
         self.dash_power_rate = 0.006
         self.player_decay = 0.4
+        self.m_debugLv13 = False
 
     def predictDashCommand(self, i):
         command = self.m_strCommand[i]
@@ -31,7 +32,11 @@ class Player13(player12.Player12, threading.Thread):
 
     def predict(self, start, end):
         super().predict(start, end)
-        # 予測確認
+        if self.m_debugLv13 and self.m_iTime > 0 and self.m_iTime < 50:
+            print()
+            print("時刻", self.m_iTime)
+            print("位置", self.m_dX[self.m_iTime], self.m_dY[self.m_iTime])
+            print("速度", self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime])
 
     def play_0(self):
         super().play_0()
@@ -58,6 +63,7 @@ if __name__ == "__main__":
         player13s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         player13s[i].start()
 
+    player13s[0].m_debugLv13 = True
     print("試合登録完了")
 
 

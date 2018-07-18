@@ -18,6 +18,7 @@ class Player11(player10.Player10, threading.Thread):
             self.m_strCommand.append("")
         self.m_iTime = -1
         self.m_iVisualTime = -1
+        self.m_debugLv11 = False
 
     def analyzeServerParam(self, message):
         self.m_strServerParam = message
@@ -53,7 +54,7 @@ class Player11(player10.Player10, threading.Thread):
             self.predictTurnCommand(i)
             self.predictKickCommand(i)
 
-        if self.m_iTime > 0 and self.m_iTime < 20:
+        if self.m_debugLv11 and self.m_iTime > 0 and self.m_iTime < 20:
             print()
             print("時刻　体調情報", self.m_iTime)
             print("視覚情報＝", self.m_iVisualTime)
@@ -108,4 +109,5 @@ if __name__ == "__main__":
         player11s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         player11s[i].start()
 
+    player11s[0].m_debugLv11 = True
     print("試合登録完了")

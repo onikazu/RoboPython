@@ -18,6 +18,7 @@ class Player12(player11.Player11, threading.Thread):
         self.m_dStamina = []
         self.m_dEffort = []
         self.m_dRecovery = []
+        self.m_debugLv12 = False
         for _ in range(self.GAME_LENGTH):
             self.m_dY.append(0.0)
             self.m_dX.append(0.0)
@@ -52,6 +53,12 @@ class Player12(player11.Player11, threading.Thread):
 
     def predict(self, start, end):
         super().predict(start, end)
+        if self.m_debugLv12 and self.m_iTime > 0 and self.m_iTime < 20:
+            print()
+            print("時刻", self.m_iTime)
+            print("位置", self.m_dX[self.m_iTime], self.m_dY[self.m_iTime])
+
+
 
     def analyzeInitialMessage(self, message):
         super().analyzeInitialMessage(message)
@@ -74,4 +81,5 @@ if __name__ == "__main__":
         player12s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         player12s[i].start()
 
+    player12s[0].m_debugLv12 = True
     print("試合登録完了")
