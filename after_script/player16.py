@@ -53,6 +53,7 @@ class Player16(player15.Player15, threading.Thread):
             index1 = command.find(" ", index0+9)
             index2 = command.find(")", index1+1)
             angle = float(str(command[index1:index2]))
+            print("p16:angle:", angle)
             head_angle = self.normalizeAngle(self.m_dNeck[i] - self.m_dBody[i])
             if self.maxneckang < head_angle + angle:
                 self.m_dNeck[next] = self.normalizeAngle(self.m_dBody[i] + self.maxneckang)
