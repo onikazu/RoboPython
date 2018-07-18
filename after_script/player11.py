@@ -12,6 +12,8 @@ class Player11(player10.Player10, threading.Thread):
         self.m_strServerParam = ""
         self.m_strPlayerParam = ""
         self.m_strPlayerType = []
+        for _ in range(11):
+            self.m_strPlayerType.append("")
         self.m_iPlayerType = 0
         self.m_strCommand = []
         for _ in range(6000):
