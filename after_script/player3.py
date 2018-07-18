@@ -30,6 +30,9 @@ class Player3(player2.Player2, threading.Thread):
         if strSpeaker.startswith("referee"):
             self.m_strPlayMode = strContent
 
+        if self.m_debugLv03:
+            print("m_strPlayMode:" + self.m_strPlayMode)
+
     def play_1(self, message):
         super().play_1(message)
         command = ""
@@ -52,3 +55,4 @@ if __name__ == "__main__":
         players[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         players[i].start()
     print("試合登録完了")
+    players[10].m_debugLv03 = True
