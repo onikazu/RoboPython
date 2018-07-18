@@ -20,17 +20,18 @@ class Player12(player11.Player11, threading.Thread):
         self.m_dRecovery = []
         self.m_debugLv12 = False
         for _ in range(self.GAME_LENGTH):
-            self.m_dY.append(0)
-            self.m_dX.append(0)
-            self.m_dVX.append(0)
-            self.m_dVY.append(0)
-            self.m_dAX.append(0)
-            self.m_dAY.append(0)
-            self.m_dNeck.append(0)
-            self.m_dBody.append(0)
-            self.m_dStamina.append(0)
-            self.m_dEffort.append(0)
-            self.m_dRecovery.append(0)
+            self.m_dY.append(0.0)
+            self.m_dX.append(0.0)
+            self.m_dVX.append(0.0)
+            self.m_dVY.append(0.0)
+            self.m_dAX.append(0.0)
+            self.m_dAY.append(0.0)
+            self.m_dNeck.append(0.0)
+            self.m_dBody.append(0.0)
+            self.m_dStamina.append(0.0)
+            self.m_dEffort.append(0.0)
+            self.m_dRecovery.append(0.0)
+        print(self.m_dX[4])
 
     def predictMoveCommand(self, i):
         command = self.m_strCommand[i]
@@ -59,18 +60,14 @@ class Player12(player11.Player11, threading.Thread):
             print("位置ｘ{0:.4f}".format(self.m_dX[self.m_iTime]))
             print("位置 {0:.4f}, {0:.4f}".format(self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
 
-
-
     def analyzeInitialMessage(self, message):
         super().analyzeInitialMessage(message)
         if self.m_strSide.startswith("r"):
             self.m_dX[0] = 3 + 3 * self.m_iNumber
             self.m_dY[0] = -37.0
         else:
-            self.m_dX[0] = -3 -3 * self.m_iNumber
+            self.m_dX[0] = -3 - 3 * self.m_iNumber
             self.m_dY[0] = -37.0
-
-
 
 
 if __name__ == "__main__":
