@@ -7,6 +7,12 @@ from socket import *
 class Player3(player2.Player2, threading.Thread):
     def __init__(self):
         super(Player3, self).__init__()
+        self.m_debugLv03 = False
+
+    def analyzeInitialMessage(self, message):
+        super().analyzeInitialMessage(message)
+        if self.m_debugLv03:
+            print("m_strPlayMode:" + self.m_strPlayMode)
 
     def analyzeMessage(self, message):
         super().analyzeMessage(message)

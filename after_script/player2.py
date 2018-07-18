@@ -8,6 +8,7 @@ class Player2(player1.Player1, threading.Thread):
         super(Player2, self).__init__()
         self.m_dKickOffX = 0.0
         self.m_dKickOffY = 0.0
+        self.m_debugLv02 = False
 
     def checkInitialMode(self):
         if self.m_strPlayMode.startswith("before_kick_off") or \
