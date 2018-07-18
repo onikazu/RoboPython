@@ -10,8 +10,8 @@ class Player8(player7.Player7, threading.Thread):
         self.m_strFlagName = []
         self.m_dFlagX = []
         self.m_dFlagY = []
-        # self.m_dX = 0.0
-        # self.m_dY = 0.0
+        self.m_dX = 0.0
+        self.m_dY = 0.0
         self.m_dNeck = 0.0
         self.m_strFlagName.append("goal r");     self.m_dFlagX.append(52.5);self.m_dFlagY.append(0.0  )
         self.m_strFlagName.append("goal l");     self.m_dFlagX.append(-52.5);self.m_dFlagY.append(0.0  )
