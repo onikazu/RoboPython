@@ -27,22 +27,28 @@ class Player10(player9.Player9, threading.Thread):
         # print(self.m_dDefenceX, self.m_dDefenceY, self.m_dX, self.m_dY)
         print(self.m_iNumber, "の理想守備位置までのdist:", dist, "理想守備位置x", self.m_dDefenceX, \
              "理想守備位置y", self.m_dDefenceY, "現在地x", self.m_dX, "現在地y", self.m_dY)
+        # 距離が近いときは何もしない
         # 2.0だと誤作動？10に変更した
         if dist < 10.0:
             return ""
         if self.m_dNeck == OUT_OF_RANGE:
             return ""
-        dir = self.getDistance(self.m_dX, self.m_dY, self.m_dDefenceX, self.m_dDefenceY)
+
+        # 回転する角度の計算
+        dir = self.getDirection(self.m_dX, self.m_dY, self.m_dDefenceX, self.m_dDefenceY)
         moment = self.normalizeAngle(dir - self.m_dNeck)
         # print("dir:", dir)
         # print("moment:", moment)
+        # 必要な回転角度が少ないときはダッシュ
         if abs(moment) < 20.0:
             return "(dash 60)"
+        # 必要な回転角度が多いときは後進
         elif abs(moment) > 160.0:
             self.m_listCommand = []
             for _ in range(4):
                 self.m_listCommand.append("(dash -40)")
             return "(dash -30)"
+        # 普通に適切に回転し前進
         else:
             self.m_listCommand = []
             for _ in range(6):
