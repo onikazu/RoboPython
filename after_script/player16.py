@@ -11,7 +11,6 @@ class Player16(player15.Player15, threading.Thread):
         self.maxneckang = 90.0
         self.minneckang = -90.0
         self.m_dHeadAngle = []
-        self.OUT_OF_RANGE = 999.9
         for _ in range(self.GAME_LENGTH):
             self.m_dHeadAngle.append(0.0)
 
