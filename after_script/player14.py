@@ -19,6 +19,7 @@ class Player14(player13.Player13, threading.Thread):
         self.effort_inc_thr = 0.6
         self.effort_dec = 0.005
         self.effort_inc = 0.01
+        self.m_debugLv14 = False
 
     def analyzePlayerType(self, message):
         super().analyzePlayerType(message)
@@ -58,4 +59,5 @@ if __name__ == "__main__":
         player14s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         player14s[i].start()
 
+    player14s[0].m_debugLv14 = True
     print("試合登録完了")

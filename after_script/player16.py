@@ -13,6 +13,7 @@ class Player16(player15.Player15, threading.Thread):
         self.m_dHeadAngle = []
         for _ in range(self.GAME_LENGTH):
             self.m_dHeadAngle.append(0.0)
+        self.m_debugLv16 = False
 
     def analyzePhysicalMessage(self, message):
         super().analyzePhysicalMessage(message)
@@ -67,7 +68,7 @@ class Player16(player15.Player15, threading.Thread):
 
     def predict(self, start, end):
         super().predict(start, end)
-        if 0 < self.m_iTime < 20:
+        if 0 < self.m_iTime < 20 and self.m_debugLv16:
             print("時刻", self.m_iTime)
             print("スタミナ{0:.4f}".format(self.m_dStamina[self.m_iTime]))
             print("実行力{0:.4f}".format(self.m_dEffort[self.m_iTime]))
@@ -115,5 +116,7 @@ if __name__ == "__main__":
         teamname = "p16s"
         player16s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         player16s[i].start()
+
+    player16s[0].m_debugLv16 = True
 
     print("試合登録完了")
