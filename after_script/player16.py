@@ -17,8 +17,6 @@ class Player16(player15.Player15, threading.Thread):
 
     def analyzePhysicalMessage(self, message):
         super().analyzePhysicalMessage(message)
-        print("p16:self.m_dNeck[self.m_iTime]:", self.m_dNeck[self.m_iTime])
-        print("p16:self.OUT_OF_RANGE:", self.OUT_OF_RANGE)
         if self.m_dNeck[self.m_iTime] == self.OUT_OF_RANGE:
             return
 
@@ -26,6 +24,7 @@ class Player16(player15.Player15, threading.Thread):
 
         # ここでエラー値
         speed_angle = self.getParam(message, "speed", 2)
+        print("speed angle:", speed_angle)
         rad = self.normalizeAngle(self.m_dNeck[self.m_iTime] + speed_angle) * math.pi / 180.0
         vx = speed * math.cos(rad)
         vy = speed * math.sin(rad)
