@@ -108,10 +108,13 @@ class Player19(player18.Player18, threading.Thread):
 
 if __name__ == "__main__":
     player19s = []
-    for i in range(11):
+    for i in range(22):
         p19 = Player19()
         player19s.append(p19)
-        teamname = "p19s"
+        if i < 11:
+            teamname = "left"
+        else:
+            teamname = "right"
         player19s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         player19s[i].start()
 
