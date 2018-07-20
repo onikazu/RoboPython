@@ -29,7 +29,7 @@ class Player11(player10.Player10, threading.Thread):
         self.m_strPlayerParam = message
 
     def analyzePlayerType(self, message):
-        id = int(self.getParam(message, "see", 1))
+        id = int(self.getParam(message, "id", 1))
         self.m_strPlayerType[id] = message
 
     def analyzeVisualMessage(self, message):
