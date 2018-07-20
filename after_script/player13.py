@@ -24,11 +24,11 @@ class Player13(player12.Player12, threading.Thread):
         next = (i + 1) % self.GAME_LENGTH
 
         # どちらもint型
-        print(type(next))
-        print(type(i))
-        print(type(self.m_dVX))
-        print(type(self.m_dAX))
-        print(type(self.player_decay))
+        print("next", type(next))
+        print("i", type(i))
+        print("VX", type(self.m_dVX))
+        print("AX", type(self.m_dAX))
+        print("pd", type(self.player_decay))
         self.m_dVX[next] = (self.m_dVX[i] + self.m_dAX[i]) * self.player_decay
         self.m_dVY[next] = (self.m_dVY[i] + self.m_dAY[i]) * self.player_decay
         self.m_dX[next] = self.m_dX[i] + self.m_dVX[i] + self.m_dAX[i]
@@ -71,5 +71,3 @@ if __name__ == "__main__":
 
     player13s[0].m_debugLv13 = True
     print("試合登録完了")
-
-
