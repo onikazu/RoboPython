@@ -9,6 +9,7 @@ class Player19(player18.Player18, threading.Thread):
         super(Player19, self).__init__()
         self.m_iBallTime = -6
         self.m_iSearchCount = 0
+        self.m_debugLv19 = False
 
     def analyzeVisualMessage(self, message):
         super().analyzeVisualMessage(message)
@@ -42,7 +43,7 @@ class Player19(player18.Player18, threading.Thread):
         t = self.m_iTime
         turn_angle = 0.0
         command = self.m_strCommand[t]
-        if command.startswith("(turn")
+        if command.startswith("(turn"):
             moment = self.getParam(command, "turn", 1)
             vx = self.m_dVX[t]
             vy = self.m_dVY[t]
@@ -56,5 +57,64 @@ class Player19(player18.Player18, threading.Thread):
         elif self.m_dHeadAngle[t] + neck_diff < self.minneckang:
             neck_diff = self.normalizeAngle(self.minneckang - self.m_dHeadAngle[t])
 
+        if self.m_debugLv19 and 0 < t < 30:
+            print("時刻{}".format(t))
+            print("視覚{}".format(self.m_iVisualTime))
+            print("目標")
+            print("位置{0:.4f}, {0:.4f}".format(self.m_dBallX[t], self.m_dBallY[t]))
+            print("方向{0:.4f}".format(face_dir))
+            print("自分")
+            print("位置{}, {}".format(self.m_dX[t], self.m_dY[t]))
+            print("首{}".format(self.m_dNeck[t]))
+            print("体{}".format(self.m_dBody[t]))
+
         if abs(body_diff) < 90 + 22.5 / 2 and abs(neck_diff) < 22.5:
-            self.m_strCommand[self.m_iTime] += "(turn_neck " +
+            self.m_strCommand[self.m_iTime] += "(turn_neck {0:.2f})".format(neck_diff)
+            self.m_strCommand[self.m_iTime] += "(change_view narrow high)"
+        elif abs(body_diff) < 90 + 45.0 / 2 and abs(neck_diff) < 45.0:
+            self.m_strCommand[self.m_iTime] += "(turn_neck {0:.2f})".format(neck_diff)
+            self.m_strCommand[self.m_iTime] += "(change_view normal high)"
+        else:
+            self.m_strCommand[self.m_iTime] += "(turn_neck {0:.2f})".format(neck_diff)
+            self.m_strCommand[self.m_iTime] += "(change_view wide high)"
+
+    def playWithBall(self):
+        t = self.m_iTime
+        self.m_strCommand[t] = "(turn 0)"
+        self.lookAt(self.m_dBallX[t], self.m_dBallY[t])
+
+    def play_0(self):
+        t = self.m_iTime
+        self.m_strCommand[t] = "(turn 0)"
+        if self.checkInitialMode():
+            self.setKickOffPosition()
+            command = "(move {} {})".format(self.m_dKickOffX, self.m_dKickOffY)
+            self.m_strCommand[t] = command
+        else:
+            if abs(self.m_dNeck[t]) >180.0:
+                return
+            if abs(self.m_dBody[t]) >180.0:
+                return
+            if t > 0:
+                if self.checkFresh(self.m_iBallTime) == False:
+                    self.searchBall(self.m_iSearchCount)
+                else:
+                    self.playWithBall()
+
+        self.m_iSearchCount -= 1
+        if self.m_iSearchCount < 0:
+            self.m_iSearchCount = 0
+
+
+if __name__ == "__main__":
+    player19s = []
+    for i in range(11):
+        p19 = Player19()
+        player19s.append(p19)
+        teamname = "p19s"
+        player19s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
+        player19s[i].start()
+
+    player19s[0].m_debugLv19 = True
+
+    print("試合登録完了")
