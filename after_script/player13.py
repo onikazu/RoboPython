@@ -22,8 +22,13 @@ class Player13(player12.Player12, threading.Thread):
             self.m_dAX[i] = ax
             self.m_dAY[i] = ay
         next = (i + 1) % self.GAME_LENGTH
+
+        # どちらもint型
         print(type(next))
         print(type(i))
+        print(type(self.m_dVX))
+        print(type(self.m_dAX))
+        print(type(self.player_decay))
         self.m_dVX[next] = (self.m_dVX[i] + self.m_dAX[i]) * self.player_decay
         self.m_dVY[next] = (self.m_dVY[i] + self.m_dAY[i]) * self.player_decay
         self.m_dX[next] = self.m_dX[i] + self.m_dVX[i] + self.m_dAX[i]
