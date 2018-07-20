@@ -8,6 +8,7 @@ class Player18(player17.Player17, threading.Thread):
     def __init__(self):
         super(Player18, self).__init__()
         self.m_iBallTime = 0
+        self.m_debugLv18 = False
 
     def analyzeVisualMessage(self, message):
         super().analyzeVisualMessage(message)
@@ -53,6 +54,13 @@ class Player18(player17.Player17, threading.Thread):
             vy_r = ballR * math.sin(ballRad)
             self.m_dBallVX[t] = vx_r + self.m_dVX[t]
             self.m_dBallVY[t] = vy_r + self.m_dVY[t]
+
+        if self.m_debugLv18 and t < 30:
+            print("時刻{}, 位置{}, {}".format(self.m_iTime, self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
+            print("速度{},{}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
+            print("ボール位置{}, {}".format(self.m_dBallX[self.m_iTime], self.m_dBallY[self.m_iTime]))
+            print("ボール速度{}, {}".format(self.m_dBallVX[self.m_iTime], self.m_dBallVY[self.m_iTime]))
+            print("ball = {}".format(ball))
 
 
 if __name__ == "__main__":
