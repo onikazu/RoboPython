@@ -33,6 +33,7 @@ class Player20(player19.Player19, threading.Thread):
             self.setFaceTarget()
 
         self.m_iTime = 0
+        self.m_debugLv20 = False
 
 
     def setKickTarget(self):
