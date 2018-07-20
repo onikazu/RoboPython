@@ -67,6 +67,13 @@ class Player16(player15.Player15, threading.Thread):
 
     def predict(self, start, end):
         super().predict(start, end)
+        if 0 < self.m_iTime < 20:
+            print("時刻", self.m_iTime)
+            print("スタミナ{0:.4f}".format(self.m_dStamina[self.m_iTime]))
+            print("実行力{0:.4f}".format(self.m_dEffort[self.m_iTime]))
+            print("首{0:.4f}".format(self.m_dNeck[self.m_iTime]))
+            print("体{0:.4f}".format(self.m_dBody[self.m_iTime]))
+
 
     def analyzePlayerType(self, message):
         super().analyzePlayerType(message)
