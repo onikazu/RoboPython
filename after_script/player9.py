@@ -14,6 +14,8 @@ class Player9(player8.Player8, threading.Thread):
         self.m_dDefenceY = 0.0
 
     def setDefencePosition(self, ballX, ballY):
+        offsetX = 0.0
+        offsetY = 0.0
         if self.m_iNumber == 1:
             offsetX, offsetY = -50.0, -0.0
         elif self.m_iNumber == 2:
