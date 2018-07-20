@@ -88,3 +88,20 @@ class Player21(player20.Player20, threading.Thread):
             print("ball({0:.4f}, {0:.4f}".format(self.m_dBallX[t], self.m_dBallY[t]))
             print("速度{0:.4f}, {0:.4f}".format(self.m_dBallVX[t], self.m_dBallVY[t]))
             print("コマンド{}".format(self.m_strCommand[t]))
+
+
+if __name__ == "__main__":
+    player21s = []
+    for i in range(22):
+        p21 = Player21()
+        player21s.append(p21)
+        if i < 11:
+            teamname = "left"
+        else:
+            teamname = "right"
+        player21s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
+        player21s[i].start()
+
+    player21s[9].m_debugLv20 = True
+
+    print("試合登録完了")
