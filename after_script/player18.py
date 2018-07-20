@@ -35,7 +35,7 @@ class Player18(player17.Player17, threading.Thread):
         rad = math.radians(self.normalizeAngle(self.m_dNeck[t] + ball_dir))
         self.m_dBallX[t] = self.m_dX[t] + ball_dist * math.cos(rad)
         self.m_dBallY[t] = self.m_dY[t] + ball_dist * math.sin(rad)
-        self.m_dBallVX[t] = self.m_dBallVY = 0
+        self.m_dBallVX[t] = self.m_dBallVY[t] = 0
         if t > 0:
             pre = (t - 1) % self.GAME_LENGTH
             print("mdballvy", type(self.m_dBallVY))
@@ -55,7 +55,7 @@ class Player18(player17.Player17, threading.Thread):
             vx_r = ballR * math.cos(ballRad)
             vy_r = ballR * math.sin(ballRad)
             self.m_dBallVX[t] = vx_r + self.m_dVX[t]
-            print(type(self.m_dBallVY), type(vy_r), type(self.m_dVY))
+            # print(type(self.m_dBallVY), type(vy_r), type(self.m_dVY))
             self.m_dBallVY[t] = vy_r + self.m_dVY[t]
 
         if self.m_debugLv18 and t < 30:
