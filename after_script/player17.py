@@ -25,6 +25,7 @@ class Player17(player16.Player16, threading.Thread):
             self.m_dBallVY.append(0.0)
             self.m_dBallAX.append(0.0)
             self.m_dBallAY.append(0.0)
+        self.m_debugLv17 = False
 
     def predictKickCommand(self, i):
         next = (i + 1) % self.GAME_LENGTH
@@ -56,17 +57,14 @@ class Player17(player16.Player16, threading.Thread):
     def predict(self, start, end):
         super().predict(start, end)
 
-        if 0 < self.m_iTime < 20:
+        if 0 < self.m_iTime < 20 and self.m_debugLv17:
             print("ボール")
             print("位置{0:.4f}, {0:.4f}".format(self.m_dBallX[self.m_iTime], self.m_dBallY[self.m_iTime]))
             print("速度{0:.4f}, {0:.4f}".format(self.m_dBallVX[self.m_iTime], self.m_dBallVY[self.m_iTime]))
 
             print("自分")
-            print("位置{0:.4f}, {0:.4f}".format(self.m_dBallX[self.m_iTime], self.m_dBallY[self.m_iTime]))
-            print("速度{0:.4f}, {0:.4f}".format(self.m_dBallVX[self.m_iTime], self.m_dBallVY[self.m_iTime]))
-
-
-
+            print("位置{0:.4f}, {0:.4f}".format(self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
+            print("速度{0:.4f}, {0:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
 
     def analyzeServerParam(self, message):
         super().analyzeServerParam(message)
@@ -90,5 +88,6 @@ if __name__ == "__main__":
         teamname = "p17s"
         player17s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         player17s[i].start()
+    player17s[0].m_debugLv17 = True
 
     print("試合登録完了")
