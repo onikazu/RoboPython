@@ -22,9 +22,9 @@ class Player13(player12.Player12, threading.Thread):
             self.m_dAX[i] = ax
             self.m_dAY[i] = ay
 
-        type("i", i)
-        type("next", next)
-        type("")
+        print(type(i))
+        print(type(next))
+
         next = (i + 1) % self.GAME_LENGTH
         self.m_dVX[next] = (self.m_dVX[i] + self.m_dAX[i]) * self.player_decay
         self.m_dVY[next] = (self.m_dVY[i] + self.m_dAY[i]) * self.player_decay
