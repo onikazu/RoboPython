@@ -38,6 +38,8 @@ class Player18(player17.Player17, threading.Thread):
         self.m_dBallVX[t] = self.m_dBallVY = 0
         if t > 0:
             pre = (t - 1) % self.GAME_LENGTH
+            print("mdballvy", type(self.m_dBallVY))
+            print("mdy", type(self.m_dY))
             self.m_dBallVX[t] = self.m_dX[t] - self.m_dX[pre]
             self.m_dBallVY[t] = self.m_dY[t] - self.m_dY[pre]
 
