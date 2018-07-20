@@ -31,7 +31,7 @@ class Player12(player11.Player11, threading.Thread):
             self.m_dStamina.append(0.0)
             self.m_dEffort.append(0.0)
             self.m_dRecovery.append(0.0)
-        print(self.m_dX[4])
+        # print(self.m_dX[4])
 
     def predictMoveCommand(self, i):
         command = self.m_strCommand[i]
@@ -45,8 +45,8 @@ class Player12(player11.Player11, threading.Thread):
 
             self.m_dX[i] = x
             self.m_dY[i] = y
-            self.m_dAX = self.m_dVX = 0.0
-            self.m_dAY = self.m_dVY = 0.0
+            self.m_dAX[i] = self.m_dVX[i] = 0.0
+            self.m_dAY[i] = self.m_dVY[i] = 0.0
 
         next = (i + 1) % self.GAME_LENGTH
         self.m_dX[next] = self.m_dX[i]
