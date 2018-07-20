@@ -45,6 +45,7 @@ class Player4(player3.Player3, threading.Thread):
             result = float(message[index1:index2])
         except Exception:
             print("player4[getParam]:文字データによるエラー")
+            print("error 時のgetparamの引数{} ,{}, {}".format(message, keyword, number))
             result = self.OUT_OF_RANGE
         return result
 
