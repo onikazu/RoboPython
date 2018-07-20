@@ -11,14 +11,14 @@ class Player21(player20.Player20, threading.Thread):
 
     def kick_0(self):
         t = self.m_iTime
-        kickDir = self.getDirection(self.m_dX, self.m_dY, self.m_dKickX, self.m_dKickY)
+        kickDir = self.getDirection(self.m_dX[t], self.m_dY[t], self.m_dKickX[t], self.m_dKickY[t])
         kickAngle = self.normalizeAngle(kickDir - self.m_dBody[t])
         self.m_strCommand[t] = "(kick 100 {0:.4f})".format(kickAngle)
 
     def move_0(self):
         t = self.m_iTime
-        moveDir = self.getDirection(self.m_dX, self.m_dY, self.m_dMoveX, self.m_dMoveY)
-        moveDist = self.getDistance(self.m_dX, self.m_dY, self.m_dMoveX, self.m_dMoveY)
+        moveDir = self.getDirection(self.m_dX[t], self.m_dY[t], self.m_dMoveX[t], self.m_dMoveY[t])
+        moveDist = self.getDistance(self.m_dX[t], self.m_dY[t], self.m_dMoveX[t], self.m_dMoveY[t])
         kickable_area = self.player_size + self.ball_size + self.kickable_margin
         if moveDist < kickable_area:
             self.m_strCommand[t] = "(turn 0)"
@@ -26,7 +26,7 @@ class Player21(player20.Player20, threading.Thread):
         turn = self.normalizeAngle(moveDir - self.m_dBody[t])
         speed = math.sqrt(self.m_dVX[t] * self.m_dVX[t] + self.m_dVY[t] * self.m_dVY[t])
         turn_moment = turn * (1 + self.inertia_moment * speed * self.player_decay)
-        dist = self.getDistance(self.m_dX, self.m_dY, self.m_dMoveX, self.m_dMoveY)
+        dist = self.getDistance(self.m_dX[t], self.m_dY[t], self.m_dMoveX[t], self.m_dMoveY[t])
         dash_power_max = 100.0
         dash_power = 40.0
 
@@ -44,7 +44,7 @@ class Player21(player20.Player20, threading.Thread):
 
         if abs(turn) < 20.0:
             turn = 0.0
-            dist = self.getDistance(self.m_dX, self.m_dY, self.m_dMoveX, self.m_dMoveY)
+            dist = self.getDistance(self.m_dX[t], self.m_dY[t], self.m_dMoveX[t], self.m_dMoveY[t])
             if dist > 0.75:
                 self.m_strCommand[t] = "(dash {0:.4f})".format(dash_power)
         elif abs(turn) > 160.0 and dist < 3.51:
