@@ -38,7 +38,7 @@ class Player16(player15.Player15, threading.Thread):
         if self.m_dNeck[i] == self.OUT_OF_RANGE:
             return
         command = self.m_strCommand[i]
-        if command.startswith("(turn"):
+        if command.startswith("(turn "):
             moment = self.getParam(command, "turn", 1)
             vx = self.m_dVX[i]
             vy = self.m_dVY[i]
