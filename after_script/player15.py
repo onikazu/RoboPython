@@ -66,6 +66,11 @@ class Player15(player14.Player14, threading.Thread):
 
     def predict(self, start, end):
         super().predict(start, end)
+        print("時刻", self.m_iTime)
+        print("スタミナ {0:.4f}".format(self.m_dStamina[self.m_iTime]))
+        print("実行効率{0:.4f}".format(self.m_dEffort[self.m_iTime]))
+        print("回復力{0:.4f}".format(self.m_dRecovery[self.m_iTime]))
+
 
 
 if __name__ == "__main__":
