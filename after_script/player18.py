@@ -55,6 +55,7 @@ class Player18(player17.Player17, threading.Thread):
             vx_r = ballR * math.cos(ballRad)
             vy_r = ballR * math.sin(ballRad)
             self.m_dBallVX[t] = vx_r + self.m_dVX[t]
+            print(type(self.m_dBallVY), type(vy_r), type(self.m_dVY))
             self.m_dBallVY[t] = vy_r + self.m_dVY[t]
 
         if self.m_debugLv18 and t < 30:
