@@ -49,7 +49,7 @@ class Player12(player11.Player11, threading.Thread):
             self.m_dX[i] = x
 
             self.m_dY[i] = y
-            print("y andx", self.m_dY[i], self.m_dX[i])
+            print(self.m_dY, self.m_dX)
             self.m_dAX[i] = self.m_dVX[i] = 0.0
             self.m_dAY[i] = self.m_dVY[i] = 0.0
 
