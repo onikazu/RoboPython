@@ -45,12 +45,12 @@ class Player22(player21.Player21, threading.Thread):
             team = "enemy"
         number = 0
         if index3 + 1 < index4 and name.find("(player)") == -1 and name.find("(Player)"):
-            str = name[index3 + 1:index4]
-            if str.find("goalie") > 0:
-                str = str.replace("goalie", " ", 1)
-            number = int(float(str))
-        str = obj[index0 + 1:index1]
-        st = str.split(" ")
+            str_var = name[index3 + 1:index4]
+            if str_var.find("goalie") > 0:
+                str_var = str_var.replace("goalie", " ", 1)
+            number = int(float(str_var))
+        str_var = obj[index0 + 1:index1]
+        st = str_var.split(" ")
         count = len(st)
         if count <= 0:
             count -= 1
@@ -115,8 +115,8 @@ class Player22(player21.Player21, threading.Thread):
             return
         if abs(self.m_dY[t]) > 40.0:
             return
-        str = "((player"
-        self.m_listPlayer = self.getObjectList(message, str)
+        str_var = "((player"
+        self.m_listPlayer = self.getObjectList(message, str_var)
         list1 = self.getObjectList(message, "((player")
         list2 = self.getObjectList(message, "((Player")
         self.m_listPlayer = []
