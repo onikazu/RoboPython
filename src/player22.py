@@ -37,7 +37,7 @@ class Player22(player21.Player21, threading.Thread):
         index2 = name.find("\"")
         index3 = name.find("\"", index2 + 1)
         index4 = name.find(")")
-        s = "((player \"" + self.m_strTeamName + "\""
+        s = "((player " + self.m_strTeamName
         team = ""
         if name.startswith(s):
             team = "friend"
@@ -98,7 +98,7 @@ class Player22(player21.Player21, threading.Thread):
 
         result = "("
         result += "(team" + team + ")"
-        result += "(number" + number + ")"
+        result += "(number" + str(number) + ")"
         result += "(x {0:.4f})(y {0:.4f})".format(X, Y)
         result += "(vx {0:.4f})(vy {0:.4f})".format(VX, VY)
         result += "(body {0:.4f})(neck {0:.4f})".format(BODY, NECK)
