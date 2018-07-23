@@ -50,7 +50,7 @@ class Player22(player21.Player21, threading.Thread):
                 str = str.replace("goalie", " ", 1)
             number = int(float(str))
         str = obj[index0+1:index1]
-        st = str.spilit(" ")
+        st = str.split(" ")
         count = len(st)
         if count <= 0:
             count -= 1
