@@ -40,8 +40,8 @@ class Player15(player14.Player14, threading.Thread):
 
             if stamina >= self.effort_inc_thr * self.stamina_max:
                 if effort < self.effort_max:
-                    effort -= self.effort_dec
-                effort = max(effort, self.effort_min)
+                    effort += self.effort_inc
+                effort = min(effort, self.effort_max)
 
             if self.getParam(command, "dash", 1) < 0:
                 dash_power /= (-2.0)
