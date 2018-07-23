@@ -48,6 +48,7 @@ class Player22(player21.Player21, threading.Thread):
             str_var = name[index3 + 1:index4]
             if str_var.find("goalie") > 0:
                 str_var = str_var.replace("goalie", " ", 1)
+            print("str_var:", str_var)
             number = int(float(str_var))
         str_var = obj[index0 + 1:index1]
         st = str_var.split(" ")
