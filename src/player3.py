@@ -1,12 +1,18 @@
 # lv3
-import set_formation
+import player2
 import threading
 from socket import *
 
 
-class Player3(set_formation.Player2, threading.Thread):
+class Player3(player2.Player2, threading.Thread):
     def __init__(self):
         super(Player3, self).__init__()
+        self.m_debugLv03 = False
+
+    def analyzeInitialMessage(self, message):
+        super().analyzeInitialMessage(message)
+        if self.m_debugLv03:
+            print("m_strPlayMode:" + self.m_strPlayMode)
 
     def analyzeMessage(self, message):
         super().analyzeMessage(message)
@@ -24,8 +30,11 @@ class Player3(set_formation.Player2, threading.Thread):
         if strSpeaker.startswith("referee"):
             self.m_strPlayMode = strContent
 
-    def play(self, message):
-        super().play(message)
+        if self.m_debugLv03:
+            print("m_strPlayMode:" + self.m_strPlayMode)
+
+    def play_1(self, message):
+        super().play_1(message)
         command = ""
         if self.m_strPlayMode.startswith("kick_off_"):
             command = "(turn 20)"
@@ -46,3 +55,4 @@ if __name__ == "__main__":
         players[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         players[i].start()
     print("試合登録完了")
+    players[10].m_debugLv03 = True

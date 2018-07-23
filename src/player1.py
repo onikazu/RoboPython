@@ -14,8 +14,10 @@ class Player1(threading.Thread):
         self.m_strTeamName = ""
         self.m_strHostName = ""
         self.m_strSide = ""
+        self.m_debugLv01 = False
 
     def send(self, command):
+        # print("p1command No", self.m_iNumber, command)
         to_byte_command = command.encode(encoding='utf_8')
         self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
         # print("sending ", command, " is done")
@@ -23,7 +25,7 @@ class Player1(threading.Thread):
     def receive(self):
         message, arr = self.socket.recvfrom(4096)
         message = message.decode("UTF-8")
-        # print("メッセージ（サーバーから", self.m_iNumber, "）：", message)
+        # print("メッセージ（サーバーから", self.m_iNumber, "番）：", message)
         return message
 
     def initialize(self, number, team_name, server_name, server_port):
@@ -36,6 +38,7 @@ class Player1(threading.Thread):
             command = "(init " + self.m_strTeamName + ")"
         self.send(command)
 
+    # thread を動かしている最中に行われる関数
     def run(self):
         while True:
             message = self.receive()
@@ -52,14 +55,15 @@ class Player1(threading.Thread):
         self.m_iNumber = int(message[index1+1:index2])
         self.m_strPlayMode = message[index2+1:index3]
 
+
     def analyzeMessage(self, message):
         if isinstance(message, type(None)):
-            pass
+            return
             # print(message)
         elif message.startswith("(init"):
             self.analyzeInitialMessage(message)
         else:
-            pass
+            return
             # print(message)
 
 
@@ -70,4 +74,6 @@ if __name__ == "__main__":
         players.append(p)
         players[i].initialize(i+1, "kazu", "localhost", 6000)
         players[i].start()
-        print("試合登録完了")
+
+    players[0].m_debugLv01 = True
+    print("試合登録完了")

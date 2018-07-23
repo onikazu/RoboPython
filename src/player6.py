@@ -1,10 +1,10 @@
-import kick
+import player5
 import threading
 from socket import *
 import math
 
 
-class Player6(kick.Player5, threading.Thread):
+class Player6(player5.Player5, threading.Thread):
     def __init__(self):
         super(Player6, self).__init__()
 
@@ -38,7 +38,7 @@ class Player6(kick.Player5, threading.Thread):
     def getCommandAsDefence(self, message, ballDist, ballDir):
         command = ""
         goal = "(goal l)"
-        if  self.m_strSide.startswith("r"):
+        if self.m_strSide.startswith("r"):
             goal = "(goal r)"
         if message.find(goal) > -1:
             goalDist = self.getParam(message, goal, 1)
@@ -46,53 +46,29 @@ class Player6(kick.Player5, threading.Thread):
                 command = "(dash 80)"
         return command
 
-    def play(self, message, ballDist=None, ballDir=None):
+    def play_3(self, message, ballDist, ballDir):
         # ボールが視界に無いとき
-        if ballDist is None and ballDir is None:
-            # 初期化
-            if self.checkInitialMode():
-                self.setKickOffPosition()
-                command = "(move " + str(self.m_dKickOffX) + " " \
-                    + str(self.m_dKickOffY) + ")"
-                self.send(command)
-            # 初期ではない
+        command = ""
+        # 体の正面にある
+        if abs(ballDir) < 20.0:
+            # そして近い
+            if ballDist < 1.0:
+                command = self.kick(message)
+                print("b No",self.m_iNumber, command)
+            # 遠い
+            elif self.checkNearest(message, ballDist, ballDir):
+                command = "(dash 80)"
+                print("d No",self.m_iNumber, command)
             else:
-                message = message.replace("B", "b")
-                ball = self.getObjectMessage(message, "((b")
-                # print("メッセージ", message)
-                # ボールが見えるようになった
-                if ball.startswith("((b"):
-                    ballDist = self.getParam(ball, "(ball)", 1)
-                    # ここがおかしい
-                    ballDir = self.getParam(ball, "(ball)", 2)
-                    # print("ballDir", ballDir)
-                    # ボールが見えているときのplayへ
-                    self.play(message, ballDist, ballDir)
-                # 見えない
-                else:
-                    command = "(turn 30)"
-                    self.send(command)
-                    # print("a:", command)
-        # ボールが見えているときのplay
+                command = self.getCommandAsDefence(message, ballDist, ballDir)
+                print("defencecommandNo",self.m_iNumber, command)
+        # 体の正面にはない　ここがおかしいと見て間違いない
         else:
-            command = ""
-            # 体の正面にある
-            if abs(ballDir) < 20.0:
-                # そして近い
-                if ballDist < 1.0:
-                    command = self.kick(message)
-                    # print("b", command)
-                # 遠い
-                elif self.checkNearest(message, ballDist, ballDir):
-                    command = "(dash 80)"
-                    # print("d", command)
-                else:
-                    command = self.getCommandAsDefence(message, ballDist, ballDir)
-            # 体の正面にはない　ここがおかしいと見て間違いない
-            else:
-                command = "(turn " + str(ballDir) + ")"
-                # print("c", command)
-            self.send(command)
+            command = "(turn " + str(ballDir) + ")"
+            print("c No",self.m_iNumber, command)
+
+        self.send(command)
+        print("p6 command No", self.m_iNumber, command)
 
 
 if __name__ == "__main__":
@@ -105,7 +81,7 @@ if __name__ == "__main__":
         player6s[i].start()
     player5s = []
     for i in range(11):
-        p5 = kick.Player5()
+        p5 = player5.Player5()
         player5s.append(p5)
         teamname = "p5s"
         player5s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)

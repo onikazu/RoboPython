@@ -1,12 +1,14 @@
 # lv4
-import hearing_player
+import player3
 import threading
 from socket import *
 
 
-class Player4(hearing_player.Player3, threading.Thread):
+class Player4(player3.Player3, threading.Thread):
     def __init__(self):
         super(Player4, self).__init__()
+        self.OUT_OF_RANGE = 999.9
+        self.m_debugLv04 = False
 
     def getObjectMessage(self, message, keyword):
         result = ""
@@ -20,11 +22,10 @@ class Player4(hearing_player.Player3, threading.Thread):
         return result
 
     def getParam(self, message, keyword, number):
-        OUT_OF_RANGE = 999
         key = "(" + keyword
         index0 = message.find(key)
         if index0 < 0:
-            return OUT_OF_RANGE + 1
+            return self.OUT_OF_RANGE
 
         index1 = message.find(" ", index0 + len(key))
         if number == 4:
@@ -43,31 +44,33 @@ class Player4(hearing_player.Player3, threading.Thread):
         try:
             result = float(message[index1:index2])
         except Exception:
-            print("文字データによるエラー")
-            result = OUT_OF_RANGE
+            # print("player4[getParam]:文字データによるエラー")
+            # print("error 時のgetparamの引数{} ,{}, {}".format(message, keyword, number))
+            result = self.OUT_OF_RANGE
         return result
 
-    def play(self, message, ballDist=None, ballDir=None):
-        # ボールが見えていないときのplay
-        if ballDist is None and ballDir is None:
-            if self.checkInitialMode():
-                self.setKickOffPosition()
-                command = "(move " + str(self.m_dKickOffX) + " " \
-                    + str(self.m_dKickOffY) + ")"
-                self.send(command)
-            else:
-                message = message.replace("B", "b")
-                ball = self.getObjectMessage(message, "((b")
-                if ball.startswith("((b"):
-                    ballDist = self.getParam(ball, "(ball)", 1)
-                    ballDir = self.getParam(ball, "(ball)", 2)
-                    self.play(message, ballDist, ballDir)
-                else:
-                    command = "(turn 30)"
-                    self.send(command)
-        # ボールが見えているときのplay
+    def play_1(self, message):
+        if self.checkInitialMode():
+            self.setKickOffPosition()
+            command = "(move " + str(self.m_dKickOffX) + " " \
+                + str(self.m_dKickOffY) + ")"
+            self.send(command)
         else:
-            pass
+            message = message.replace("B", "b")
+            ball = self.getObjectMessage(message, "((b")
+
+            if ball.startswith("((b"):
+                ballDist = self.getParam(ball, "(ball)", 1)
+                ballDir = self.getParam(ball, "(ball)", 2)
+                # print("p4 message", message)
+                self.play_3(message, ballDist, ballDir)
+            else:
+                command = "(turn 30)"
+                self.send(command)
+
+    def play_3(self, message, ballDist, ballDir):
+        # ボールが見えていないときのplay
+        pass
 
 
 if __name__ == "__main__":
@@ -82,3 +85,4 @@ if __name__ == "__main__":
         players[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         players[i].start()
     print("試合登録完了")
+    players[10].m_debugLv04 = True

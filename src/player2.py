@@ -1,13 +1,14 @@
-import set_players
+import player1
 import threading
 from socket import *
 
 
-class Player2(set_players.Player1, threading.Thread):
+class Player2(player1.Player1, threading.Thread):
     def __init__(self):
         super(Player2, self).__init__()
         self.m_dKickOffX = 0.0
         self.m_dKickOffY = 0.0
+        self.m_debugLv02 = False
 
     def checkInitialMode(self):
         if self.m_strPlayMode.startswith("before_kick_off") or \
@@ -17,8 +18,8 @@ class Player2(set_players.Player1, threading.Thread):
         else:
             return False
 
-    def analyzeVisualMessage(self):
-        pass
+    def analyzeVisualMessage(self, message):
+        return
 
     def setKickOffPosition(self):
         if self.m_iNumber == 1:
@@ -57,7 +58,8 @@ class Player2(set_players.Player1, threading.Thread):
         else:
             print("範囲外の背番号の選手です")
 
-    def play(self, message):
+    # 引数が一つのplay関数
+    def play_1(self, message):
         command = ""
         if self.checkInitialMode():
             self.setKickOffPosition()
@@ -71,8 +73,8 @@ class Player2(set_players.Player1, threading.Thread):
             pass
             # print(message)
         elif message.startswith("(see "):
-            self.analyzeVisualMessage()
-            self.play(message)
+            self.analyzeVisualMessage(message)
+            self.play_1(message)
         else:
             pass
             # print(message)

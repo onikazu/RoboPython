@@ -1,16 +1,17 @@
-import nearest_recog
+import player6
 import threading
 from socket import *
 import math
 
 
-class Player7(nearest_recog.Player6, threading.Thread):
+class Player7(player6.Player6, threading.Thread):
     def __init__(self):
         super(Player7, self).__init__()
 
     def normalizeAngle(self, angle):
         if abs(angle) > 720.0:
-            print("error about angle")
+            # print("p7 error about angle")
+            pass
         while angle > 180.0:
             angle -= 360.0
         while angle < -180:
@@ -18,12 +19,11 @@ class Player7(nearest_recog.Player6, threading.Thread):
         return angle
 
     def getNeckDir(self, message):
-        OUT_OF_RANGE = 999.0
         index0 = message.find("((l")
         lineName = ""
         line = ""
-        lineDist = -1 * OUT_OF_RANGE
-        lineDir = -1 * OUT_OF_RANGE
+        lineDist = -1 * self.OUT_OF_RANGE
+        lineDir = -1 * self.OUT_OF_RANGE
         while index0 > -1:
             index1 = message.find(")", index0+3)
             lineName = message[index0+1:index1+1]
@@ -36,10 +36,10 @@ class Player7(nearest_recog.Player6, threading.Thread):
                 lineDist = dist
                 lineDir = dir
             index0 = message.find("((l", index0+3)
-        if lineDist == OUT_OF_RANGE:
-            return OUT_OF_RANGE
+        if lineDist == self.OUT_OF_RANGE:
+            return self.OUT_OF_RANGE
 
-        playerNeck = OUT_OF_RANGE
+        playerNeck = self.OUT_OF_RANGE
         if lineName.startswith("(line b)"):
             if 0 < lineDir and lineDir <= 90:
                 playerNeck = 180 - lineDir
@@ -97,7 +97,7 @@ class Player7(nearest_recog.Player6, threading.Thread):
 if __name__ == "__main__":
     player6s = []
     for i in range(11):
-        p6 = nearest_recog.Player6()
+        p6 = player6.Player6()
         player6s.append(p6)
         teamname = "p6s"
         player6s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)

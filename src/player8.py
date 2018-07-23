@@ -1,10 +1,10 @@
-import no_look_shoot
+import player7
 import threading
 from socket import *
 import math
 
 
-class Player8(no_look_shoot.Player7, threading.Thread):
+class Player8(player7.Player7, threading.Thread):
     def __init__(self):
         super(Player8, self).__init__()
         self.m_strFlagName = []
@@ -28,7 +28,7 @@ class Player8(no_look_shoot.Player7, threading.Thread):
         self.m_strFlagName.append("flag g l b"); self.m_dFlagX.append(-52.5);self.m_dFlagY.append( 7.01)
         self.m_strFlagName.append("flag g r t"); self.m_dFlagX.append( 52.5);self.m_dFlagY.append(-7.01)
         self.m_strFlagName.append("flag g r b"); self.m_dFlagX.append( 52.5);self.m_dFlagY.append( 7.01)
-        self.m_strFlagName.append("flag t l 50");self.m_dFlagX.append(-50.0);self.m_dFlagY.append(-39.0)
+        self.m_strFlagName.append("flag t l 50)");self.m_dFlagX.append(-50.0);self.m_dFlagY.append(-39.0)
         self.m_strFlagName.append("flag t l 40");self.m_dFlagX.append(-40.0);self.m_dFlagY.append(-39.0)
         self.m_strFlagName.append("flag t l 30");self.m_dFlagX.append(-30.0);self.m_dFlagY.append(-39.0)
         self.m_strFlagName.append("flag t l 20");self.m_dFlagX.append(-20.0);self.m_dFlagY.append(-39.0)
@@ -90,8 +90,9 @@ class Player8(no_look_shoot.Player7, threading.Thread):
             index1 = flag.find(")", index0 + 2)
             index2 = flag.find(")", index1 + 1)
             name = flag[index0+2:index1]
+            # print("name", name)
             j = 0
-            while self.m_strFlagName.endswith(name) is False:
+            while self.m_strFlagName[j].endswith(name) is False:
                 j += 1
             dist = self.getParam(flag, name, 1)
             dir = self.getParam(flag, name, 2)
@@ -109,25 +110,21 @@ class Player8(no_look_shoot.Player7, threading.Thread):
         return result
 
     # @override
-    def analyzeVisualMessage(self, message = None):
-        if message is None:
-            pass
-        else:
-            OUT_OF_RANGE = 999.0
-            time = int(self.getParam(message, "see", 1))
-            if time < 1:
-                return
-            self.m_dNeck = self.getNeckDir(message)
-            if self.m_dNeck == OUT_OF_RANGE:
-                return
-            if self.checkInitialMode():
-                self.m_dX = self.m_dKickOffX
-                self.m_dY = self.m_dKickOffY
+    def analyzeVisualMessage(self, message):
+        OUT_OF_RANGE = 999.0
+        time = int(self.getParam(message, "see", 1))
+        if time < 1:
+            return
+        self.m_dNeck = self.getNeckDir(message)
+        if self.m_dNeck == OUT_OF_RANGE:
+            return
+        if self.checkInitialMode():
+            self.m_dX = self.m_dKickOffX
+            self.m_dY = self.m_dKickOffY
 
-            pos = self.estimatePosition(message, self.m_dNeck, self.m_dX, self.m_dY)
-            self.m_dX = pos["x"]
-            self.m_dY = pos["y"]
-
+        pos = self.estimatePosition(message, self.m_dNeck, self.m_dX, self.m_dY)
+        self.m_dX = pos["x"]
+        self.m_dY = pos["y"]
 
 
 if __name__ == "__main__":
@@ -140,7 +137,7 @@ if __name__ == "__main__":
         player8s[i].start()
     player7s = []
     for i in range(11):
-        p7 = no_look_shoot.Player7()
+        p7 = player7.Player7()
         player7s.append(p7)
         teamname = "p7s"
         player7s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)

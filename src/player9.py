@@ -1,11 +1,11 @@
 # ボール位置の絶対座標を用いる
-import map_recog
+import player8
 import threading
 from socket import *
 import math
 
 
-class Player9(map_recog.Player8, threading.Thread):
+class Player9(player8.Player8, threading.Thread):
     def __init__(self):
         super(Player9, self).__init__()
         self.m_dBallX = 0.0
@@ -14,6 +14,8 @@ class Player9(map_recog.Player8, threading.Thread):
         self.m_dDefenceY = 0.0
 
     def setDefencePosition(self, ballX, ballY):
+        offsetX = 0.0
+        offsetY = 0.0
         if self.m_iNumber == 1:
             offsetX, offsetY = -50.0, -0.0
         elif self.m_iNumber == 2:
@@ -40,6 +42,7 @@ class Player9(map_recog.Player8, threading.Thread):
             pass
 
         if self.m_iNumber == 1:
+            # print("set gk")
             if self.m_strSide.startswith("r"):
                 self.m_dDefenceX = 52.5
             else:
@@ -47,44 +50,43 @@ class Player9(map_recog.Player8, threading.Thread):
             self.m_dDefenceY = 0.0
         else:
             if self.m_strSide.startswith("r"):
-                m_dDefenceX = ballX / 2.0 - offsetX
-                m_dDefenceY = ballY / 2.0 - offsetY
+                self.m_dDefenceX = ballX / 2.0 - offsetX
+                self.m_dDefenceY = ballY / 2.0 - offsetY
             else:
-                m_dDefenceX = ballX / 2.0 + offsetX
-                m_dDefenceY = ballY / 2.0 + offsetY
+                self.m_dDefenceX = ballX / 2.0 + offsetX
+                self.m_dDefenceY = ballY / 2.0 + offsetY
 
-    def analyzeVisualMessage(self, message=None):
-        if message is None:
-            pass
-        else:
-            OUT_OF_RANGE = 999.0
-            time = int(self.getParam(message, "see", 1))
-            if time < 1:
-                return
-            self.m_dNeck = self.getNeckDir(message)
-            if self.m_dNeck == OUT_OF_RANGE:
-                return
-            if self.checkInitialMode():
-                self.m_dX = self.m_dKickOffX
-                self.m_dY = self.m_dKickOffY
+    def analyzeVisualMessage(self, message):
+        OUT_OF_RANGE = 999.0
+        time = int(self.getParam(message, "see", 1))
+        if time < 1:
+            return
+        self.m_dNeck = self.getNeckDir(message)
+        if self.m_dNeck == OUT_OF_RANGE:
+            return
+        if self.checkInitialMode():
+            self.m_dX = self.m_dKickOffX
+            self.m_dY = self.m_dKickOffY
 
-            pos = self.estimatePosition(message, self.m_dNeck, self.m_dX, self.m_dY)
-            self.m_dX = pos["x"]
-            self.m_dY = pos["y"]
-            if message.find("(ball)") == -1:
-                return
-            ballDist = self.getParam(message, "(ball)", 1)
-            ballDir = self.getParam(message, "(ball)", 2)
-            rad = math.radians(self.normalizeAngle(self.m_dNeck + ballDir))
-            self.m_dBallX = self.m_dX + ballDist * math.cos(rad)
-            self.m_dBallY = self.m_dY + ballDist * math.sin(rad)
-            self.setDefencePosition(self.m_dBallX, self.m_dBallY)
+        pos = self.estimatePosition(message, self.m_dNeck, self.m_dX, self.m_dY)
+        self.m_dX = pos["x"]
+        self.m_dY = pos["y"]
+
+        if message.find("(ball)") == -1:
+            return
+        ballDist = self.getParam(message, "(ball)", 1)
+        ballDir = self.getParam(message, "(ball)", 2)
+        rad = math.radians(self.normalizeAngle(self.m_dNeck + ballDir))
+        self.m_dBallX = self.m_dX + ballDist * math.cos(rad)
+        self.m_dBallY = self.m_dY + ballDist * math.sin(rad)
+        self.setDefencePosition(self.m_dBallX, self.m_dBallY)
+
 
 
 if __name__ == "__main__":
     player8s = []
     for i in range(11):
-        p8 = map_recog.Player8()
+        p8 = player8.Player8()
         player8s.append(p8)
         teamname = "p8s"
         player8s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
