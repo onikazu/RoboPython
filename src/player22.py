@@ -33,7 +33,8 @@ class Player22(player21.Player21, threading.Thread):
         index0 = obj.find(") ")
         index1 = obj.find(")", index0 + 1)
         result = ""
-        name = obj[0:index0 + 2]
+        # 教科書変更点
+        name = obj[0:index1 + 2]
         # 教科書変更点
         index2 = name.find(" ")
         index3 = name.find(" ", index2 + 1)
