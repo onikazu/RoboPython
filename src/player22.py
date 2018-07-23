@@ -97,8 +97,8 @@ class Player22(player21.Player21, threading.Thread):
             NECK = self.normalizeAngle(NECK + self.m_dNeck[t])
 
         result = "("
-        result += "(team" + team + ")"
-        result += "(number" + str(number) + ")"
+        result += "(team " + team + ")"
+        result += "(number " + str(number) + ")"
         result += "(x {0:.4f})(y {0:.4f})".format(X, Y)
         result += "(vx {0:.4f})(vy {0:.4f})".format(VX, VY)
         result += "(body {0:.4f})(neck {0:.4f})".format(BODY, NECK)
