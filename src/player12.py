@@ -49,7 +49,7 @@ class Player12(player11.Player11, threading.Thread):
             self.m_dX[i] = x
 
             self.m_dY[i] = y
-            print(self.m_dY, self.m_dX)
+            # print(self.m_dY, self.m_dX)
             self.m_dAX[i] = self.m_dVX[i] = 0.0
             self.m_dAY[i] = self.m_dVY[i] = 0.0
 
@@ -63,6 +63,8 @@ class Player12(player11.Player11, threading.Thread):
             # print(type(self.m_dX))
             print("時刻", self.m_iTime)
             print("位置 {0:.4f}, {0:.4f}".format(self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
+            print(self.m_dX[:20])
+            print(self.m_dY[:20])
 
     def analyzeInitialMessage(self, message):
         super().analyzeInitialMessage(message)
