@@ -37,7 +37,7 @@ class Player12(player11.Player11, threading.Thread):
         command = self.m_strCommand[i]
         if command.startswith("(move"):
             print("moveコマンド", command)
-            print("self.m_strSide", self.m_strSide)
+            # print("self.m_strSide", self.m_strSide)
             x = self.getParam(command, "move", 1)
             y = self.getParam(command, "move", 2)
 
@@ -47,7 +47,9 @@ class Player12(player11.Player11, threading.Thread):
                 y = -y
 
             self.m_dX[i] = x
+
             self.m_dY[i] = y
+            print("y andx", self.m_dY[i], self.m_dX[i])
             self.m_dAX[i] = self.m_dVX[i] = 0.0
             self.m_dAY[i] = self.m_dVY[i] = 0.0
 
