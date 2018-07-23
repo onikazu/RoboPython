@@ -34,8 +34,9 @@ class Player22(player21.Player21, threading.Thread):
         index1 = obj.find(")", index0 + 1)
         result = ""
         name = obj[0:index0 + 2]
-        index2 = name.find("\"")
-        index3 = name.find("\"", index2 + 1)
+        # 教科書変更点
+        index2 = name.find(" ")
+        index3 = name.find(" ", index2 + 1)
         index4 = name.find(")")
         s = "((player " + self.m_strTeamName
         team = ""
