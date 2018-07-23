@@ -36,6 +36,7 @@ class Player12(player11.Player11, threading.Thread):
     def predictMoveCommand(self, i):
         command = self.m_strCommand[i]
         if command.startswith("(move"):
+            print("moveコマンド", command)
             x = self.getParam(command, "move", 1)
             y = self.getParam(command, "move", 2)
 
