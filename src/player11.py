@@ -16,7 +16,7 @@ class Player11(player10.Player10, threading.Thread):
             self.m_strPlayerType.append("")
         self.m_iPlayerType = 0
         self.m_strCommand = []
-        for _ in range(6000):
+        for _ in range(self.GAME_LENGTH):
             self.m_strCommand.append("")
         self.m_iTime = -1
         self.m_iVisualTime = -1

@@ -40,6 +40,7 @@ class Player12(player11.Player11, threading.Thread):
             y = self.getParam(command, "move", 2)
 
             if self.m_strSide.startswith("r"):
+                print("xy", x, y)
                 x = -x
                 y = -y
 
@@ -57,7 +58,6 @@ class Player12(player11.Player11, threading.Thread):
         if self.m_debugLv12 and self.m_iTime > 0 and self.m_iTime < 20:
             # print(type(self.m_dX))
             print("時刻", self.m_iTime)
-            print("位置ｘ{0:.4f}".format(self.m_dX[self.m_iTime]))
             print("位置 {0:.4f}, {0:.4f}".format(self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
 
     def analyzeInitialMessage(self, message):
