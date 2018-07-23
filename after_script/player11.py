@@ -103,6 +103,7 @@ class Player11(player10.Player10, threading.Thread):
         # エラーの処理
         else:
             print("p11 error from server , message is like this:", message)
+            print("p11 command is this :", self.m_strCommand[self.m_iTime])
 
 
 if __name__ == "__main__":
