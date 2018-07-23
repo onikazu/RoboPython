@@ -19,7 +19,7 @@ class Player22(player21.Player21, threading.Thread):
             strObject = message[index0:index2 + 1]
             player = self.getObjectMessage_1(strObject)
             list.append(player)
-            index0.find(keyword, index2)
+            index0 = message.find(keyword, index2)
         return list
 
     def getObjectMessage_1(self, obj):
