@@ -17,7 +17,7 @@ class Player23(player22.Player22, threading.Thread):
         dash_power = 100.0 * self.m_dEffort[t] * self.m_dStamina[t] / self.stamina_max
         self.setTrapPosition_2(dash_power, moveTurn)
         d = self.getDistance(self.m_dTrapX, self.m_dTrapY, self.m_dX[t], self.m_dY[t])
-        rad = math.atan2(self.m_dTrapY - self.m_dY[t], self.m_dTrapX - self.mdX[t])
+        rad = math.atan2(self.m_dTrapY - self.m_dY[t], self.m_dTrapX - self.m_dX[t])
         turnAngle = abs(self.normalizeAngle(math.degrees(rad) - self.m_dBody[t]))
         if turnAngle < 10.0 or turnAngle >170.0:
             moveTurn = 0
