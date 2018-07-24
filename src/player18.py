@@ -63,7 +63,7 @@ class Player18(player17.Player17, threading.Thread):
             print("速度{0:.4f},{1:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
             print("ボール位置{0:.4f}, {1:.4f}".format(self.m_dBallX[self.m_iTime], self.m_dBallY[self.m_iTime]))
             print("ボール速度{0:.4f}, {1:.4f}".format(self.m_dBallVX[self.m_iTime], self.m_dBallVY[self.m_iTime]))
-            print("ball = {0:.4f}".format(ball))
+            print("ball = {}".format(ball))
 
 
 if __name__ == "__main__":
