@@ -72,6 +72,8 @@ class Player15(player14.Player14, threading.Thread):
             print("スタミナ {0:.4f}".format(self.m_dStamina[self.m_iTime]))
             print("実行効率{0:.4f}".format(self.m_dEffort[self.m_iTime]))
             print("回復力{0:.4f}".format(self.m_dRecovery[self.m_iTime]))
+            print("位置{0:.4f}, {1:.4f}".format(self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
+            print("速度{0:.4f}, {1:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
 
 
 if __name__ == "__main__":
