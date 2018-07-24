@@ -85,5 +85,5 @@ if __name__ == "__main__":
         player12s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         player12s[i].start()
 
-    player12s[0].m_debugLv12 = True
+    player12s[1].m_debugLv12 = True
     print("試合登録完了")
