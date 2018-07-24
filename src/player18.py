@@ -27,7 +27,7 @@ class Player18(player17.Player17, threading.Thread):
         if message.find("(ball)") == -1:
             return
         self.m_iBallTime = t
-        ball = self.getObjectMessage(message, "((b")
+        ball = self.getObjectMessage(message, "((ball")
         # string tokenizer の代わり
         st = ball.split(" ")
         ball_dist = self.getParam(message, "(ball)", 1)
