@@ -71,8 +71,13 @@ class Player16(player15.Player15, threading.Thread):
         super().predict(start, end)
         if 0 < self.m_iTime < 20 and self.m_debugLv16:
             print("時刻", self.m_iTime)
+            print("start", start)
+            print("end", end)
             print("スタミナ{0:.4f}".format(self.m_dStamina[self.m_iTime]))
             print("実行力{0:.4f}".format(self.m_dEffort[self.m_iTime]))
+            print("回復力{0:.4f}".format(self.m_dRecovery[self.m_iTime]))
+            print("位置{0:.4f}, {1:.4f}".format(self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
+            print("速度{0:.4f}, {1:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
             print("首{0:.4f}".format(self.m_dNeck[self.m_iTime]))
             print("体{0:.4f}".format(self.m_dBody[self.m_iTime]))
 
@@ -100,7 +105,7 @@ class Player16(player15.Player15, threading.Thread):
             elif self.m_iTime < 15:
                 command = "(turn 0)(turn_neck -20)"
             elif self.m_iTime == 15:
-                command = "(turn 30)(turn_neck 90)"
+                command = "(turn -30)(turn_neck 90)"
             elif self.m_iTime < 18:
                 command = "(dash 100)"
             elif self.m_iTime == 18:
