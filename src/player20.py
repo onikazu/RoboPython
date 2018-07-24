@@ -43,7 +43,7 @@ class Player20(player19.Player19, threading.Thread):
         else:
             self.m_dKickX[t] = 52.5
         self.m_dKickY[t] = 0
-        self.m_iKickTime[t] = self.m_iTime
+        self.m_iKickTime[t] = self.m_iTime + 1
 
     def setTrapPosition(self):
         t = self.m_iTime
@@ -90,7 +90,7 @@ class Player20(player19.Player19, threading.Thread):
         if self.m_dMoveX[t] < -52.5:
             self.m_dMoveX[t] = -52.5
         if self.m_dMoveX[t] > 52.5:
-            self.m_dMoveX[t] = -52.5
+            self.m_dMoveX[t] = 52.5
         if self.m_dMoveY[t] < -34.0:
             self.m_dMoveY[t] = -34.0
         if self.m_dMoveY[t] > 34.0:
