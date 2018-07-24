@@ -85,7 +85,7 @@ class Player21(player20.Player20, threading.Thread):
             print("速度{0:.4f}, {1:.4f}".format(self.m_dVX[t], self.m_dVY[t]))
             print("首{0:.4f}".format(self.m_dNeck[t]))
             print("体{0:.4f}".format(self.m_dBody[t]))
-            print("ball({0:.4f}, {1:.4f}".format(self.m_dBallX[t], self.m_dBallY[t]))
+            print("ball({0:.4f}, {1:.4f})".format(self.m_dBallX[t], self.m_dBallY[t]))
             print("速度{0:.4f}, {1:.4f}".format(self.m_dBallVX[t], self.m_dBallVY[t]))
             print("コマンド{}".format(self.m_strCommand[t]))
 
