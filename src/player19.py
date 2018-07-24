@@ -91,9 +91,9 @@ class Player19(player18.Player18, threading.Thread):
             command = "(move {} {})".format(self.m_dKickOffX, self.m_dKickOffY)
             self.m_strCommand[t] = command
         else:
-            if abs(self.m_dNeck[t]) >180.0:
+            if abs(self.m_dNeck[t]) > 180.0:
                 return
-            if abs(self.m_dBody[t]) >180.0:
+            if abs(self.m_dBody[t]) > 180.0:
                 return
             if t > 0:
                 if self.checkFresh(self.m_iBallTime) == False:
@@ -118,6 +118,6 @@ if __name__ == "__main__":
         player19s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         player19s[i].start()
 
-    player19s[0].m_debugLv19 = True
+    player19s[5].m_debugLv19 = True
 
     print("試合登録完了")

@@ -21,9 +21,9 @@ class Player16(player15.Player15, threading.Thread):
             return
 
         # 仕様変更による改善
-        speed = self.getParam(message, "speed", 1)
-        if speed == 0:
-            return
+        # speed = self.getParam(message, "speed", 1)
+        # if speed == 0:
+        #     return
 
         # ここでエラー値999.9(out of range)が入ってしまう（getparam の引数が存在しないから）
         speed_angle = self.getParam(message, "speed", 2)
