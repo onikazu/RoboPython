@@ -14,7 +14,7 @@ class Player18(player17.Player17, threading.Thread):
         super().analyzeVisualMessage(message)
         t = self.m_iVisualTime
         self.m_dX[t] = self.OUT_OF_RANGE
-        self.m_dX[t] = self.OUT_OF_RANGE
+        self.m_dY[t] = self.OUT_OF_RANGE
         self.m_dNeck[t] = self.getNeckDir(message)
         if self.m_dNeck[t] == self.OUT_OF_RANGE:
             return
