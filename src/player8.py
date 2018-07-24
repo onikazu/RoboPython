@@ -97,7 +97,7 @@ class Player8(player7.Player7, threading.Thread):
             dist = self.getParam(flag, name, 1)
             dir = self.getParam(flag, name, 2)
             rad = math.radians(self.normalizeAngle(dir + neckDir))
-            W += 1 / dist
+            W = 1 / dist
             X += W * (self.m_dFlagX[j] - dist * math.cos(rad))
             Y += W * (self.m_dFlagY[j] - dist * math.sin(rad))
             S += W
