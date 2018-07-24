@@ -21,7 +21,7 @@ class Player16(player15.Player15, threading.Thread):
             return
 
         # 仕様変更による改善
-        # speed = self.getParam(message, "speed", 1)
+        speed = self.getParam(message, "speed", 1)
         # if speed == 0:
         #     return
 
