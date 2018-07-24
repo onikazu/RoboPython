@@ -61,12 +61,12 @@ class Player19(player18.Player18, threading.Thread):
             print("時刻{}".format(t))
             print("視覚{}".format(self.m_iVisualTime))
             print("目標")
-            print("位置{0:.4f}, {0:.4f}".format(self.m_dBallX[t], self.m_dBallY[t]))
+            print("位置{0:.4f}, {1:.4f}".format(self.m_dBallX[t], self.m_dBallY[t]))
             print("方向{0:.4f}".format(face_dir))
             print("自分")
-            print("位置{}, {}".format(self.m_dX[t], self.m_dY[t]))
-            print("首{}".format(self.m_dNeck[t]))
-            print("体{}".format(self.m_dBody[t]))
+            print("位置{0:.4f}, {1:.4f}".format(self.m_dX[t], self.m_dY[t]))
+            print("首{0:.4f}".format(self.m_dNeck[t]))
+            print("体{0:.4f}".format(self.m_dBody[t]))
 
         if abs(body_diff) < 90 + 22.5 / 2 and abs(neck_diff) < 22.5:
             self.m_strCommand[self.m_iTime] += "(turn_neck {0:.2f})".format(neck_diff)

@@ -41,8 +41,8 @@ class Player13(player12.Player12, threading.Thread):
         if self.m_debugLv13 and self.m_iTime > 0 and self.m_iTime < 50:
             print()
             print("時刻", self.m_iTime)
-            print("位置 {0:.4f}, {0:.4f}".format(self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
-            print("速度 {0:.4f}, {0:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
+            print("位置 {0:.4f}, {1:.4f}".format(self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
+            print("速度 {0:.4f}, {1:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
 
     def play_0(self):
         super().play_0()

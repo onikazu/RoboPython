@@ -59,12 +59,12 @@ class Player17(player16.Player16, threading.Thread):
 
         if 0 < self.m_iTime < 20 and self.m_debugLv17:
             print("ボール")
-            print("位置{0:.4f}, {0:.4f}".format(self.m_dBallX[self.m_iTime], self.m_dBallY[self.m_iTime]))
-            print("速度{0:.4f}, {0:.4f}".format(self.m_dBallVX[self.m_iTime], self.m_dBallVY[self.m_iTime]))
+            print("位置{0:.4f}, {1:.4f}".format(self.m_dBallX[self.m_iTime], self.m_dBallY[self.m_iTime]))
+            print("速度{0:.4f}, {1:.4f}".format(self.m_dBallVX[self.m_iTime], self.m_dBallVY[self.m_iTime]))
 
             print("自分")
-            print("位置{0:.4f}, {0:.4f}".format(self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
-            print("速度{0:.4f}, {0:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
+            print("位置{0:.4f}, {1:.4f}".format(self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
+            print("速度{0:.4f}, {1:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
 
     def analyzeServerParam(self, message):
         super().analyzeServerParam(message)

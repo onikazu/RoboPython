@@ -135,10 +135,10 @@ class Player20(player19.Player19, threading.Thread):
             print("時刻{}".format(t))
             print("視覚{}".format(self.m_iVisualTime))
             print("player{}".format(self.m_iNumber))
-            print("位置{0:.4f}, {0:.4f}".format(self.m_dX[t], self.m_dY[t]))
-            print("kick{0:.4f}, {0:.4f}".format(self.m_dKickX[t], self.m_dKickY[t]))
-            print("move{0:.4f}, {0:.4f}".format(self.m_dMoveX[t], self.m_dMoveY[t]))
-            print("視線{0:.4f}, {0:.4f}".format(self.m_dFaceX[t], self.m_dFaceY[t]))
+            print("位置{0:.4f}, {1:.4f}".format(self.m_dX[t], self.m_dY[t]))
+            print("kick{0:.4f}, {1:.4f}".format(self.m_dKickX[t], self.m_dKickY[t]))
+            print("move{0:.4f}, {1:.4f}".format(self.m_dMoveX[t], self.m_dMoveY[t]))
+            print("視線{0:.4f}, {1:.4f}".format(self.m_dFaceX[t], self.m_dFaceY[t]))
             print("コマンド{}".format(self.m_strCommand[t]))
 
 
