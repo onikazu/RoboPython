@@ -13,7 +13,7 @@ class Player19(player18.Player18, threading.Thread):
 
     def analyzeVisualMessage(self, message):
         super().analyzeVisualMessage(message)
-        if message.find("(ball)") > -1:
+        if message.find("(ball") > -1:
             self.m_iBallTime = self.m_iVisualTime
             self.m_iSearchCount = 0
         elif self.checkFresh(self.m_iBallTime) == False:
@@ -43,7 +43,7 @@ class Player19(player18.Player18, threading.Thread):
         t = self.m_iTime
         turn_angle = 0.0
         command = self.m_strCommand[t]
-        if command.startswith("(turn"):
+        if command.startswith("(turn "):
             moment = self.getParam(command, "turn", 1)
             vx = self.m_dVX[t]
             vy = self.m_dVY[t]
