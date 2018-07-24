@@ -19,7 +19,7 @@ class Player23(player22.Player22, threading.Thread):
         d = self.getDistance(self.m_dTrapX, self.m_dTrapY, self.m_dX[t], self.m_dY[t])
         rad = math.atan2(self.m_dTrapY - self.m_dY[t], self.m_dTrapX - self.m_dX[t])
         turnAngle = abs(self.normalizeAngle(math.degrees(rad) - self.m_dBody[t]))
-        if turnAngle < 10.0 or turnAngle >170.0:
+        if turnAngle < 10.0 or turnAngle > 170.0:
             moveTurn = 0
             self.setTrapPosition_2(dash_power, moveTurn)
         elif turnAngle < 60.0:
@@ -52,25 +52,25 @@ class Player23(player22.Player22, threading.Thread):
         player_speed = 0.0
         while cover_area < ball_dist and abs(t - next) < 100:
             # ボールの将来位置の予測
-            self.m_dBallX[next] = self.m_dBallX[t] + self.m_dBallVX[t];
-            self.m_dBallY[next] = self.m_dBallY[t] + self.m_dBallVY[t];
-            self.m_dBallVX[next] = self.m_dBallVX[t] * self.ball_decay;
-            self.m_dBallVY[next] = self.m_dBallVY[t] * self.ball_decay;
+            self.m_dBallX[next] = self.m_dBallX[t] + self.m_dBallVX[t]
+            self.m_dBallY[next] = self.m_dBallY[t] + self.m_dBallVY[t]
+            self.m_dBallVX[next] = self.m_dBallVX[t] * self.ball_decay
+            self.m_dBallVY[next] = self.m_dBallVY[t] * self.ball_decay
             # 選手の計算開始位置の予測
-            self.m_dX[next] = self.m_dX[t] + self.m_dVX[t];
-            self.m_dY[next] = self.m_dY[t] + self.m_dVY[t];
-            self.m_dVX[next] = self.m_dVX[t] * self.player_decay;
-            self.m_dVY[next] = self.m_dVY[t] * self.player_decay;
-            self.m_dBody[next] = self.m_dBody[t];
-            self.m_dNeck[next] = self.m_dNeck[t];
+            self.m_dX[next] = self.m_dX[t] + self.m_dVX[t]
+            self.m_dY[next] = self.m_dY[t] + self.m_dVY[t]
+            self.m_dVX[next] = self.m_dVX[t] * self.player_decay
+            self.m_dVY[next] = self.m_dVY[t] * self.player_decay
+            self.m_dBody[next] = self.m_dBody[t]
+            self.m_dNeck[next] = self.m_dNeck[t]
             current_power = 0.0
             if (t - self.m_iTime) >= stable_staps + self.m_iTrapMarginSteps:
                 current_power = abs(dash_power)
             speed = player_speed * self.player_decay + current_power * self.dash_power_rate
             player_speed = min(speed, self.player_speed_max)
             cover_area += (player_speed * 0.9)
-            t = (t+1) % self.GAME_LENGTH
-            next = (t+1) % self.GAME_LENGTH
+            t = (t + 1) % self.GAME_LENGTH
+            next = (t + 1) % self.GAME_LENGTH
             ball_dist = self.getDistance(self.m_dX[t], self.m_dY[t], self.m_dBallX[t], self.m_dBallY[t])
         self.m_dTrapX = self.m_dBallX[t]
         self.m_dTrapY = self.m_dBallY[t]
@@ -81,6 +81,7 @@ class Player23(player22.Player22, threading.Thread):
         type = self.m_strPlayerType[self.m_iPlayerType]
         # selfでは？
         player_speed_max = self.getParam(type, "player_speed_max", 1)
+
 
 if __name__ == "__main__":
     player23s = []
