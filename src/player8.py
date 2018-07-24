@@ -179,6 +179,31 @@ class Player8(player7.Player7, threading.Thread):
         self.m_dFlagX.append(52.5);
         self.m_dFlagY.append(34.0)
 
+    def getLandMarker(self, message, playerX, playerY):
+        message = message.replace("B", "b", 1)
+        if message.find("(F)") > -1:
+            name = "(F)"
+            min_dist = self.OUT_OF_RANGE
+            for i in range(2, 55):
+                dist = self.getDistance(playerX, playerY, self.m_dFlagX[i], self.m_dFlagY[i])
+                if min_dist > dist:
+                    min_dist = dist
+                    name = self.m_strFlagName[i]
+            message = message.replace("F", name, 1)
+
+        if message.find("(G)") > -1:
+            name = "(G)"
+            min_dist = self.OUT_OF_RANGE
+            for i in range(2):
+                dist = self.getDistance(playerX, playerY, self.m_dFlagX[i], self.m_dFlagY[i])
+                if min_dist > dist:
+                    min_dist = dist
+                    name = self.m_strFlagName[i]
+            message = message.replace("G", name)
+
+        return message
+
+
     def getDistance(self, x0, y0, x1, y1):
         dx = x1 - x0
         dy = y1 - y0
@@ -191,6 +216,8 @@ class Player8(player7.Player7, threading.Thread):
     # 返り値は辞書型になっている。教科書と違うので注意
     def estimatePosition(self, message, neckDir, playerX, playerY):
         result = {"x": 999, "y": 999}
+        message = self.getLandMarker(message, playerX, playerY)
+
         flag = self.getObjectMessage(message, "((g") + \
                self.getObjectMessage(message, "((f")
         index0 = flag.find("((")
