@@ -210,8 +210,8 @@ class Player8(player7.Player7, threading.Thread):
         return math.sqrt(dx * dx + dy * dy)
 
     # メッセージに大文字が含まれていないために、省略（バージョンの仕様？？）
-    def getLandMarker(self, message, playerX, playerY):
-        pass
+    # def getLandMarker(self, message, playerX, playerY):
+    #     pass
 
     # 返り値は辞書型になっている。教科書と違うので注意
     def estimatePosition(self, message, neckDir, playerX, playerY):
