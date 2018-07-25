@@ -10,6 +10,7 @@ class Player25(player24.Player24, threading.Thread):
         self.m_debugLv25 = False
 
     def setKickTarget(self):
+        # m_list でattribute error
         if not len(self.m_listPlayer):
             return
         t = self.m_iTime
@@ -70,7 +71,7 @@ class Player25(player24.Player24, threading.Thread):
         d = 0
         count = 1
         while dist > d and count < 100:
-            d = d+v
+            d = d + v
             v = v * self.ball_decay
             count += 1
         return count
@@ -118,7 +119,6 @@ if __name__ == "__main__":
         player25s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         player25s[i].start()
 
-    player25s[2].m_debugLv23 = True
+    player25s[2].m_debugLv25 = True
 
     print("試合登録完了")
-
