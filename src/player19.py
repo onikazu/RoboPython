@@ -61,6 +61,7 @@ class Player19(player18.Player18, threading.Thread):
         if self.m_debugLv19 and 0 < t < 30:
             print("時刻{}".format(t))
             print("視覚{}".format(self.m_iVisualTime))
+            # 適切な出力得られていない
             print("目標")
             print("位置{0:.4f}, {1:.4f}".format(self.m_dBallX[t], self.m_dBallY[t]))
             print("方向{0:.4f}".format(face_dir))
