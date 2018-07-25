@@ -67,8 +67,8 @@ class Player19(player18.Player18, threading.Thread):
             print("位置{0:.4f}, {1:.4f}".format(self.m_dX[t], self.m_dY[t]))
             print("首{0:.4f}".format(self.m_dNeck[t]))
             print("体{0:.4f}".format(self.m_dBody[t]))
-        print("No. {}".format(self.m_iNumber))
-        print("body_diff {0:.4f}, neck_diff {0:.4f}".format(body_diff, neck_diff))
+        # print("No. {}".format(self.m_iNumber))
+        # print("body_diff {0:.4f}, neck_diff {0:.4f}".format(body_diff, neck_diff))
         if abs(body_diff) < 90 + 22.5 / 2 and abs(neck_diff) < 22.5:
             self.m_strCommand[self.m_iTime] += "(turn_neck {0:.2f})".format(neck_diff)
             self.m_strCommand[self.m_iTime] += "(change_view narrow high)"

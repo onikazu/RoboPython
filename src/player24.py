@@ -19,7 +19,7 @@ class Player24(player23.Player23, threading.Thread):
             self.m_dKickX[t] = 52.5
             self.m_dKickY[t] = 0.0
             self.m_iKickTime[t] = self.m_iTime + 1
-        if self.m_strTeamName.startswith("PlayerLv24"):
+        if self.m_strTeamName.startswith("Player24"):
             if self.m_iNumber == 10:
                 self.m_dKickX[t] = -1
                 self.m_dKickY[t] = 5.0

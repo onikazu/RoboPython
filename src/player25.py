@@ -47,7 +47,7 @@ class Player25(player24.Player24, threading.Thread):
                     self.m_dKickY[t] = friendY
                     self.m_iKickTime[t] = self.m_iTime + self.getPassCount(friendDist)
                     max_score = score
-                if self.m_strTeamName.startswith("PlayerLv25"):
+                if self.m_strTeamName.startswith("Player25"):
                     print("パス候補")
                     print("背番号 {}".format(self.getParam(player1, "number", 1)))
                     print("位置 {0:.4f},{1:.4f}".format(friendX, friendY))
