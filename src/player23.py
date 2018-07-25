@@ -29,6 +29,7 @@ class Player23(player22.Player22, threading.Thread):
             moveTurn = 2
             self.setTrapPosition_2(dash_power, moveTurn)
 
+        # m_debug で何故かエラー
         if 0 < self.m_iTime < 40:
             print("時刻{}".format(self.m_iTime))
             print("視覚{}".format(self.m_iVisualTime))
