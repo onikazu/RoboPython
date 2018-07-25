@@ -11,6 +11,7 @@ class Player19(player18.Player18, threading.Thread):
         self.m_iSearchCount = 0
         self.m_debugLv19 = False
 
+    # 視覚情報の解析
     def analyzeVisualMessage(self, message):
         super().analyzeVisualMessage(message)
         if message.find("(ball") > -1:
@@ -21,12 +22,14 @@ class Player19(player18.Player18, threading.Thread):
             if self.m_iSearchCount == 0 and self.checkInitialMode() == False:
                 self.m_iSearchCount = 9
 
+    # 時刻が最新の時刻であるか検査
     def checkFresh(self, time):
         if self.m_iTime - time > 3:
             return False
         else:
             return True
 
+    # ボールを探す
     def searchBall(self, searchCount):
         t = self.m_iTime
         if self.m_iSearchCount == 9:
@@ -40,6 +43,7 @@ class Player19(player18.Player18, threading.Thread):
             self.m_strCommand[t] += "(turn_neck 90)"
             self.m_strCommand[t] += "(change_view wide high)"
 
+    # 座標で指定された方向に首を向ける
     def lookAt(self, faceX, faceY):
         t = self.m_iTime
         turn_angle = 0.0
@@ -82,11 +86,13 @@ class Player19(player18.Player18, threading.Thread):
             self.m_strCommand[self.m_iTime] += "(turn_neck {0:.2f})".format(neck_diff)
             self.m_strCommand[self.m_iTime] += "(change_view wide high)"
 
+    # ボールが見えているときの行動を決定する
     def playWithBall(self):
         t = self.m_iTime
         self.m_strCommand[t] = "(turn 0)"
         self.lookAt(self.m_dBallX[t], self.m_dBallY[t])
 
+    # 行動を決定する
     def play_0(self):
         t = self.m_iTime
         self.m_strCommand[t] = "(turn 0)"
