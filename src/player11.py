@@ -92,13 +92,13 @@ class Player11(player10.Player10, threading.Thread):
         elif message.startswith("(hear "):
             self.analyzeAuralMessage(message)
         # サーバパラメータの処理
-        elif message.startswith("(server_param "):
+        elif message.startswith("(server_param"):
             self.analyzeServerParam(message)
         # プレーヤーパラメータの処理
-        elif message.startswith("(player_param "):
+        elif message.startswith("(player_param"):
             self.analyzePlayerParam(message)
         # プレーヤータイプの処理
-        elif message.startswith("(player_type "):
+        elif message.startswith("(player_type"):
             self.analyzePlayerType(message)
         # エラーの処理
         else:
