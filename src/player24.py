@@ -75,10 +75,11 @@ if __name__ == "__main__":
     for i in range(22):
         p24 = Player24()
         player24s.append(p24)
+        teamname = str(p24.__class__.__name__)
         if i < 11:
-            teamname = "left"
+            teamname += "left"
         else:
-            teamname = "right"
+            teamname += "right"
         player24s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         player24s[i].start()
 
