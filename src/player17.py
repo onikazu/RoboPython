@@ -69,7 +69,6 @@ class Player17(player16.Player16, threading.Thread):
             print("首 {0:.4f}".format(self.m_dNeck[self.m_iTime]))
             print("体 {0:.4f}".format(self.m_dBody[self.m_iTime]))
 
-
     def analyzeServerParam(self, message):
         super().analyzeServerParam(message)
         self.ball_decay = self.getParam(self.m_strServerParam, "ball_decay", 1)
