@@ -218,8 +218,8 @@ class Player8(player7.Player7, threading.Thread):
         result = {"x": 999, "y": 999}
         message = self.getLandMarker(message, playerX, playerY)
 
-        flag = self.getObjectMessage(message, "((g") + \
-               self.getObjectMessage(message, "((f")
+        flag = self.getObjectMessage(message, "((goal") + \
+               self.getObjectMessage(message, "((flag")
         index0 = flag.find("((")
         X = Y = W = S = 0.0
         flags = 0
