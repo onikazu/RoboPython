@@ -14,7 +14,7 @@ class Player25(player24.Player24, threading.Thread):
         if not len(self.m_listPlayer):
             return
         t = self.m_iTime
-        if self.m_strTeamName.startswith("PlayerLv25"):
+        if self.m_strTeamName.startswith("Player25"):
             print("===========================")
             print("チーム{}".format(self.m_strTeamName))
             print("背番号{}".format(self.m_iNumber))

@@ -59,7 +59,7 @@ class Player24(player23.Player23, threading.Thread):
         kickX = dist * math.cos(rad) + self.m_dBallX[t]
         kickY = dist * math.sin(rad) + self.m_dBallY[t]
         self.kick_2(kickX, kickY)
-        if self.m_strTeamName.startswith("PlayerLv24"):
+        if self.m_strTeamName.startswith("Player24"):
             print("時刻{}".format(self.m_iTime))
             print("背番号{}".format(self.m_iNumber))
             print("ボール位置{0:.4f}, {1:.4f}".format(self.m_dBallX[self.m_iTime], self.m_dBallY[self.m_iTime]))
