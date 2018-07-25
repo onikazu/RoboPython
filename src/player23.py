@@ -43,7 +43,7 @@ class Player23(player22.Player22, threading.Thread):
             print("体{0:.4f}".format(self.m_dNeck[self.m_iTime]))
             print("首{0:.4f}".format(self.m_dBody[self.m_iTime]))
 
-    def setTrapPosition_2(self, dash_power, stable_staps):
+    def setTrapPosition_2(self, dash_power, stable_steps):
         t = self.m_iTime
         next = (t + 1) % self.GAME_LENGTH
         kickable_area = self.player_size + self.ball_size + self.kickable_margin
