@@ -37,7 +37,7 @@ class Player24(player23.Player23, threading.Thread):
         t = self.m_iTime
         kickAX = kickX - self.m_dBallX[t] - self.m_dBallVX[t]
         kickAY = kickY - self.m_dBallY[t] - self.m_dBallVY[t]
-        ball_rad = math.atan2(self.m_dBallY[t] - self.m_dY[t], self.m_dBallX[t] - self.m_dX)
+        ball_rad = math.atan2(self.m_dBallY[t] - self.m_dY[t], self.m_dBallX[t] - self.m_dX[t])
         dir = self.normalizeAngle(180 / math.pi * ball_rad - self.m_dBody[t])
         dir_diff = abs(dir / 180)
         dist = self.getDistance(self.m_dX[t], self.m_dY[t], self.m_dBallX[t], self.m_dBallY[t])
