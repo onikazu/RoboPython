@@ -24,7 +24,7 @@ class Player14(player13.Player13, threading.Thread):
     def analyzePlayerType(self, message):
         super().analyzePlayerType(message)
         type = self.m_strPlayerType[self.m_iPlayerType]
-        print("type", type)
+        # print("type", type)
         self.dash_power_rate = self.getParam(type, "dash_power_rate", 1)
         self.stamina_inc_max = self.getParam(type, "stamina_inc_max", 1)
         self.extra_stamina = self.getParam(type, "extra_stamina", 1)

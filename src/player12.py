@@ -36,13 +36,13 @@ class Player12(player11.Player11, threading.Thread):
     def predictMoveCommand(self, i):
         command = self.m_strCommand[i]
         if command.startswith("(move"):
-            print("moveコマンド", command)
+            # print("moveコマンド", command)
             # print("self.m_strSide", self.m_strSide)
             x = self.getParam(command, "move", 1)
             y = self.getParam(command, "move", 2)
 
             if self.m_strSide.startswith("r"):
-                print("xy", x, y)
+                # print("xy", x, y)
                 x = -x
                 y = -y
 

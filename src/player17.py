@@ -57,7 +57,7 @@ class Player17(player16.Player16, threading.Thread):
     def predict(self, start, end):
         super().predict(start, end)
 
-        if 0 < self.m_iTime < 20 and self.m_debugLv17:
+        if 0 < self.m_iTime < 25 and self.m_debugLv17:
             print("時刻", self.m_iTime)
             print("ボール")
             print("位置{0:.4f}, {1:.4f}".format(self.m_dBallX[self.m_iTime], self.m_dBallY[self.m_iTime]))

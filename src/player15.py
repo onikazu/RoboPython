@@ -40,6 +40,8 @@ class Player15(player14.Player14, threading.Thread):
 
             if stamina >= self.effort_inc_thr * self.stamina_max:
                 if effort < self.effort_max:
+
+                # 正誤表より
                     effort += self.effort_inc
                 effort = min(effort, self.effort_max)
 
