@@ -73,7 +73,7 @@ class Player17(player16.Player16, threading.Thread):
     def analyzeServerParam(self, message):
         super().analyzeServerParam(message)
         self.ball_decay = self.getParam(self.m_strServerParam, "ball_decay", 1)
-        self.player_decay = self.getParam(self.m_strServerParam, "player_dacay", 1)
+        self.player_decay = self.getParam(self.m_strServerParam, "player_decay", 1)
         self.ball_size = self.getParam(self.m_strServerParam, "ball_size", 1)
         self.kick_power_rate = self.getParam(self.m_strServerParam, "kick_power_rate", 1)
 
