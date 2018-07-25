@@ -29,7 +29,7 @@ class Player23(player22.Player22, threading.Thread):
             moveTurn = 2
             self.setTrapPosition_2(dash_power, moveTurn)
 
-        if self.m_debugLv23 and 0 < self.m_iTime < 40:
+        if 0 < self.m_iTime < 40 and self.m_debugLv23:
             print("時刻{}".format(self.m_iTime))
             print("視覚{}".format(self.m_iVisualTime))
             print("トラップ{}".format(self.m_iTrapTime))
@@ -64,7 +64,7 @@ class Player23(player22.Player22, threading.Thread):
             self.m_dBody[next] = self.m_dBody[t]
             self.m_dNeck[next] = self.m_dNeck[t]
             current_power = 0.0
-            if (t - self.m_iTime) >= stable_staps + self.m_iTrapMarginSteps:
+            if (t - self.m_iTime) >= stable_steps + self.m_iTrapMarginSteps:
                 current_power = abs(dash_power)
             speed = player_speed * self.player_decay + current_power * self.dash_power_rate
             player_speed = min(speed, self.player_speed_max)
