@@ -10,6 +10,10 @@ class Player23(player22.Player22, threading.Thread):
         self.m_iTrapMarginSteps = 3
         self.player_speed_max = 1.20
         self.m_debugLv23 = False
+        for _ in range(self.GAME_LENGTH):
+            self.setKickTarget()
+            self.setMoveTarget()
+            self.setFaceTarget()
 
     def setTrapPosition(self):
         t = self.m_iTime

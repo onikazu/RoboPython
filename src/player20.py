@@ -28,9 +28,9 @@ class Player20(player19.Player19, threading.Thread):
             self.m_iKickTime.append(0)
             self.m_iMoveTime.append(0)
             self.m_iTime = i
-            self.setKickTarget()
-            self.setMoveTarget()
-            self.setFaceTarget()
+            # self.setKickTarget()
+            # self.setMoveTarget()
+            # self.setFaceTarget()
 
         self.m_iTime = 0
         self.m_debugLv20 = False
