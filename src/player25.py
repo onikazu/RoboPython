@@ -10,9 +10,8 @@ class Player25(player24.Player24, threading.Thread):
         self.m_debugLv25 = False
 
     def setKickTarget(self):
-        # なぜかattribute error
-        # if not len(self.m_listPlayer):
-        #     return
+        if not len(self.m_listPlayer):
+            return
         t = self.m_iTime
         if self.m_strTeamName.startswith("PlayerLv25"):
             print("===========================")
@@ -75,7 +74,6 @@ class Player25(player24.Player24, threading.Thread):
             v = v * self.ball_decay
             count += 1
         return count
-
 
     def getPassValue(self, x0, y0, x1, y1):
         t = self.m_iTime
