@@ -17,7 +17,7 @@ class Player19(player18.Player18, threading.Thread):
             self.m_iBallTime = self.m_iVisualTime
             self.m_iSearchCount = 0
         elif self.checkFresh(self.m_iBallTime) == False:
-            print(self.m_iNumber, "p19 message without ball", message)
+            # print(self.m_iNumber, "p19 message without ball", message)
             if self.m_iSearchCount == 0 and self.checkInitialMode() == False:
                 self.m_iSearchCount = 9
 
