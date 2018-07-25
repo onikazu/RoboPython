@@ -10,8 +10,9 @@ class Player25(player24.Player24, threading.Thread):
         self.m_debugLv25 = False
 
     def setKickTarget(self):
-        if not len(self.m_listPlayer):
-            return
+        # なぜかattribute error
+        # if not len(self.m_listPlayer):
+        #     return
         t = self.m_iTime
         if self.m_strTeamName.startswith("PlayerLv25"):
             print("===========================")
@@ -105,7 +106,6 @@ class Player25(player24.Player24, threading.Thread):
 
     def analyzeVisualMessage(self, message):
         super().analyzeVisualMessage(message)
-
 
 
 if __name__ == "__main__":
