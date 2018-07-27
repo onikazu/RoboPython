@@ -55,12 +55,14 @@ class Player21(player20.Player20, threading.Thread):
             self.m_strCommand[t] = "(turn {0:.4f})".format(turn_moment)
             if self.m_debugLv21:
                 print("t = {}".format(t))
+                # 同じ値になるはず（ボール位置）
                 print("m_dMoveX[t]:{0:.4f}".format(self.m_dMoveX[t]))
                 print("m_dMoveY[t]:{0:.4f}".format(self.m_dMoveY[t]))
                 print("m_dBallX[t]:{0:.4f}".format(self.m_dBallX[t]))
                 print("m_dBallY[t]:{0:.4f}".format(self.m_dBallY[t]))
                 print("m_dTrapX{0:.4f}".format(self.m_dTrapX))
                 print("m_dTrapY{0:.4f}".format(self.m_dTrapY))
+                # ===================================
                 print("moveDir{0:.4f}".format(moveDir))
                 print("moveDist{0:.4f}".format(moveDist))
                 print("m_headAngle[t]{0:.4f}".format(self.m_dHeadAngle[t]))
@@ -107,6 +109,6 @@ if __name__ == "__main__":
         player21s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         player21s[i].start()
 
-    player21s[9].m_debugLv21 = True
+    player21s[5].m_debugLv21 = True
 
     print("試合登録完了")
