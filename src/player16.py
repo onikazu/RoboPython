@@ -113,7 +113,7 @@ class Player16(player15.Player15, threading.Thread):
                 command = "(turn -30)(turn_neck 90)"
             elif self.m_iTime < 18:
                 command = "(dash 100)"
-            elif self.m_iTime == 18:
+            else:
                 command = "(kick 30 45)"
 
             self.m_strCommand[self.m_iTime] = command
