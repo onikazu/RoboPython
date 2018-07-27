@@ -41,9 +41,11 @@ class Player16(player15.Player15, threading.Thread):
         self.m_dVX[self.m_iTime] = vx
         self.m_dVY[self.m_iTime] = vy
         head_angle = self.getParam(message, "head_angle", 1)
+        print("headangle:", head_angle)
         body_angle = self.normalizeAngle(self.m_dNeck[self.m_iTime] - head_angle)
         self.m_dHeadAngle[self.m_iTime] = head_angle
         self.m_dBody[self.m_iTime] = body_angle
+
 
     def predictTurnCommand(self, i):
         next = (i + 1) % self.GAME_LENGTH
@@ -88,6 +90,7 @@ class Player16(player15.Player15, threading.Thread):
             print("速度{0:.4f}, {1:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
             print("首{0:.4f}".format(self.m_dNeck[self.m_iTime]))
             print("体{0:.4f}".format(self.m_dBody[self.m_iTime]))
+            print("head")
 
 
     def analyzePlayerType(self, message):
