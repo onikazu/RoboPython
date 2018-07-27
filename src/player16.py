@@ -27,6 +27,7 @@ class Player16(player15.Player15, threading.Thread):
 
         # ここでエラー値999.9(out of range)が入ってしまう（getparam の引数が存在しないから）
         speed_angle = self.getParam(message, "speed", 2)
+        print("type of speed angle: ", type(speed_angle))
         rad = self.normalizeAngle(self.m_dNeck[self.m_iTime] + speed_angle) * math.pi / 180.0
         vx = speed * math.cos(rad)
         vy = speed * math.sin(rad)
