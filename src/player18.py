@@ -32,7 +32,6 @@ class Player18(player17.Player17, threading.Thread):
         # string tokenizer の代わり
         st = ball.split(" ")
         ball_dist = self.getParam(message, "(ball)", 1)
-
         ball_dir = self.getParam(message, "(ball)", 2)
         rad = math.radians(self.normalizeAngle(self.m_dNeck[t] + ball_dir))
         self.m_dBallX[t] = self.m_dX[t] + ball_dist * math.cos(rad)
