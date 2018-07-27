@@ -7,10 +7,13 @@ import math
 class Player20(player19.Player19, threading.Thread):
     def __init__(self):
         super(Player20, self).__init__()
+        # キック目標座標
         self.m_dKickX = []
         self.m_dKickY = []
+        # 移動目標座標
         self.m_dMoveX = []
         self.m_dMoveY = []
+        # 方向目標座標
         self.m_dFaceX = []
         self.m_dFaceY = []
         self.m_iKickTime = []
@@ -31,10 +34,8 @@ class Player20(player19.Player19, threading.Thread):
             # self.setKickTarget()
             # self.setMoveTarget()
             # self.setFaceTarget()
-
         self.m_iTime = 0
         self.m_debugLv20 = False
-
 
     def setKickTarget(self):
         t = self.m_iTime

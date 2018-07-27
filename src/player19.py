@@ -79,7 +79,7 @@ class Player19(player18.Player18, threading.Thread):
         if abs(body_diff) < 90 + 22.5 / 2 and abs(neck_diff) < 22.5:
             self.m_strCommand[self.m_iTime] += "(turn_neck {0:.2f})".format(neck_diff)
             self.m_strCommand[self.m_iTime] += "(change_view narrow high)"
-            print("changed narrow view!!!!")
+            # print("changed narrow view!!!!")
         elif abs(body_diff) < 90 + 45.0 / 2 and abs(neck_diff) < 45.0:
             self.m_strCommand[self.m_iTime] += "(turn_neck {0:.2f})".format(neck_diff)
             self.m_strCommand[self.m_iTime] += "(change_view normal high)"
