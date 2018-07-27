@@ -80,7 +80,7 @@ class Player21(player20.Player20, threading.Thread):
             else:
                 dash_power = min(-speed * self.player_decay / rate, -dash_power)
             self.m_strCommand[t] = "(dash {})(say {})".format(dash_power, turn_moment)
-        print(self.m_strCommand[t])
+        print("self.m_strCommend[t]:", self.m_strCommand[t])
 
     def playWithBall(self):
         t = self.m_iTime
