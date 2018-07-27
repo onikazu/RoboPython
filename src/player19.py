@@ -32,13 +32,13 @@ class Player19(player18.Player18, threading.Thread):
     # ボールを探す
     def searchBall(self, searchCount):
         t = self.m_iTime
-        if self.m_iSearchCount == 9:
+        if searchCount == 9:
             self.m_strCommand[t] += "(turn_neck 180)"
             self.m_strCommand[t] += "(change_view wide high)"
-        if self.m_iSearchCount == 6:
+        if searchCount == 6:
             self.m_strCommand[t] += "(turn_neck -180)"
             self.m_strCommand[t] += "(change_view wide high)"
-        if self.m_iSearchCount == 3:
+        if searchCount == 3:
             # 教科書みす?
             self.m_strCommand[t] = "(turn 180)"
             self.m_strCommand[t] += "(turn_neck 90)"
@@ -76,6 +76,7 @@ class Player19(player18.Player18, threading.Thread):
             print("首{0:.4f}".format(self.m_dNeck[t]))
             print("体{0:.4f}".format(self.m_dBody[t]))
             print("body_diff {0:.4f}, neck_diff {0:.4f}".format(body_diff, neck_diff))
+            print("self.m_strCommand: ", self.m_strCommand[t])
         # print("No. {}".format(self.m_iNumber))
 
         if abs(body_diff) < 90 + 22.5 / 2 and abs(neck_diff) < 22.5:
