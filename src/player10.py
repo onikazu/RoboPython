@@ -9,6 +9,7 @@ class Player10(player9.Player9, threading.Thread):
     def __init__(self):
         super(Player10, self).__init__()
         self.m_listCommand = []
+        self.m_debugLv10 = False
 
     def getDirection(self, x0, y0, x1, y1):
         if abs(x1 - x0) < 0.1:
@@ -17,25 +18,29 @@ class Player10(player9.Player9, threading.Thread):
             else:
                 return -90.0
         else:
-            return math.degrees(math.atan2(y1-y0, x1-x0))
+            return math.degrees(math.atan2(y1 - y0, x1 - x0))
 
     # @override
     def getCommandAsDefence(self, message, ballDist, ballDir):
         super().getCommandAsDefence(message, ballDist, ballDir)
-        OUT_OF_RANGE = 999.0
         dist = self.getDistance(self.m_dDefenceX, self.m_dDefenceY, self.m_dX, self.m_dY)
         # print(self.m_dDefenceX, self.m_dDefenceY, self.m_dX, self.m_dY)
         print(self.m_iNumber, "の理想守備位置までのdist:", dist, "理想守備位置x", self.m_dDefenceX, \
-             "理想守備位置y", self.m_dDefenceY, "現在地x", self.m_dX, "現在地y", self.m_dY)
+              "理想守備位置y", self.m_dDefenceY, "現在地x", self.m_dX, "現在地y", self.m_dY)
         # 距離が近いときは何もしない
         if dist < 2.0:
             return ""
-        if self.m_dNeck == OUT_OF_RANGE:
+        if self.m_dNeck == self.OUT_OF_RANGE:
             return ""
 
         # 回転する角度の計算
         dir = self.getDirection(self.m_dX, self.m_dY, self.m_dDefenceX, self.m_dDefenceY)
         moment = self.normalizeAngle(dir - self.m_dNeck)
+        if self.m_debugLv10:
+            print("X={0:.4f}, Y={1:.4f}".format(self.m_dX, self.m_dY))
+            print("ballX={0:.4f}, ballY={1:.4f}".format(self.m_dBallX, self.m_dBallY))
+            print("defX={0:.4f}, defY={1:.4f}".format(self.m_dDefenceX, self.m_dDefenceY))
+            print("Dir={0:.4f}".format(dir))
         # print("dir:", dir)
         # print("moment:", moment)
         # 必要な回転角度が少ないときはダッシュ
@@ -67,7 +72,7 @@ class Player10(player9.Player9, threading.Thread):
     def play_1(self, message):
         # ボールが視界に無いとき
         # print("p10", message)
-        if not self.m_listCommand:
+        if len(self.m_listCommand) == 0:
             super().play_1(message)
 
     # @override
