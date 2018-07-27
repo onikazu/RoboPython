@@ -15,11 +15,13 @@ class Player5(player4.Player4, threading.Thread):
         else:
             target_goal = "(goal r)"
         index0 = message.find(target_goal)
+        # ゴールが見えているときはゴール方向に蹴る
         if index0 > -1:
             goalDist = self.getParam(message, target_goal, 1)
             goalDir = self.getParam(message, target_goal, 2)
             return "(kick 100 " + str(goalDir) + ")"
         else:
+            # そうでないときは斜め後ろに蹴る
             return "(kick 20 135)"
 
     def play_3(self, message, ballDist, ballDir):

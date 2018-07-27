@@ -20,10 +20,10 @@ class Player3(player2.Player2, threading.Thread):
             self.analyzeAuralMessage(message)
 
     def analyzeAuralMessage(self, message):
-        index0 = message.index(" ")
-        index1 = message.index(" ", index0+1)
-        index2 = message.index(" ", index1+1)
-        index3 = message.index(")", index2+1)
+        index0 = message.find(" ")
+        index1 = message.find(" ", index0+1)
+        index2 = message.find(" ", index1+1)
+        index3 = message.find(")", index2+1)
         strSpeaker = message[index1+1:index2]
         strContent = message[index2+1:index3]
 

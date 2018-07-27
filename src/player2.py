@@ -60,12 +60,11 @@ class Player2(player1.Player1, threading.Thread):
 
     # 引数が一つのplay関数
     def play_1(self, message):
-        command = ""
         if self.checkInitialMode():
             self.setKickOffPosition()
             command = "(move " + str(self.m_dKickOffX) + " " \
                 + str(self.m_dKickOffY) + ")"
-        self.send(command)
+            self.send(command)
 
     def analyzeMessage(self, message):
         super().analyzeMessage(message)

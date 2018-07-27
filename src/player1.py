@@ -17,6 +17,8 @@ class Player1(threading.Thread):
         self.m_debugLv01 = False
 
     def send(self, command):
+        if len(command) == 0:
+            return
         # print("p1command No", self.m_iNumber, command)
         to_byte_command = command.encode(encoding='utf_8')
         self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
@@ -55,16 +57,14 @@ class Player1(threading.Thread):
         self.m_iNumber = int(message[index1+1:index2])
         self.m_strPlayMode = message[index2+1:index3]
 
-
     def analyzeMessage(self, message):
         if isinstance(message, type(None)):
             return
             # print(message)
         elif message.startswith("(init"):
             self.analyzeInitialMessage(message)
-        else:
-            return
-            # print(message)
+        elif message.startswith("(warning") or message.startswith("(error"):
+            print("Something is wrong when analyzeMessage: ", message)
 
 
 if __name__ == "__main__":

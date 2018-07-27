@@ -49,6 +49,7 @@ class Player4(player3.Player3, threading.Thread):
             result = self.OUT_OF_RANGE
         return result
 
+    # ボールが見えていないときのplay
     def play_1(self, message):
         if self.checkInitialMode():
             self.setKickOffPosition()
@@ -68,8 +69,8 @@ class Player4(player3.Player3, threading.Thread):
                 command = "(turn 30)"
                 self.send(command)
 
+    # ボールが見えているときのplay
     def play_3(self, message, ballDist, ballDir):
-        # ボールが見えていないときのplay
         pass
 
 

@@ -9,6 +9,8 @@ class Player0():
         self.ADDRESS = gethostbyname(self.HOSTNAME)
 
     def send(self, command):
+        if len(command) == 0:
+            return
         to_byte_command = command.encode(encoding='UTF-8')
         self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
 
