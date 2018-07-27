@@ -27,6 +27,8 @@ class Player16(player15.Player15, threading.Thread):
         print("type of self.m_dNeck[self.m_iTime]: ", type(self.m_dNeck[self.m_iTime]))
         print("type of self.normalizeAngle(self.m_dNeck[self.m_iTime] + speed_angle): ", type(self.normalizeAngle(self.m_dNeck[self.m_iTime] + speed_angle)))
         print("self.m_dNeck[self.m_iTime] + speed_angle", self.m_dNeck[self.m_iTime] + speed_angle)
+        print("self.m_dNeck[self.m_iTime]", self.m_dNeck[self.m_iTime])
+        print("speed_angle",speed_angle)
         rad = self.normalizeAngle(self.m_dNeck[self.m_iTime] + speed_angle) * math.pi / 180.0
         vx = speed * math.cos(rad)
         vy = speed * math.sin(rad)
