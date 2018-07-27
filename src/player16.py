@@ -23,10 +23,10 @@ class Player16(player15.Player15, threading.Thread):
         if self.m_dNeck[self.m_iTime] == self.OUT_OF_RANGE:
             return
 
-        # 仕様変更による改善
         speed = self.getParam(message, "speed", 1)
         speed_angle = self.getParam(message, "speed", 2)
 
+        # 初期speedに第二引数はない
         if speed_angle == self.OUT_OF_RANGE:
             return
         # print("type of speed angle: ", type(speed_angle))

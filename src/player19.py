@@ -39,7 +39,8 @@ class Player19(player18.Player18, threading.Thread):
             self.m_strCommand[t] += "(turn_neck -180)"
             self.m_strCommand[t] += "(change_view wide high)"
         if self.m_iSearchCount == 3:
-            self.m_strCommand[t] = "(turn 180)"
+            # 教科書みす
+            self.m_strCommand[t] += "(turn 180)"
             self.m_strCommand[t] += "(turn_neck 90)"
             self.m_strCommand[t] += "(change_view wide high)"
 
