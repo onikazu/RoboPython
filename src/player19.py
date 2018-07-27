@@ -65,6 +65,7 @@ class Player19(player18.Player18, threading.Thread):
 
         if self.m_debugLv19 and 0 < t < 30:
             print("時刻{}".format(t))
+            print("self.m_iSearchCount:", self.m_iSearchCount)
             print("視覚{}".format(self.m_iVisualTime))
             # 適切な出力得られていない
             print("目標")
