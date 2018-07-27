@@ -100,8 +100,6 @@ class Player19(player18.Player18, threading.Thread):
         if self.checkInitialMode():
             self.setKickOffPosition()
             command = "(move {} {})".format(self.m_dKickOffX, self.m_dKickOffY)
-            if self.m_strSide.startswith("r"):
-                command += "(turn 180)"
             self.m_strCommand[t] = command
         else:
             if abs(self.m_dNeck[t]) > 180.0:

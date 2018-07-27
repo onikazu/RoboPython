@@ -27,7 +27,7 @@ class Player21(player20.Player20, threading.Thread):
         speed = math.sqrt(self.m_dVX[t] * self.m_dVX[t] + self.m_dVY[t] * self.m_dVY[t])
         turn_moment = turn * (1 + self.inertia_moment * speed * self.player_decay)
         dist = self.getDistance(self.m_dX[t], self.m_dY[t], self.m_dMoveX[t], self.m_dMoveY[t])
-        dash_power_max = 100.0
+        self.dash_power_max = 100.0
         dash_power = 40.0
 
         if self.checkNearest_2(self.m_dMoveX[t], self.m_dMoveY[t]):
