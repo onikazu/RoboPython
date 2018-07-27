@@ -103,7 +103,6 @@ class Player20(player19.Player19, threading.Thread):
         self.m_dFaceX[t] = self.m_dBallX[next]
         self.m_dFaceY[t] = self.m_dBallY[next]
 
-
     def checkKickable(self):
         t = self.m_iTime
         kickablearea = self.ball_size + self.player_size + self.kickable_margin
