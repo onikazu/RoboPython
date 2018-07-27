@@ -91,6 +91,8 @@ class Player19(player18.Player18, threading.Thread):
 
     # ボールが見えているときの行動を決定する
     def playWithBall(self):
+        if self.m_debugLv19:
+            print("ボール見えてるよ")
         t = self.m_iTime
         self.m_strCommand[t] = "(turn 0)"
         self.lookAt(self.m_dBallX[t], self.m_dBallY[t])
