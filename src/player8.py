@@ -10,6 +10,11 @@ class Player8(player7.Player7, threading.Thread):
         self.m_strFlagName = []
         self.m_dFlagX = []
         self.m_dFlagY = []
+        self.m_debugLv08 = False
+        for _ in range(55):
+            self.m_strFlagName = ""
+            self.m_dFlagX = 0.0
+            self.m_dFlagY = 0.0
         self.m_dX = 0.0
         self.m_dY = 0.0
         self.m_dNeck = 0.0
@@ -179,6 +184,7 @@ class Player8(player7.Player7, threading.Thread):
         self.m_dFlagX.append(52.5);
         self.m_dFlagY.append(34.0)
 
+    # おそらくいらないが・・・
     def getLandMarker(self, message, playerX, playerY):
         message = message.replace("B", "b", 1)
         if message.find("(F)") > -1:
@@ -244,16 +250,19 @@ class Player8(player7.Player7, threading.Thread):
         if flags > 0:
             result["x"] = X / S
             result["y"] = Y / S
+
+        if self.m_debugLv08:
+            print("X={0:.4f}, Y={1:.4f}".format(result["x"],result["y"]))
+
         return result
 
     # @override
     def analyzeVisualMessage(self, message):
-        OUT_OF_RANGE = 999.0
         time = int(self.getParam(message, "see", 1))
         if time < 1:
             return
         self.m_dNeck = self.getNeckDir(message)
-        if self.m_dNeck == OUT_OF_RANGE:
+        if self.m_dNeck == self.OUT_OF_RANGE:
             return
         if self.checkInitialMode():
             self.m_dX = self.m_dKickOffX

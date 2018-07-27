@@ -57,21 +57,7 @@ class Player9(player8.Player8, threading.Thread):
                 self.m_dDefenceY = ballY / 2.0 + offsetY
 
     def analyzeVisualMessage(self, message):
-        OUT_OF_RANGE = 999.0
-        time = int(self.getParam(message, "see", 1))
-        if time < 1:
-            return
-        self.m_dNeck = self.getNeckDir(message)
-        if self.m_dNeck == OUT_OF_RANGE:
-            return
-        if self.checkInitialMode():
-            self.m_dX = self.m_dKickOffX
-            self.m_dY = self.m_dKickOffY
-
-        pos = self.estimatePosition(message, self.m_dNeck, self.m_dX, self.m_dY)
-        self.m_dX = pos["x"]
-        self.m_dY = pos["y"]
-
+        super().analyzeVisualMessage(message)
         if message.find("(ball)") == -1:
             return
         ballDist = self.getParam(message, "(ball)", 1)
