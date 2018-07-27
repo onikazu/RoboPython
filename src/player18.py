@@ -33,6 +33,10 @@ class Player18(player17.Player17, threading.Thread):
         st = ball.split(" ")
         ball_dist = self.getParam(message, "(ball)", 1)
         ball_dir = self.getParam(message, "(ball)", 2)
+        # 自己流=============
+        if ball_dir == self.OUT_OF_RANGE:
+            return
+        # ==================
         rad = math.radians(self.normalizeAngle(self.m_dNeck[t] + ball_dir))
         self.m_dBallX[t] = self.m_dX[t] + ball_dist * math.cos(rad)
         self.m_dBallY[t] = self.m_dY[t] + ball_dist * math.sin(rad)
