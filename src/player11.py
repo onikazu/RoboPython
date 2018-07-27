@@ -39,16 +39,16 @@ class Player11(player10.Player10, threading.Thread):
         self.m_iTime = int(self.getParam(message, "sense_body", 1))
 
     def predictMoveCommand(self, i):
-        pass
+        return
 
     def predictDashCommand(self, i):
-        pass
+        return
 
     def predictTurnCommand(self, i):
-        pass
+        return
 
     def predictKickCommand(self, i):
-        pass
+        return
 
     def predict(self, start, end):
         if self.m_iVisualTime < 0:
