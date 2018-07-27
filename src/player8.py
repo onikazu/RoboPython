@@ -11,10 +11,6 @@ class Player8(player7.Player7, threading.Thread):
         self.m_dFlagX = []
         self.m_dFlagY = []
         self.m_debugLv08 = False
-        for _ in range(55):
-            self.m_strFlagName = ""
-            self.m_dFlagX = 0.0
-            self.m_dFlagY = 0.0
         self.m_dX = 0.0
         self.m_dY = 0.0
         self.m_dNeck = 0.0
