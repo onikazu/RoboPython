@@ -54,8 +54,8 @@ class Player21(player20.Player20, threading.Thread):
         elif abs(turn_moment <= 180.0):
             self.m_strCommand[t] = "(turn {0:.4f})".format(turn_moment)
             if self.m_debugLv21:
+                print("================================")
                 print("t = {}".format(t))
-                # 同じ値になるはず（ボール位置）
                 print("m_dMoveX[t]:{0:.4f}".format(self.m_dMoveX[t]))
                 print("m_dMoveY[t]:{0:.4f}".format(self.m_dMoveY[t]))
                 print("m_dBallX[t]:{0:.4f}".format(self.m_dBallX[t]))
@@ -71,6 +71,7 @@ class Player21(player20.Player20, threading.Thread):
                 print("speed{0:.4f}".format(speed))
                 print("turn{0:.4f}".format(turn))
                 print("turn_moment{0:.4f}".format(turn_moment))
+                print("dist{0:.4f}".format(dist))
         else:
             speed_dir = self.getDirection(0, 0, self.m_dVX[t], self.m_dVY[t])
             rate = self.dash_power_rate * self.m_dEffort[t]
