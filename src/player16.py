@@ -29,6 +29,7 @@ class Player16(player15.Player15, threading.Thread):
         speed_angle = self.getParam(message, "speed", 2)
         print("type of speed angle: ", type(speed_angle))
         print("type of self.m_dNeck[self.m_iTime]: ", type(self.m_dNeck[self.m_iTime]))
+        print("type of self.normalizeAngle(self.m_dNeck[self.m_iTime] + speed_angle): ", type(self.normalizeAngle(self.m_dNeck[self.m_iTime] + speed_angle)))
         rad = self.normalizeAngle(self.m_dNeck[self.m_iTime] + speed_angle) * math.pi / 180.0
         vx = speed * math.cos(rad)
         vy = speed * math.sin(rad)
