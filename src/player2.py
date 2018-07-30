@@ -63,16 +63,14 @@ class Player2(player1.Player1, threading.Thread):
     # 引数が一つのplay関数
     def play_1(self, message):
         if self.checkInitialMode():
-            if not self.m_didPosition:
-                self.setKickOffPosition()
-                command = "(move " + str(self.m_dKickOffX) + " " \
-                    + str(self.m_dKickOffY) + ")"
-                self.send(command)
-                self.m_didPosition = True
-            if not self.m_didTurn:
-                command = "(turn {})".format(180)
-                self.send(command)
-                self.m_didTurn = True
+            self.setKickOffPosition()
+            command = "(move " + str(self.m_dKickOffX) + " " \
+                + str(self.m_dKickOffY) + ")"
+            if self.m_strSide.startswith("r"):
+                command += "(turn 180)"
+
+            self.send(command)
+
 
     def analyzeMessage(self, message):
         super().analyzeMessage(message)
