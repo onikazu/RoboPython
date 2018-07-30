@@ -46,16 +46,15 @@ class Player0():
         self.HOSTNAME = "localhost"
         self.PORT = 6000
         self.ADDRESS = gethostbyname(self.HOSTNAME)
+        self.socket.connect(self.ADDRESS, self.PORT)
 
     def send(self, command):
         if len(command) == 0:
             return
-        self.socket.connect((self.ADDRESS, self.PORT))
         to_byte_command = command.encode(encoding='UTF-8')
         self.socket.sendall(to_byte_command)
 
     def receive(self):
-        self.socket.connect((self.ADDRESS, self.PORT))
         message = self.socket.recv(1024)
         message = message.decode("UTF-8")
         return message
