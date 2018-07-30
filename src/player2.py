@@ -70,6 +70,7 @@ class Player2(player1.Player1, threading.Thread):
                 command += "(turn 180)"
 
             self.send(command)
+            print(command)
 
 
     def analyzeMessage(self, message):
