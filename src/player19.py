@@ -43,7 +43,7 @@ class Player19(player18.Player18, threading.Thread):
             self.m_strCommand[t] = "(turn 180)"
             self.m_strCommand[t] += "(turn_neck 90)"
             self.m_strCommand[t] += "(change_view wide high)"
-        print(searchCount)
+        print(self.m_iNumber, "のserchcount: ", searchCount)
 
     # 座標で指定された方向に首を向ける
     def lookAt(self, faceX, faceY):
