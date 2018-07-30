@@ -26,7 +26,8 @@ class Player16(player15.Player15, threading.Thread):
         speed = self.getParam(message, "speed", 1)
         speed_angle = self.getParam(message, "speed", 2)
 
-        # 初期speedに第二引数はない
+        # speedに第二引数はない, 困った
+        # speed_angle は体の向きト速度の方向ベクトルの差
         if speed_angle == self.OUT_OF_RANGE:
             return
         print(speed_angle, "発見speedangle")
@@ -49,7 +50,6 @@ class Player16(player15.Player15, threading.Thread):
         print("headangle, speed2があるであろうmessage", message)
         self.m_dHeadAngle[self.m_iTime] = head_angle
         self.m_dBody[self.m_iTime] = body_angle
-
 
     def predictTurnCommand(self, i):
         next = (i + 1) % self.GAME_LENGTH
