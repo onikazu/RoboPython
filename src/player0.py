@@ -3,7 +3,10 @@ from socket import *
 
 class Player0():
     def __init__(self):
-        self.socket = socket(AF_INET, SOCK_DGRAM)
+        # UDPはSOCK_DGRAM
+        # TCPIPはSOCK_STREAM
+        # self.socket = socket(AF_INET, SOCK_DGRAM)
+        self.socket = socket(AF_INET, SOCK_STREAM)
         self.HOSTNAME = "localhost"
         self.PORT = 6000
         self.ADDRESS = gethostbyname(self.HOSTNAME)
