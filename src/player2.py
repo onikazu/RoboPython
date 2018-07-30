@@ -9,6 +9,8 @@ class Player2(player1.Player1, threading.Thread):
         self.m_dKickOffX = 0.0
         self.m_dKickOffY = 0.0
         self.m_debugLv02 = False
+        self.m_didPosition = False
+        self.m_didTurn = False
 
     def checkInitialMode(self):
         if self.m_strPlayMode.startswith("before_kick_off") or \
@@ -61,10 +63,16 @@ class Player2(player1.Player1, threading.Thread):
     # 引数が一つのplay関数
     def play_1(self, message):
         if self.checkInitialMode():
-            self.setKickOffPosition()
-            command = "(move " + str(self.m_dKickOffX) + " " \
-                + str(self.m_dKickOffY) + ")"
-            self.send(command)
+            if not self.m_didPosition:
+                self.setKickOffPosition()
+                command = "(move " + str(self.m_dKickOffX) + " " \
+                    + str(self.m_dKickOffY) + ")"
+                self.send(command)
+                self.m_didPosition = True
+            if not self.m_didTurn:
+                command = "(turn {})".format(180)
+                self.send(command)
+                self.m_didTurn = True
 
     def analyzeMessage(self, message):
         super().analyzeMessage(message)

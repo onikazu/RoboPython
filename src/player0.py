@@ -11,7 +11,6 @@ class Player0():
         self.HOSTNAME = "localhost"
         self.PORT = 6000
         self.ADDRESS = gethostbyname(self.HOSTNAME)
-        print("アドレス", self.ADDRESS)
 
     def send(self, command):
         if len(command) == 0:
