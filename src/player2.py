@@ -67,7 +67,7 @@ class Player2(player1.Player1, threading.Thread):
             command = "(move " + str(self.m_dKickOffX) + " " \
                 + str(self.m_dKickOffY) + ")"
             if self.m_strSide.startswith("r"):
-                command += "(turn 180)"
+                command += "(turn_neck 180)"
 
             self.send(command)
             print(command)
