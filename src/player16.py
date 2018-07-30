@@ -45,6 +45,7 @@ class Player16(player15.Player15, threading.Thread):
         if head_angle == self.OUT_OF_RANGE:
             return
         body_angle = self.normalizeAngle(self.m_dNeck[self.m_iTime] - head_angle)
+        print("headangle, speed2があるであろうmessage", message)
         self.m_dHeadAngle[self.m_iTime] = head_angle
         self.m_dBody[self.m_iTime] = body_angle
 
