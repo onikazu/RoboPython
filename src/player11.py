@@ -23,6 +23,7 @@ class Player11(player10.Player10, threading.Thread):
         self.m_debugLv11 = False
 
     def analyzeServerParam(self, message):
+        print("serverParam: ", message)
         self.m_strServerParam = message
 
     def analyzePlayerParam(self, message):
