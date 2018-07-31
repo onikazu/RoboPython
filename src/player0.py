@@ -22,7 +22,8 @@ class Player0():
         message, arr = self.socket.recvfrom(4096)
         message = message.decode("UTF-8")
         return message
-        # print(data)
+        print("message: ", message)
+        print("arr: ", arr)
 
 
 if __name__ == "__main__":
