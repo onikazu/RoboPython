@@ -18,7 +18,7 @@ class Player16(player15.Player15, threading.Thread):
     def analyzePhysicalMessage(self, message):
         super().analyzePhysicalMessage(message)
         # print("=============================")
-        print("PhysicalMessage:", message)
+        # print("PhysicalMessage:", message)
         # print("=============================")
         if self.m_dNeck[self.m_iTime] == self.OUT_OF_RANGE:
             return
@@ -28,9 +28,9 @@ class Player16(player15.Player15, threading.Thread):
 
         # speedに第二引数はない, 困った
         # speed_angle は体の向きト速度の方向ベクトルの差
-        if speed_angle == self.OUT_OF_RANGE:
-            return
-        print(speed_angle, "発見speedangle")
+        # if speed_angle == self.OUT_OF_RANGE:
+        #     return
+        # print(speed_angle, "発見speedangle")
         # print("type of speed angle: ", type(speed_angle))
         # print("type of self.m_dNeck[self.m_iTime]: ", type(self.m_dNeck[self.m_iTime]))
         # print("type of self.normalizeAngle(self.m_dNeck[self.m_iTime] + speed_angle): ", type(self.normalizeAngle(self.m_dNeck[self.m_iTime] + speed_angle)))
@@ -43,11 +43,11 @@ class Player16(player15.Player15, threading.Thread):
         self.m_dVX[self.m_iTime] = vx
         self.m_dVY[self.m_iTime] = vy
         head_angle = self.getParam(message, "head_angle", 1)
-        print("headangle:", head_angle)
-        if head_angle == self.OUT_OF_RANGE:
-            return
+        # print("headangle:", head_angle)
+        # if head_angle == self.OUT_OF_RANGE:
+        #     return
         body_angle = self.normalizeAngle(self.m_dNeck[self.m_iTime] - head_angle)
-        print("headangle, speed2があるであろうmessage", message)
+        # print("headangle, speed2があるであろうmessage", message)
         self.m_dHeadAngle[self.m_iTime] = head_angle
         self.m_dBody[self.m_iTime] = body_angle
 
