@@ -33,7 +33,7 @@ class Player11(player10.Player10, threading.Thread):
         print(message)
         id = int(self.getParam(message, "id", 1))
         # 999
-        print(id)
+        print("id: ", id)
         self.m_strPlayerType[id] = message
 
     def analyzeVisualMessage(self, message):
