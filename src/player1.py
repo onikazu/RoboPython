@@ -6,6 +6,7 @@ class Player1(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
         self.socket = socket(AF_INET, SOCK_DGRAM)
+        self.socket2 = socket(AF_INET, SOCK_DGRAM)
         self.HOSTNAME = "localhost"
         self.PORT = 6000
         self.ADDRESS = gethostbyname(self.HOSTNAME)
@@ -19,10 +20,15 @@ class Player1(threading.Thread):
     def send(self, command):
         if len(command) == 0:
             return
-        # print("p1command No", self.m_iNumber, command)
-        to_byte_command = command.encode(encoding='utf_8')
-        self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
-        # print("sending ", command, " is done")
+        if command.startswith("(init "):
+            # print("p1command No", self.m_iNumber, command)
+            to_byte_command = command.encode(encoding='utf_8')
+            self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
+            # print("sending ", command, " is done")
+        else:
+            to_byte_command = command.encode(encoding='utf_8')
+            self.socket2.sendto(to_byte_command, (self.ADDRESS, self.PORT))
+
 
     def receive(self):
         message, arr = self.socket.recvfrom(4096)
