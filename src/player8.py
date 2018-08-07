@@ -59,7 +59,7 @@ class Player8(player7.Player7, threading.Thread):
         self.m_strFlagName.append("f g r b");
         self.m_dFlagX.append(52.5);
         self.m_dFlagY.append(7.01)
-        self.m_strFlagName.append("f t l 50)");
+        self.m_strFlagName.append("f t l 50");
         self.m_dFlagX.append(-50.0);
         self.m_dFlagY.append(-39.0)
         self.m_strFlagName.append("f t l 40");
