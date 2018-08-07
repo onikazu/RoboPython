@@ -58,15 +58,14 @@ class Player9(player8.Player8, threading.Thread):
 
     def analyzeVisualMessage(self, message):
         super().analyzeVisualMessage(message)
-        if message.find("(ball)") == -1:
+        if message.find("(b)") == -1:
             return
-        ballDist = self.getParam(message, "(ball)", 1)
-        ballDir = self.getParam(message, "(ball)", 2)
+        ballDist = self.getParam(message, "(b)", 1)
+        ballDir = self.getParam(message, "(b)", 2)
         rad = math.radians(self.normalizeAngle(self.m_dNeck + ballDir))
         self.m_dBallX = self.m_dX + ballDist * math.cos(rad)
         self.m_dBallY = self.m_dY + ballDist * math.sin(rad)
         self.setDefencePosition(self.m_dBallX, self.m_dBallY)
-
 
 
 if __name__ == "__main__":

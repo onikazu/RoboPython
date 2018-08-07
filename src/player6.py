@@ -10,7 +10,7 @@ class Player6(player5.Player5, threading.Thread):
 
     # 自分がボールに一番近いかどうかの判断
     def checkNearest(self, message, ballDist, ballDir):
-        teamname = "(player " + self.m_strTeamName
+        teamname = "(p " + self.m_strTeamName
         player = self.getObjectMessage(message, "((p")
         # print("player infomation: ", player)
         index0 = player.find(teamname, 0)
@@ -37,9 +37,9 @@ class Player6(player5.Player5, threading.Thread):
 
     def getCommandAsDefence(self, message, ballDist, ballDir):
         command = ""
-        goal = "(goal l)"
+        goal = "(g l)"
         if self.m_strSide.startswith("r"):
-            goal = "(goal r)"
+            goal = "(g r)"
         if message.find(goal) > -1:
             goalDist = self.getParam(message, goal, 1)
             if goalDist > 50.0:

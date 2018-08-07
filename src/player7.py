@@ -41,22 +41,22 @@ class Player7(player6.Player6, threading.Thread):
             return self.OUT_OF_RANGE
 
         playerNeck = self.OUT_OF_RANGE
-        if lineName.startswith("(line b)"):
+        if lineName.startswith("(l b)"):
             if 0 < lineDir and lineDir <= 90:
                 playerNeck = 180 - lineDir
             else:
                 playerNeck = -lineDir
-        elif lineName.startswith("(line t)"):
+        elif lineName.startswith("(l t)"):
             if 0 < lineDir and lineDir <= 90:
                 playerNeck = -lineDir
             else:
                 playerNeck = -180 - lineDir
-        elif lineName.startswith("(line l)"):
+        elif lineName.startswith("(l l)"):
             if 0 < lineDir and lineDir <= 90:
                 playerNeck = -90 - lineDir
             else:
                 playerNeck = 90 - lineDir
-        elif lineName.startswith("(line r)"):
+        elif lineName.startswith("(l r)"):
             if 0 < lineDir and lineDir <= 90:
                 playerNeck = 90 - lineDir
             else:
@@ -68,9 +68,9 @@ class Player7(player6.Player6, threading.Thread):
         print("player7 into kick section")
         targetGoal = ""
         if self.m_strSide.startswith("r"):
-            targetGoal = "(goal l)"
+            targetGoal = "(g l)"
         else:
-            targetGoal = "(goal r)"
+            targetGoal = "(g r)"
 
         index0 = message.find(targetGoal)
         # ゴールが見える

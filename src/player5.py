@@ -11,9 +11,9 @@ class Player5(player4.Player4, threading.Thread):
     def kick(self, message):
         target_goal = ""
         if self.m_strSide.startswith("r"):
-            target_goal = "(goal l)"
+            target_goal = "(g l)"
         else:
-            target_goal = "(goal r)"
+            target_goal = "(g r)"
         index0 = message.find(target_goal)
         # ゴールが見えているときはゴール方向に蹴る
         if index0 > -1:

@@ -62,9 +62,9 @@ class Player10(player9.Player9, threading.Thread):
 
     # @override
     def kick(self, message):
-        goal = "(goal l)"
+        goal = "(g l)"
         if self.m_strSide.startswith("r"):
-            goal = "(goal r)"
+            goal = "(g r)"
         if message.find(goal) > -1:
             return "(kick 100 180)"
         return super().kick(message)
