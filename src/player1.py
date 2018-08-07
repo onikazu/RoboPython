@@ -41,9 +41,9 @@ class Player1(threading.Thread):
         self.m_strTeamName = team_name
         self.m_strHostName = server_name
         if self.m_iNumber == 1:
-            command = "(init " + self.m_strTeamName + "(goalie)(version 7.99))"
+            command = "(init " + self.m_strTeamName + "(goalie)(version 15.40))"
         else:
-            command = "(init " + self.m_strTeamName + "(version 7.99))"
+            command = "(init " + self.m_strTeamName + "(version 15.40))"
         self.send(command)
 
     # thread を動かしている最中に行われる関数
