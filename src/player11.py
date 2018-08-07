@@ -34,7 +34,8 @@ class Player11(player10.Player10, threading.Thread):
         print(message)
         id = int(self.getParam(message, "id", 1))
         print("id: ", id)
-        self.m_strPlayerType[id] = message
+        if id > 0:
+            self.m_strPlayerType[id-1] = message
 
     def analyzeVisualMessage(self, message):
         self.m_iVisualTime = int(self.getParam(message, "see", 1))
