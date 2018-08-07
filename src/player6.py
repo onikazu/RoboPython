@@ -47,6 +47,7 @@ class Player6(player5.Player5, threading.Thread):
         return command
 
     def play_3(self, message, ballDist, ballDir):
+        print("play_3 message: ", message)
         # ボールが視界に無いとき
         command = ""
         # 体の正面にある
