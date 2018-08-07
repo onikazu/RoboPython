@@ -14,7 +14,7 @@ class Player19(player18.Player18, threading.Thread):
     # 視覚情報の解析
     def analyzeVisualMessage(self, message):
         super().analyzeVisualMessage(message)
-        if message.find("(ball") > -1:
+        if message.find("(b") > -1:
             self.m_iBallTime = self.m_iVisualTime
             self.m_iSearchCount = 0
         elif self.checkFresh(self.m_iBallTime) == False:

@@ -25,14 +25,14 @@ class Player18(player17.Player17, threading.Thread):
             return
         self.m_dX[t] = pos["x"]
         self.m_dY[t] = pos["y"]
-        if message.find("(ball)") == -1:
+        if message.find("(b)") == -1:
             return
         self.m_iBallTime = t
-        ball = self.getObjectMessage(message, "((ball")
+        ball = self.getObjectMessage(message, "((b")
         # string tokenizer の代わり
         st = ball.split(" ")
-        ball_dist = self.getParam(message, "(ball)", 1)
-        ball_dir = self.getParam(message, "(ball)", 2)
+        ball_dist = self.getParam(message, "(b)", 1)
+        ball_dir = self.getParam(message, "(b)", 2)
         # 自己流=============意味無
         # if ball_dir == self.OUT_OF_RANGE:
         #     return
@@ -49,8 +49,8 @@ class Player18(player17.Player17, threading.Thread):
             self.m_dBallVY[t] = self.m_dY[t] - self.m_dY[pre]
 
         if len(st) > 4:
-            dist_change = self.getParam(message, "(ball)", 3)
-            dir_change = self.getParam(message, "(ball)", 4)
+            dist_change = self.getParam(message, "(b)", 3)
+            dir_change = self.getParam(message, "(b)", 4)
             vx = dist_change
             vy = dir_change * ball_dist * (math.pi / 180)
             ballR = math.sqrt(vx * vx + vy * vy)
