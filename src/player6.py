@@ -10,7 +10,7 @@ class Player6(player5.Player5, threading.Thread):
 
     # 自分がボールに一番近いかどうかの判断
     def checkNearest(self, message, ballDist, ballDir):
-        teamname = "(p " + self.m_strTeamName
+        teamname = "(p \"" + self.m_strTeamName + "\""
         player = self.getObjectMessage(message, "((p")
         # print("player infomation: ", player)
         index0 = player.find(teamname, 0)
