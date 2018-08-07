@@ -15,6 +15,7 @@ class Player0():
     def send(self, command):
         if len(command) == 0:
             return
+        command = command + "\0"
         to_byte_command = command.encode(encoding='UTF-8')
         self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
 

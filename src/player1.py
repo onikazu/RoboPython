@@ -23,6 +23,7 @@ class Player1(threading.Thread):
         # v8 以降は専用ソケットが必要なので作成
         # if command.startswith("(init "):
         # print("p1command No", self.m_iNumber, command)
+        command = command + "\0"
         to_byte_command = command.encode(encoding='utf_8')
         self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
         # print("sending ", command, " is done")
