@@ -12,7 +12,7 @@ class Player11(player10.Player10, threading.Thread):
         self.m_strServerParam = ""
         self.m_strPlayerParam = ""
         self.m_strPlayerType = []
-        for _ in range(20):
+        for _ in range(17):
             self.m_strPlayerType.append("")
         self.m_iPlayerType = 0
         self.m_strCommand = []
@@ -35,7 +35,7 @@ class Player11(player10.Player10, threading.Thread):
         id = int(self.getParam(message, "id", 1))
         print("id: ", id)
         if id > 0:
-            self.m_strPlayerType[id-1] = message
+            self.m_strPlayerType[id] = message
 
     def analyzeVisualMessage(self, message):
         self.m_iVisualTime = int(self.getParam(message, "see", 1))
