@@ -38,7 +38,7 @@ class Player14(player13.Player13, threading.Thread):
         self.recover_dec = self.getParam(message, "recover_dec", 1)
         self.recover_min = self.getParam(message, "recover_min", 1)
         self.effort_dec_thr = self.getParam(message, "effort_dec_thr", 1)
-        self.effort_inc_thr = self.getParam(message, "effort_inc_thr")
+        self.effort_inc_thr = self.getParam(message, "effort_inc_thr", 1)
         self.effort_dec = self.getParam(message, "effort_dec", 1)
         self.effort_inc = self.getParam(message, "effort_inc", 1)
 
