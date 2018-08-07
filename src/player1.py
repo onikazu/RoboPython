@@ -20,6 +20,8 @@ class Player1(threading.Thread):
     def send(self, command):
         if len(command) == 0:
             return
+
+        # v8 以降は専用ソケットが必要なので作成
         if command.startswith("(init "):
             # print("p1command No", self.m_iNumber, command)
             to_byte_command = command.encode(encoding='utf_8')
@@ -33,7 +35,7 @@ class Player1(threading.Thread):
     def receive(self):
         message, arr = self.socket.recvfrom(4096)
         message = message.decode("UTF-8")
-        # print("メッセージ（サーバーから", self.m_iNumber, "番）：", message)
+        print("メッセージ（サーバーから", self.m_iNumber, "番）：", message)
         return message
 
     def initialize(self, number, team_name, server_name, server_port):
