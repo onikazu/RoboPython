@@ -229,10 +229,11 @@ class Player8(player7.Player7, threading.Thread):
             index1 = flag.find(")", index0 + 2)
             index2 = flag.find(")", index1 + 1)
             name = flag[index0 + 2:index1]
-            print("name", name)
+            # print("name", name)
             j = 0
             while self.m_strFlagName[j].endswith(name) is False:
                 j += 1
+                print("j", j, "name", name)
             dist = self.getParam(flag, name, 1)
             dir = self.getParam(flag, name, 2)
             rad = math.radians(self.normalizeAngle(dir + neckDir))
