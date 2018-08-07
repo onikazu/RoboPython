@@ -105,6 +105,7 @@ class Player11(player10.Player10, threading.Thread):
         # プレーヤータイプの処理
         elif message.startswith("(player_type"):
             self.analyzePlayerType(message)
+            print("player_type_message", message)
         # エラーの処理
         else:
             print("p11 error from server , message is like this:", message)
