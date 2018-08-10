@@ -42,9 +42,9 @@ class Player21(player20.Player20, threading.Thread):
             d -= speed
             count += 1
 
-        if self.m_iNumber == 10:
-            print("p21 turn", turn)
-            print("p21 turn_moment", turn_moment)
+        # if self.m_iNumber == 10:
+        #     print("p21 turn", turn)
+        #     print("p21 turn_moment", turn_moment)
 
         # もし目的地の方向を向いていて
         if abs(turn) < 20.0:
