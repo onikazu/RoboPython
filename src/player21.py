@@ -23,6 +23,7 @@ class Player21(player20.Player20, threading.Thread):
         if moveDist < kickable_area:
             self.m_strCommand[t] = "(turn 0)"
             return
+        # こいつが狂っていると見て間違いない
         turn = self.normalizeAngle(moveDir - self.m_dBody[t])
         speed = math.sqrt(self.m_dVX[t] * self.m_dVX[t] + self.m_dVY[t] * self.m_dVY[t])
         turn_moment = turn * (1 + self.inertia_moment * speed * self.player_decay)

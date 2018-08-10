@@ -11,6 +11,7 @@ class Player18(player17.Player17, threading.Thread):
         self.m_debugLv18 = False
 
     def analyzeVisualMessage(self, message):
+        print("p18", message)
         super().analyzeVisualMessage(message)
         t = self.m_iVisualTime
         self.m_dX[t] = self.OUT_OF_RANGE
