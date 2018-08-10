@@ -62,6 +62,8 @@ class Player21(player20.Player20, threading.Thread):
         elif abs(turn_moment) <= 180.0:
             self.m_strCommand[t] = "(turn {0:.4f})".format(turn_moment)
             if self.m_debugLv21:
+                print()
+                print()
                 print("================================")
                 print("t = {}".format(t))
                 print("m_dMoveX[t]:{0:.4f}".format(self.m_dMoveX[t]))
@@ -85,8 +87,10 @@ class Player21(player20.Player20, threading.Thread):
             speed_dir = self.getDirection(0, 0, self.m_dVX[t], self.m_dVY[t])
             rate = self.dash_power_rate * self.m_dEffort[t]
             if abs(self.normalizeAngle(speed_dir - moveDir)) < 20.0:
+                print("a")
                 dash_power = max(speed * self.player_decay / rate, dash_power)
             else:
+                print("b")
                 dash_power = min(-speed * self.player_decay / rate, -dash_power)
             self.m_strCommand[t] = "(dash {0:.4f})(say {1:.4f})".format(dash_power, turn_moment)
 
