@@ -84,6 +84,7 @@ class Player16(player15.Player15, threading.Thread):
     def predict(self, start, end):
         super().predict(start, end)
         if 0 < self.m_iTime < 20 and self.m_debugLv16:
+            print()
             print("時刻", self.m_iTime)
             print("start", start)
             print("end", end)
@@ -94,7 +95,7 @@ class Player16(player15.Player15, threading.Thread):
             print("速度{0:.4f}, {1:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
             print("首{0:.4f}".format(self.m_dNeck[self.m_iTime]))
             print("体{0:.4f}".format(self.m_dBody[self.m_iTime]))
-            print("headangle", self.m_dBody[self.m_iTime])
+            # print("headangle", self.m_dBody[self.m_iTime])
 
 
     def analyzePlayerType(self, message):
