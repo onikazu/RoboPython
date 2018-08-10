@@ -65,7 +65,7 @@ class Player19(player18.Player18, threading.Thread):
 
         if self.m_debugLv19 and 0 < t < 30:
             print("時刻{}".format(t))
-            print("self.m_iSearchCount:", self.m_iSearchCount)
+            # print("self.m_iSearchCount:", self.m_iSearchCount)
             print("視覚{}".format(self.m_iVisualTime))
             # 適切な出力得られていない
             print("目標")
@@ -75,8 +75,8 @@ class Player19(player18.Player18, threading.Thread):
             print("位置{0:.4f}, {1:.4f}".format(self.m_dX[t], self.m_dY[t]))
             print("首{0:.4f}".format(self.m_dNeck[t]))
             print("体{0:.4f}".format(self.m_dBody[t]))
-            print("body_diff {0:.4f}, neck_diff {0:.4f}".format(body_diff, neck_diff))
-            print("self.m_strCommand: ", self.m_strCommand[t])
+            # print("body_diff {0:.4f}, neck_diff {0:.4f}".format(body_diff, neck_diff))
+            # print("self.m_strCommand: ", self.m_strCommand[t])
         # print("No. {}".format(self.m_iNumber))
 
         if abs(body_diff) < 90 + 22.5 / 2 and abs(neck_diff) < 22.5:
