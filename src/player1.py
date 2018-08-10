@@ -36,6 +36,7 @@ class Player1(threading.Thread):
     def receive(self):
         message, arr = self.socket.recvfrom(4096)
         message = message.decode("UTF-8")
+        # ポート番号をｉｎｉｔに用いてモノから専用ソケットのものに変え無くてはならない！！！（重要）
         self.PORT = arr[1]
         # print("メッセージ（サーバーから", self.m_iNumber, "番）：", message)
         return message
@@ -45,6 +46,7 @@ class Player1(threading.Thread):
         self.m_strTeamName = team_name
         self.m_strHostName = server_name
         self.PORT = server_port
+        # バージョンを指定しないと自動でバージョン３のプロトコルが動作する。
         if self.m_iNumber == 1:
             command = "(init " + self.m_strTeamName + "(goalie)(version 15.40))"
         else:
