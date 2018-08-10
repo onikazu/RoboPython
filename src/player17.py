@@ -7,6 +7,7 @@ import math
 class Player17(player16.Player16, threading.Thread):
     def __init__(self):
         super(Player17, self).__init__()
+        self.m_strBall = ""
         self.m_dBallX = []
         self.m_dBallY = []
         self.m_dBallVX = []

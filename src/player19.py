@@ -19,7 +19,7 @@ class Player19(player18.Player18, threading.Thread):
             self.m_iSearchCount = 0
         elif self.checkFresh(self.m_iBallTime) == False:
             # print(self.m_iNumber, "p19 message without ball", message)
-            if self.m_iSearchCount == 0 and self.checkInitialMode() == False:
+            if self.m_iSearchCount == 0 and self.checkInitialMode() is False:
                 self.m_iSearchCount = 9
 
     # 時刻が最新の時刻であるか検査
@@ -39,11 +39,10 @@ class Player19(player18.Player18, threading.Thread):
             self.m_strCommand[t] += "(turn_neck -180)"
             self.m_strCommand[t] += "(change_view wide high)"
         if searchCount == 3:
-            # 教科書みす?
             self.m_strCommand[t] = "(turn 180)"
             self.m_strCommand[t] += "(turn_neck 90)"
             self.m_strCommand[t] += "(change_view wide high)"
-        print(self.m_iNumber, "のserchcount: ", searchCount)
+        # print(self.m_iNumber, "のserchcount: ", searchCount)
 
     # 座標で指定された方向に首を向ける
     def lookAt(self, faceX, faceY):
@@ -113,7 +112,7 @@ class Player19(player18.Player18, threading.Thread):
             if abs(self.m_dBody[t]) > 180.0:
                 return
             if t > 0:
-                if self.checkFresh(self.m_iBallTime) == False:
+                if self.checkFresh(self.m_iBallTime) is False:
                     self.searchBall(self.m_iSearchCount)
                 else:
                     self.playWithBall()

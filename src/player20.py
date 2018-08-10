@@ -30,6 +30,8 @@ class Player20(player19.Player19, threading.Thread):
             self.m_dFaceY.append(0.0)
             self.m_iKickTime.append(0)
             self.m_iMoveTime.append(0)
+
+        for i in range(self.GAME_LENGTH):
             self.m_iTime = i
             self.setKickTarget()
             self.setMoveTarget()

@@ -23,17 +23,17 @@ class Player11(player10.Player10, threading.Thread):
         self.m_debugLv11 = False
 
     def analyzeServerParam(self, message):
-        print("serverParam: ", message)
+        # print("serverParam: ", message)
         self.m_strServerParam = message
 
     def analyzePlayerParam(self, message):
         self.m_strPlayerParam = message
 
     def analyzePlayerType(self, message):
-        print("m_strPlayerType: ", self.m_strPlayerType)
-        print(message)
+        # print("m_strPlayerType: ", self.m_strPlayerType)
+        # print(message)
         id = int(self.getParam(message, "id", 1))
-        print("id: ", id)
+        # print("id: ", id)
         self.m_strPlayerType[id] = message
 
     def analyzeVisualMessage(self, message):
@@ -107,8 +107,8 @@ class Player11(player10.Player10, threading.Thread):
             # print("player_type_message", message)
         # エラーの処理
         else:
-            print("p11 error from server , message is like this:", message)
-            print("p11 command is this :", self.m_strCommand[self.m_iTime])
+            print("p11 サーバーからエラーが伝えられた:", message)
+            print("p11 エラー発生原因のコマンドは右記の通り :", self.m_strCommand[self.m_iTime])
 
 
 if __name__ == "__main__":
