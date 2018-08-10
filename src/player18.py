@@ -24,6 +24,8 @@ class Player18(player17.Player17, threading.Thread):
         pos = self.estimatePosition(message, self.m_dNeck[t], self.m_dX[t], self.m_dY[t])
         if pos["x"] == self.OUT_OF_RANGE:
             return
+        if pos["y"] == self.OUT_OF_RANGE:
+            return
         self.m_dX[t] = pos["x"]
         self.m_dY[t] = pos["y"]
         if message.find("(b)") == -1:
