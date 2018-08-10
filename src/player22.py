@@ -23,7 +23,7 @@ class Player22(player21.Player21, threading.Thread):
         return list
 
     def getObjectMessage_1(self, obj):
-        t = self.m_iTime
+        t = self.m_iVisualTime
         dist = 0
         dir = 0
         dist_change = 0
@@ -33,24 +33,23 @@ class Player22(player21.Player21, threading.Thread):
         index0 = obj.find(") ")
         index1 = obj.find(")", index0 + 1)
         result = ""
+        name = obj[0:index0 + 2]
         # 教科書変更点
-        name = obj[0:index1 + 2]
-        # 教科書変更点
-        index2 = name.find(" ")
-        index3 = name.find(" ", index2 + 1)
+        index2 = name.find("\"")
+        index3 = name.find("\"", index2 + 1)
         index4 = name.find(")")
-        s = "((p \"" + self.m_strTeamName +"\""
+        s = "((p \"" + self.m_strTeamName + "\""
         team = ""
         if name.startswith(s):
             team = "friend"
         else:
             team = "enemy"
         number = 0
-        if index3 + 1 < index4 and name.find("(p") == -1 and name.find("(P"):
+        if index3 + 1 < index4 and name.find("(p)") == -1 and name.find("(P)"):
             str_var = name[index3 + 1:index4]
             if str_var.find("goalie") > 0:
                 str_var = str_var.replace("goalie", " ", 1)
-            print("str_var:", str_var)
+            # print("str_var:", str_var)
             number = int(float(str_var))
         str_var = obj[index0 + 1:index1]
         st = str_var.split(" ")
@@ -63,7 +62,13 @@ class Player22(player21.Player21, threading.Thread):
             dir = float(st[count])
         if count <= 0:
             count -= 1
-            dist_change = float(st[count])
+            # 最新のプロトコルに合わせるコード
+            dist_change = st[count]
+            if dist_change == "k":
+                dist_change = 0
+                count = -1
+            else:
+                dist_change = float(dist_change)
         if count <= 0:
             count -= 1
             dir_change = float(st[count])
