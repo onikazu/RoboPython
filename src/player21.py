@@ -86,11 +86,12 @@ class Player21(player20.Player20, threading.Thread):
         else:
             speed_dir = self.getDirection(0, 0, self.m_dVX[t], self.m_dVY[t])
             rate = self.dash_power_rate * self.m_dEffort[t]
+
             if abs(self.normalizeAngle(speed_dir - moveDir)) < 20.0:
-                print("a")
+                print("a", turn_moment)
                 dash_power = max(speed * self.player_decay / rate, dash_power)
             else:
-                print("b")
+                print("b", turn_moment)
                 dash_power = min(-speed * self.player_decay / rate, -dash_power)
             self.m_strCommand[t] = "(dash {0:.4f})(say {1:.4f})".format(dash_power, turn_moment)
 
