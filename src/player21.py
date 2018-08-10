@@ -55,7 +55,7 @@ class Player21(player20.Player20, threading.Thread):
             # 遠ければ
             if dist > 0.75:
                 self.m_strCommand[t] = "(dash {0:.4f})".format(-dash_power)
-        elif abs(turn_moment <= 180.0):
+        elif abs(turn_moment) <= 180.0:
             self.m_strCommand[t] = "(turn {0:.4f})".format(turn_moment)
             if self.m_debugLv21:
                 print("================================")
