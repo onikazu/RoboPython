@@ -18,7 +18,7 @@ class Player16(player15.Player15, threading.Thread):
     def analyzePhysicalMessage(self, message):
         super().analyzePhysicalMessage(message)
         # print("=============================")
-        # print("PhysicalMessage:", message)
+        print("PhysicalMessage:", message)
         # print("=============================")
         if self.m_dNeck[self.m_iTime] == self.OUT_OF_RANGE:
             return
