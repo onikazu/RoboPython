@@ -43,10 +43,11 @@ class Player16(player15.Player15, threading.Thread):
         self.m_dVX[self.m_iTime] = vx
         self.m_dVY[self.m_iTime] = vy
         head_angle = self.getParam(message, "head_angle", 1)
-        # print("headangle:", head_angle)
+        print("headangle:", head_angle)
         # if head_angle == self.OUT_OF_RANGE:
         #     return
         body_angle = self.normalizeAngle(self.m_dNeck[self.m_iTime] - head_angle)
+        print("bodyangle", body_angle)
         # print("headangle, speed2があるであろうmessage", message)
         self.m_dHeadAngle[self.m_iTime] = head_angle
         self.m_dBody[self.m_iTime] = body_angle
