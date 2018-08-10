@@ -45,7 +45,7 @@ class Player22(player21.Player21, threading.Thread):
         else:
             team = "enemy"
         number = 0
-        if index3 + 1 < index4 and name.find("(p)") == -1 and name.find("(P)"):
+        if index3 + 1 < index4 and name.find("(p)") == -1 and name.find("(P)") == -1:
             str_var = name[index3 + 1:index4]
             if str_var.find("goalie") > 0:
                 str_var = str_var.replace("goalie", " ", 1)
