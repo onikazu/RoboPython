@@ -80,6 +80,7 @@ class Player21(player20.Player20, threading.Thread):
                 print("turn{0:.4f}".format(turn))
                 print("turn_moment{0:.4f}".format(turn_moment))
                 print("dist{0:.4f}".format(dist))
+                print("self.m_strCommend[t]:", self.m_strCommand[t])
         else:
             speed_dir = self.getDirection(0, 0, self.m_dVX[t], self.m_dVY[t])
             rate = self.dash_power_rate * self.m_dEffort[t]
@@ -88,7 +89,6 @@ class Player21(player20.Player20, threading.Thread):
             else:
                 dash_power = min(-speed * self.player_decay / rate, -dash_power)
             self.m_strCommand[t] = "(dash {0:.4f})(say {1:.4f})".format(dash_power, turn_moment)
-        print("self.m_strCommend[t]:", self.m_strCommand[t])
 
     def playWithBall(self):
         t = self.m_iTime
