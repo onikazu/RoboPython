@@ -52,7 +52,7 @@ class Player21(player20.Player20, threading.Thread):
             turn = 0.0
             dist = self.getDistance(self.m_dX[t], self.m_dY[t], self.m_dMoveX[t], self.m_dMoveY[t])
             # 更に遠ければ
-            if dist > 0:
+            if dist > 0.75:
                 self.m_strCommand[t] = "(dash {0:.4f})".format(dash_power)
                 if self.m_debugLv21:
                     print("c :{} {}".format(turn, turn_moment))
@@ -60,7 +60,7 @@ class Player21(player20.Player20, threading.Thread):
         elif abs(turn) > 160.0 and dist < 3.51:
             turn = 0.0
             # 遠ければ
-            if dist > 0:
+            if dist > 0.75:
                 self.m_strCommand[t] = "(dash {0:.4f})".format(-dash_power)
                 if self.m_debugLv21:
                     print("d :{} {}".format(turn, turn_moment))
@@ -118,8 +118,8 @@ class Player21(player20.Player20, threading.Thread):
             print("ball({0:.4f}, {1:.4f})".format(self.m_dBallX[t], self.m_dBallY[t]))
             print("速度{0:.4f}, {1:.4f}".format(self.m_dBallVX[t], self.m_dBallVY[t]))
             print("コマンド{}".format(self.m_strCommand[t]))
-        if self.m_iNumber == 1:
-            print("no1. ball({0:.4f}, {1:.4f})".format(self.m_dBallX[t], self.m_dBallY[t]))
+        # if self.m_iNumber == 1:
+        #     print("no1. ball({0:.4f}, {1:.4f})".format(self.m_dBallX[t], self.m_dBallY[t]))
 
 
 if __name__ == "__main__":
