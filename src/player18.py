@@ -84,6 +84,8 @@ class Player18(player17.Player17, threading.Thread):
             print("ボール位置{0:.4f}, {1:.4f}".format(self.m_dBallX[self.m_iTime], self.m_dBallY[self.m_iTime]))
             print("ボール速度{0:.4f}, {1:.4f}".format(self.m_dBallVX[self.m_iTime], self.m_dBallVY[self.m_iTime]))
             print("ball = {}".format(ball))
+            print("ballR:", ballR)
+            print("ballRad", ballRad)
 
 
 if __name__ == "__main__":
