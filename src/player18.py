@@ -49,6 +49,7 @@ class Player18(player17.Player17, threading.Thread):
         rad = math.radians(self.normalizeAngle(self.m_dNeck[t] + ball_dir))
         self.m_dBallX[t] = self.m_dX[t] + ball_dist * math.cos(rad)
         self.m_dBallY[t] = self.m_dY[t] + ball_dist * math.sin(rad)
+        print("p18 ballX Y rad:", self.m_dBallX, self.m_dBallY, rad)
         self.m_dBallVX[t] = self.m_dBallVY[t] = 0
         if self.m_debugLv18:
             print("p18 rad: {}".format(rad))
