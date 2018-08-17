@@ -29,6 +29,9 @@ class Player21(player20.Player20, threading.Thread):
         turn_moment = turn * (1 + self.inertia_moment * speed * self.player_decay)
         if self.m_debugLv21:
             print("turnmoment:", turn_moment)
+            print("speed:", speed)
+            print("turn:", turn)
+            print("moveDir", moveDir)
         dist = self.getDistance(self.m_dX[t], self.m_dY[t], self.m_dMoveX[t], self.m_dMoveY[t])
         dash_power_max = 100.0
         dash_power = 40.0
