@@ -21,11 +21,11 @@ class Player19(player18.Player18, threading.Thread):
         elif self.checkFresh(self.m_iBallTime) is False:
             # print(self.m_iNumber, "p19 message without ball", message)
             if self.m_iSearchCount == 0 and self.checkInitialMode() is False:
-                self.m_iSearchCount = 12
+                self.m_iSearchCount = 9
 
     # 時刻が最新の時刻であるか検査
     def checkFresh(self, time):
-        if self.m_iTime - time > 4:
+        if self.m_iTime - time > 3:
             return False
         else:
             return True
@@ -33,13 +33,13 @@ class Player19(player18.Player18, threading.Thread):
     # ボールを探す
     def searchBall(self, searchCount):
         t = self.m_iTime
-        if self.m_iSearchCount == 12:
+        if self.m_iSearchCount == 9:
             self.m_strCommand[t] += "(turn_neck 180)"
             self.m_strCommand[t] += "(change_view wide high)"
-        if self.m_iSearchCount == 8:
+        if self.m_iSearchCount == 6:
             self.m_strCommand[t] += "(turn_neck -180)"
             self.m_strCommand[t] += "(change_view wide high)"
-        if self.m_iSearchCount == 4:
+        if self.m_iSearchCount == 3:
             self.m_strCommand[t] = "(turn 180)"
             self.m_strCommand[t] += "(turn_neck 90)"
             self.m_strCommand[t] += "(change_view wide high)"
