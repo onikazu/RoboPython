@@ -22,6 +22,7 @@ class Player18(player17.Player17, threading.Thread):
             return
         self.m_dBody[t] = self.normalizeAngle(self.m_dNeck[t] - self.m_dHeadAngle[t])
         pos = self.estimatePosition(message, self.m_dNeck[t], self.m_dX[t], self.m_dY[t])
+        # ok
         if self.m_debugLv18:
             print("p18 pos {}".format(pos))
         if pos["x"] == self.OUT_OF_RANGE:
@@ -44,6 +45,8 @@ class Player18(player17.Player17, threading.Thread):
         #     return
         # # ==================
         rad = math.radians(self.normalizeAngle(self.m_dNeck[t] + ball_dir))
+        if self.m_debugLv18:
+            print("p18 rad: {}".format(rad))
         self.m_dBallX[t] = self.m_dX[t] + ball_dist * math.cos(rad)
         self.m_dBallY[t] = self.m_dY[t] + ball_dist * math.sin(rad)
         self.m_dBallVX[t] = self.m_dBallVY[t] = 0
