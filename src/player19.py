@@ -33,13 +33,13 @@ class Player19(player18.Player18, threading.Thread):
     # ボールを探す
     def searchBall(self, searchCount):
         t = self.m_iTime
-        if searchCount == 9:
+        if self.m_iSearchCount == 9:
             self.m_strCommand[t] += "(turn_neck 180)"
             self.m_strCommand[t] += "(change_view wide high)"
-        if searchCount == 6:
+        if self.m_iSearchCount == 6:
             self.m_strCommand[t] += "(turn_neck -180)"
             self.m_strCommand[t] += "(change_view wide high)"
-        if searchCount == 3:
+        if self.m_iSearchCount == 3:
             self.m_strCommand[t] = "(turn 180)"
             self.m_strCommand[t] += "(turn_neck 90)"
             self.m_strCommand[t] += "(change_view wide high)"
@@ -93,8 +93,8 @@ class Player19(player18.Player18, threading.Thread):
 
     # ボールが見えているときの行動を決定する
     def playWithBall(self):
-        if self.m_debugLv19:
-            print("ボール見えてるよ")
+        # if self.m_debugLv19:
+        #     print("ボール見えてるよ")
         t = self.m_iTime
         self.m_strCommand[t] = "(turn 0)"
         self.lookAt(self.m_dBallX[t], self.m_dBallY[t])
