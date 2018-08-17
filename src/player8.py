@@ -180,7 +180,6 @@ class Player8(player7.Player7, threading.Thread):
         self.m_dFlagX.append(52.5);
         self.m_dFlagY.append(34.0)
 
-    # おそらくいらないが・・・
     def getLandMarker(self, message, playerX, playerY):
         message = message.replace("B", "b", 1)
         if message.find("(F)") > -1:
@@ -201,7 +200,7 @@ class Player8(player7.Player7, threading.Thread):
                 if min_dist > dist:
                     min_dist = dist
                     name = self.m_strFlagName[i]
-            message = message.replace("G", name)
+            message = message.replace("G", name, 1)
 
         return message
 
