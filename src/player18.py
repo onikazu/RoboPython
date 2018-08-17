@@ -52,6 +52,7 @@ class Player18(player17.Player17, threading.Thread):
         if self.m_debugLv18:
             print("p18 rad: {}".format(rad))
             print("p18 ball: {} {}".format(self.m_dBallX[t], self.m_dBallY[t]))
+            print("message: {}".format(message))
         if t > 0:
             pre = (t - 1) % self.GAME_LENGTH
             # print("mdballvy", type(self.m_dBallVY))
