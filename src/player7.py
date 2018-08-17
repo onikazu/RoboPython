@@ -11,7 +11,7 @@ class Player7(player6.Player6, threading.Thread):
 
     def normalizeAngle(self, angle):
         if abs(angle) > 720.0:
-            # print("p7 error about angle")
+            print("p7 error about angle")
             return
         while angle > 180.0:
             angle -= 360.0
