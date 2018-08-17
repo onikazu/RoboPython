@@ -25,7 +25,7 @@ class Player19(player18.Player18, threading.Thread):
 
     # 時刻が最新の時刻であるか検査
     def checkFresh(self, time):
-        if self.m_iTime - time > 3:
+        if self.m_iTime - time > 4:
             return False
         else:
             return True
