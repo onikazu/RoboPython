@@ -25,6 +25,7 @@ class Player18(player17.Player17, threading.Thread):
         # ok
         if self.m_debugLv18:
             print("p18 pos {}".format(pos))
+            print("p18 ball: {} {}".format(self.m_dBallX[t], self.m_dBallY[t]))
         if pos["x"] == self.OUT_OF_RANGE:
             return
         if pos["y"] == self.OUT_OF_RANGE:
