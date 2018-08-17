@@ -11,7 +11,7 @@ class Player18(player17.Player17, threading.Thread):
         self.m_debugLv18 = False
 
     def analyzeVisualMessage(self, message):
-        print("p18", message)
+        # print("p18", message)
         super().analyzeVisualMessage(message)
         t = self.m_iVisualTime
         self.m_dX[t] = self.OUT_OF_RANGE
@@ -34,6 +34,7 @@ class Player18(player17.Player17, threading.Thread):
         ball = self.getObjectMessage(message, "((b")
         # string tokenizer の代わり
         st = ball.split(" ")
+        print("st: {}".format(st))
         ball_dist = self.getParam(message, "(b)", 1)
         ball_dir = self.getParam(message, "(b)", 2)
         # 自己流=============意味無
