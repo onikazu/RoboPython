@@ -54,17 +54,20 @@ class Player21(player20.Player20, threading.Thread):
             # 更に遠ければ
             if dist > 0.75:
                 self.m_strCommand[t] = "(dash {0:.4f})".format(dash_power)
-                print("c :{} {}".format(turn, turn_moment))
+                if self.m_debugLv21:
+                    print("c :{} {}".format(turn, turn_moment))
         # もし目的地より反対方向を向いていて
         elif abs(turn) > 160.0 and dist < 3.51:
             turn = 0.0
             # 遠ければ
             if dist > 0.75:
                 self.m_strCommand[t] = "(dash {0:.4f})".format(-dash_power)
-                print("d :{} {}".format(turn, turn_moment))
+                if self.m_debugLv21:
+                    print("d :{} {}".format(turn, turn_moment))
         elif abs(turn_moment) <= 180.0:
             self.m_strCommand[t] = "(turn {0:.4f})".format(turn_moment)
-            print("e :{} {}".format(turn, turn_moment))
+            if self.m_debugLv21:
+                print("e :{} {}".format(turn, turn_moment))
             if self.m_debugLv21:
                 print()
                 print()
@@ -92,10 +95,12 @@ class Player21(player20.Player20, threading.Thread):
             rate = self.dash_power_rate * self.m_dEffort[t]
 
             if abs(self.normalizeAngle(speed_dir - moveDir)) < 20.0:
-                print("a", turn_moment, turn)
+                if self.m_debugLv21:
+                    print("a", turn_moment, turn)
                 dash_power = max(speed * self.player_decay / rate, dash_power)
             else:
-                print("b", turn_moment, turn)
+                if self.m_debugLv21:
+                    print("b", turn_moment, turn)
                 dash_power = min(-speed * self.player_decay / rate, -dash_power)
             self.m_strCommand[t] = "(dash {0:.4f})(say {1:.4f})".format(dash_power, turn_moment)
 
