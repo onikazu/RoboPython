@@ -61,6 +61,9 @@ class Player18(player17.Player17, threading.Thread):
             self.m_dBallVX[t] = self.m_dX[t] - self.m_dX[pre]
             self.m_dBallVY[t] = self.m_dY[t] - self.m_dY[pre]
 
+        ballR = 0.0
+        ballRad = 0.0
+
         if len(st) > 4:
             dist_change = self.getParam(message, "(b)", 3)
             dir_change = self.getParam(message, "(b)", 4)
