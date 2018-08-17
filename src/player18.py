@@ -34,7 +34,7 @@ class Player18(player17.Player17, threading.Thread):
         ball = self.getObjectMessage(message, "((b")
         # string tokenizer の代わり
         st = ball.split(" ")
-        print("st: {}".format(st))
+        # print("p18 st: {}".format(st))
         ball_dist = self.getParam(message, "(b)", 1)
         ball_dir = self.getParam(message, "(b)", 2)
         # 自己流=============意味無

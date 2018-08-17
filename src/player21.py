@@ -112,6 +112,7 @@ class Player21(player20.Player20, threading.Thread):
             print("コマンド{}".format(self.m_strCommand[t]))
 
 
+
 if __name__ == "__main__":
     player21s = []
     for i in range(22):
