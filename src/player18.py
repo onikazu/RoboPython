@@ -45,11 +45,12 @@ class Player18(player17.Player17, threading.Thread):
         #     return
         # # ==================
         rad = math.radians(self.normalizeAngle(self.m_dNeck[t] + ball_dir))
-        if self.m_debugLv18:
-            print("p18 rad: {}".format(rad))
         self.m_dBallX[t] = self.m_dX[t] + ball_dist * math.cos(rad)
         self.m_dBallY[t] = self.m_dY[t] + ball_dist * math.sin(rad)
         self.m_dBallVX[t] = self.m_dBallVY[t] = 0
+        if self.m_debugLv18:
+            print("p18 rad: {}".format(rad))
+            print("p18 ball: {} {}".format(self.m_dBallX[t], self.m_dBallY[t]))
         if t > 0:
             pre = (t - 1) % self.GAME_LENGTH
             # print("mdballvy", type(self.m_dBallVY))
