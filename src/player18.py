@@ -24,6 +24,7 @@ class Player18(player17.Player17, threading.Thread):
         pos = self.estimatePosition(message, self.m_dNeck[t], self.m_dX[t], self.m_dY[t])
         # ok
         if self.m_debugLv18:
+            print("message: {}".format(message))
             print("p18 pos {}".format(pos))
             print("p18 ball: {} {}".format(self.m_dBallX[t], self.m_dBallY[t]))
         if pos["x"] == self.OUT_OF_RANGE:
