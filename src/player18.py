@@ -22,6 +22,7 @@ class Player18(player17.Player17, threading.Thread):
             return
         self.m_dBody[t] = self.normalizeAngle(self.m_dNeck[t] - self.m_dHeadAngle[t])
         pos = self.estimatePosition(message, self.m_dNeck[t], self.m_dX[t], self.m_dY[t])
+        print("p18 pos {}".format(pos))
         if pos["x"] == self.OUT_OF_RANGE:
             return
         if pos["y"] == self.OUT_OF_RANGE:
