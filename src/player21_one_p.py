@@ -27,8 +27,6 @@ class Player21(player20.Player20, threading.Thread):
         turn = self.normalizeAngle(moveDir - self.m_dBody[t])
         speed = math.sqrt(self.m_dVX[t] * self.m_dVX[t] + self.m_dVY[t] * self.m_dVY[t])
         turn_moment = turn * (1 + self.inertia_moment * speed * self.player_decay)
-        # 自己流
-        turn_moment = -turn_moment
         if self.m_debugLv21:
             print("turnmoment:", turn_moment)
             print("speed:", speed)
