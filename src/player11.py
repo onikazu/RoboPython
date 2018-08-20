@@ -72,10 +72,11 @@ class Player11(player10.Player10, threading.Thread):
         self.m_strCommand[self.m_iTime] = "(turn 0)"
         # 教科書誤植？
         if self.checkInitialMode():
-            self.setKickOffPosition()
-            command = \
-                "(move " + str(self.m_dKickOffX) + " " + str(self.m_dKickOffY) + ")"
-            self.m_strCommand[self.m_iTime] = command
+            if self.checkInitialMode():
+                self.setKickOffPosition()
+                command = \
+                    "(move " + str(self.m_dKickOffX) + " " + str(self.m_dKickOffY) + ")"
+                self.m_strCommand[self.m_iTime] = command
 
     def analyzeMessage(self, message):
         # 初期メッセージの処理

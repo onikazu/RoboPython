@@ -104,9 +104,10 @@ class Player19(player18.Player18, threading.Thread):
         t = self.m_iTime
         self.m_strCommand[t] = "(turn 0)"
         if self.checkInitialMode():
-            self.setKickOffPosition()
-            command = "(move {} {})".format(self.m_dKickOffX, self.m_dKickOffY)
-            self.m_strCommand[t] = command
+            if self.checkInitialMode():
+                self.setKickOffPosition()
+                command = "(move {} {})".format(self.m_dKickOffX, self.m_dKickOffY)
+                self.m_strCommand[t] = command
         else:
             if abs(self.m_dNeck[t]) > 180.0:
                 return
