@@ -6,7 +6,7 @@ class Player1(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
         self.socket = socket(AF_INET, SOCK_DGRAM)
-        self.socket2 = socket(AF_INET, SOCK_DGRAM)
+        # self.socket2 = socket(AF_INET, SOCK_DGRAM)
         self.HOSTNAME = "localhost"
         self.PORT = 6000
         self.ADDRESS = gethostbyname(self.HOSTNAME)
