@@ -29,9 +29,8 @@ class Player3(player2.Player2, threading.Thread):
 
         if strSpeaker.startswith("referee"):
             self.m_strPlayMode = strContent
-
-        if self.m_debugLv03:
-            print("m_strPlayMode:" + self.m_strPlayMode)
+            if self.m_debugLv03:
+                print("m_strPlayMode:" + self.m_strPlayMode)
 
     def play_1(self, message):
         super().play_1(message)

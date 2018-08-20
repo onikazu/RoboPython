@@ -76,13 +76,13 @@ class Player2(player1.Player1, threading.Thread):
     def analyzeMessage(self, message):
         super().analyzeMessage(message)
         if isinstance(message, type(None)):
-            pass
+            return
             # print(message)
         elif message.startswith("(see "):
             self.analyzeVisualMessage(message)
             self.play_1(message)
         else:
-            pass
+            return
             # print(message)
 
 

@@ -12,7 +12,8 @@ class Player10(player9.Player9, threading.Thread):
         self.m_debugLv10 = False
 
     def getDirection(self, x0, y0, x1, y1):
-        if abs(x1 - x0) < 0.1:
+        # 計算誤差が大きくなることを防いでいる(値は自己流)
+        if abs(x1 - x0) < 0.3:
             if y1 - y0 > 0:
                 return 90.0
             else:

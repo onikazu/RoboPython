@@ -181,7 +181,9 @@ class Player8(player7.Player7, threading.Thread):
         self.m_dFlagY.append(34.0)
 
     def getLandMarker(self, message, playerX, playerY):
+        # Bの解決
         message = message.replace("B", "b", 1)
+        # Fの解決
         if message.find("(F)") > -1:
             name = "(F)"
             min_dist = self.OUT_OF_RANGE
