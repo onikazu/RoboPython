@@ -136,7 +136,6 @@ class Player21(player20.Player20, threading.Thread):
         index3 = message.index(")", index2 + 1)
 
         self.m_strSide = message[index0+1:index1]
-        self.m_iNumber = int(message[index1+1:index2])
         self.m_strPlayMode = message[index2+1:index3]
 
         if self.m_strSide.startswith("r"):
