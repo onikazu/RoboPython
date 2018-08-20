@@ -1,6 +1,6 @@
 from socket import *
 import threading
-
+import sys
 
 class Player1(threading.Thread):
     def __init__(self):
@@ -26,20 +26,31 @@ class Player1(threading.Thread):
 
         # ヌル終端文字列の欠損による警告を防ぐ
         command = command + "\0"
-        to_byte_command = command.encode(encoding='utf_8')
-        self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
-        # print("sending ", command, " is done")
-        # else:
-        #     to_byte_command = command.encode(encoding='utf_8')
-        #     self.socket2.sendto(to_byte_command, (self.ADDRESS, self.PORT))
+
+        try:
+            to_byte_command = command.encode(encoding='utf_8')
+            self.socket.sendto(to_byte_command, (self.ADDRESS, self.PORT))
+            # print("sending ", command, " is done")
+            # else:
+            #     to_byte_command = command.encode(encoding='utf_8')
+            #     self.socket2.sendto(to_byte_command, (self.ADDRESS, self.PORT))
+        except OSError:
+            print("送信失敗")
+            sys.exit()
 
     def receive(self):
-        message, arr = self.socket.recvfrom(4096)
-        message = message.decode("UTF-8")
-        # ポート番号をｉｎｉｔに用いてモノから専用ソケットのものに変え無くてはならない！！！（重要）
-        self.PORT = arr[1]
-        # print("メッセージ（サーバーから", self.m_iNumber, "番）：", message)
-        return message
+        try:
+            message, arr = self.socket.recvfrom(4096)
+            message = message.decode("UTF-8")
+            # ポート番号をｉｎｉｔに用いてモノから専用ソケットのものに変え無くてはならない！！！（重要）
+            self.PORT = arr[1]
+            # print("メッセージ（サーバーから", self.m_iNumber, "番）：", message)
+            return message
+        except OSError:
+            print("受信失敗")
+            sys.exit()
+            return ""
+
 
     def initialize(self, number, team_name, server_name, server_port):
         self.m_iNumber = number
