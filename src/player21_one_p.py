@@ -134,7 +134,7 @@ if __name__ == "__main__":
     player21s.append(p21)
     teamname = str(p21.__class__.__name__)
     teamname += "left"
-    player21s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
+    player21s[i].initialize(10, teamname, "localhost", 6000)
     player21s[i].start()
 
     player21s[0].m_debugLv21 = True
