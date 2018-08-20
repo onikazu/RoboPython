@@ -129,16 +129,13 @@ class Player21(player20.Player20, threading.Thread):
 
 if __name__ == "__main__":
     player21s = []
-    for i in range(0):
-        p21 = Player21()
-        player21s.append(p21)
-        teamname = str(p21.__class__.__name__)
-        if i < 11:
-            teamname += "left"
-        else:
-            teamname += "right"
-        player21s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
-        player21s[i].start()
+    i = 0
+    p21 = Player21()
+    player21s.append(p21)
+    teamname = str(p21.__class__.__name__)
+    teamname += "left"
+    player21s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
+    player21s[i].start()
 
     player21s[0].m_debugLv21 = True
 
