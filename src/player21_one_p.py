@@ -127,6 +127,26 @@ class Player21(player20.Player20, threading.Thread):
         #     print("no1. ball({0:.4f}, {1:.4f})".format(self.m_dBallX[t], self.m_dBallY[t]))
 
 
+# 一人登録時背番号を強制的に決められないための変更点（player1.py）
+
+    def analyzeInitialMessage(self, message):
+        index0 = message.index(" ")
+        index1 = message.index(" ", index0 + 1)
+        index2 = message.index(" ", index1 + 1)
+        index3 = message.index(")", index2 + 1)
+
+        self.m_strSide = message[index0+1:index1]
+        self.m_iNumber = int(message[index1+1:index2])
+        self.m_strPlayMode = message[index2+1:index3]
+
+        if self.m_strSide.startswith("r"):
+            self.m_dX[0] = 3 + 3 * self.m_iNumber
+            self.m_dY[0] = -37.0
+        else:
+            self.m_dX[0] = -3 - 3 * self.m_iNumber
+            self.m_dY[0] = -37.0
+
+
 if __name__ == "__main__":
     player21s = []
     i = 0
