@@ -23,11 +23,11 @@ class Player24(player23.Player23, threading.Thread):
             if self.m_iNumber == 10:
                 self.m_dKickX[t] = -1
                 self.m_dKickY[t] = 5.0
-                self.m_iKickTime[t] = t + 1
+                self.m_iKickTime[t] = t + 5
             elif self.m_iNumber == 11:
                 self.m_dKickX[t] = -8.0
                 self.m_dKickY[t] = 15.0
-                self.m_iKickTime[t] = t + 5
+                self.m_iKickTime[t] = t + 10
             else:
                 self.m_dKickX[t] = self.m_dBallX[self.m_iTime]
                 self.m_dKickY[t] = self.m_dBallY[self.m_iTime]
@@ -43,7 +43,7 @@ class Player24(player23.Player23, threading.Thread):
         dist = self.getDistance(self.m_dX[t], self.m_dY[t], self.m_dBallX[t], self.m_dBallY[t])
         dist_diff = (dist - self.player_size - self.ball_size) / self.kickable_margin
         rate = self.kick_power_rate * (1 - 0.25 * dir_diff - 0.25 * dist_diff)
-        rad = math.atan2(kickAX, kickAY)
+        rad = math.atan2(kickAY, kickAX)
         kick_dir = self.normalizeAngle(math.degrees(rad) - self.m_dBody[t])
         kick_power = math.sqrt(kickAX * kickAX + kickAY * kickAY) / rate
         self.m_strCommand[t] = "(kick {0:.4f} {1:.4f})".format(kick_power, kick_dir)
