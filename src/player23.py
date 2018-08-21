@@ -34,19 +34,19 @@ class Player23(player22.Player22, threading.Thread):
             self.setTrapPosition_2(dash_power, moveTurn)
 
         # m_debug で何故かエラー
-        # if 0 < self.m_iTime < 40 and self.m_debugLv23:
-        #     print("時刻{}".format(self.m_iTime))
-        #     print("視覚{}".format(self.m_iVisualTime))
-        #     print("トラップ{}".format(self.m_iTrapTime))
-        #     print("場所{0:.4f}, {1:.4f}".format(self.m_dTrapX, self.m_dTrapY))
-        #     print("ボール")
-        #     print("位置{0:.4f}, {1:.4f}".format(self.m_dBallX[self.m_iTime], self.m_dBallY[self.m_iTime]))
-        #     print("速度{0:.4f}, {1:.4f}".format(self.m_dBallVX[self.m_iTime], self.m_dBallVY[self.m_iTime]))
-        #     print("自分")
-        #     print("位置{0:.4f}, {0:.4f}".format(self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
-        #     print("速度{0:.4f}, {0:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
-        #     print("体{0:.4f}".format(self.m_dNeck[self.m_iTime]))
-        #     print("首{0:.4f}".format(self.m_dBody[self.m_iTime]))
+        if 0 < self.m_iTime < 40 and self.m_debugLv23:
+            print("時刻{}".format(self.m_iTime))
+            print("視覚{}".format(self.m_iVisualTime))
+            print("トラップ{}".format(self.m_iTrapTime))
+            print("場所{0:.4f}, {1:.4f}".format(self.m_dTrapX, self.m_dTrapY))
+            print("ボール")
+            print("位置{0:.4f}, {1:.4f}".format(self.m_dBallX[self.m_iTime], self.m_dBallY[self.m_iTime]))
+            print("速度{0:.4f}, {1:.4f}".format(self.m_dBallVX[self.m_iTime], self.m_dBallVY[self.m_iTime]))
+            print("自分")
+            print("位置{0:.4f}, {0:.4f}".format(self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
+            print("速度{0:.4f}, {0:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
+            print("体{0:.4f}".format(self.m_dNeck[self.m_iTime]))
+            print("首{0:.4f}".format(self.m_dBody[self.m_iTime]))
 
     def setTrapPosition_2(self, dash_power, stable_steps):
         t = self.m_iTime
