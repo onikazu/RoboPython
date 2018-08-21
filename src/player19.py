@@ -127,6 +127,9 @@ class Player19(player18.Player18, threading.Thread):
                 # 自己流
                 if self.checkVisualTimeFresh() is False:
                     self.m_strCommand[t] = "(turn 0)"
+                    self.m_iSearchCount -= 1
+                    if self.m_iSearchCount < 0:
+                        self.m_iSearchCount = 0
                     return
                 if self.checkFresh(self.m_iBallTime) is False:
                     self.searchBall(self.m_iSearchCount)
