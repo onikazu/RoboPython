@@ -108,9 +108,9 @@ class Player22(player21.Player21, threading.Thread):
         result = "("
         result += "(team " + team + ")"
         result += "(number " + str(number) + ")"
-        result += "(x {0:.4f})(y {0:.4f})".format(X, Y)
-        result += "(vx {0:.4f})(vy {0:.4f})".format(VX, VY)
-        result += "(body {0:.4f})(neck {0:.4f})".format(BODY, NECK)
+        result += "(x {0:.2f})(y {1:.2f})".format(X, Y)
+        result += "(vx {0:.2f})(vy {1:.2f})".format(VX, VY)
+        result += "(body {0:.2f})(neck {1:.2f})".format(BODY, NECK)
         result += ")"
         self.getParam(result, "x", 1)
         return result
