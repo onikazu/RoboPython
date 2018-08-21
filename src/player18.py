@@ -81,6 +81,15 @@ class Player18(player17.Player17, threading.Thread):
             # print(type(self.m_dBallVY), type(vy_r), type(self.m_dVY))
             self.m_dBallVY[t] = vy_r + self.m_dVY[t]
 
+            a = self.m_dBallX[t]
+            b = self.m_dBallY[t]
+            c = self.m_dBallVX[t]
+            d = self.m_dBallVY[t]
+            e = self.m_dX[t]
+            f = self.m_dY[t]
+            g = self.m_dVX[t]
+            h = self.m_dVY[t]
+
             if self.m_debugLv18 and t < 30:
                 print("時刻{0:.4f}, 位置{1:.4f}, {2:.4f}".format(self.m_iTime, self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
                 print("速度{0:.4f},{1:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
