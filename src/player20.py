@@ -81,7 +81,7 @@ class Player20(player19.Player19, threading.Thread):
         self.setDefencePosition_0()
         if self.m_strPlayMode.startswith("play_on") or (self.checkSetPlay() and self.m_strPlayMode.endswith(self.m_strSide)):
             if self.checkNearest_2(self.m_dTrapX, self.m_dTrapY):
-                self.m_dMoveX[t] = self.m_dTrapX
+                self.m_dMoveX = self.m_dTrapX
                 self.m_dMoveY[t] = self.m_dTrapY
             else:
                 self.m_dMoveX[t] = self.m_dDefenceX

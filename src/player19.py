@@ -14,6 +14,9 @@ class Player19(player18.Player18, threading.Thread):
     # 視覚情報の解析
     def analyzeVisualMessage(self, message):
         super().analyzeVisualMessage(message)
+        # 自己流
+        if self.checkVisualTimeFresh() is False:
+            return
         # ボールが見えているならば
         if message.find("(b") > -1:
             self.m_iBallTime = self.m_iVisualTime
@@ -22,6 +25,13 @@ class Player19(player18.Player18, threading.Thread):
             # print(self.m_iNumber, "p19 message without ball", message)
             if self.m_iSearchCount == 0 and self.checkInitialMode() is False:
                 self.m_iSearchCount = 9
+
+    # 自己流視覚情報検査
+    def checkVisualTimeFresh(self):
+        if self.m_iTime - self.m_iVisualTime > 1:
+            return False
+        else:
+            return True
 
     # 時刻が最新の時刻であるか検査
     def checkFresh(self, time):

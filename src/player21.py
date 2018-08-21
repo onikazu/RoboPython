@@ -84,6 +84,7 @@ class Player21(player20.Player20, threading.Thread):
                 print("m_dBallY[t]:{0:.4f}".format(self.m_dBallY[t]))
                 print("m_dTrapX{0:.4f}".format(self.m_dTrapX))
                 print("m_dTrapY{0:.4f}".format(self.m_dTrapY))
+
                 # ===================================
                 print("moveDir{0:.4f}".format(moveDir))
                 print("moveDist{0:.4f}".format(moveDist))
