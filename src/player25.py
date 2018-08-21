@@ -30,7 +30,7 @@ class Player25(player24.Player24, threading.Thread):
                 print("Dir={0:.4f}, Dist={0:.4f}".format(Dir, Dist))
 
         for i in range(len(self.m_listPlayer)):
-            player1 = str(self.m_listPlayer[1])
+            player1 = str(self.m_listPlayer[i])
             friendDir = self.OUT_OF_RANGE
             friendDist = self.OUT_OF_RANGE
             max_score = 0.0
