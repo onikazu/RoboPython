@@ -55,13 +55,13 @@ class Player22(player21.Player21, threading.Thread):
         str_var = obj[index0 + 2:index1]
         st = str_var.split(" ")
         count = len(st)
-        if count >= 0:
+        if count > 0:
             count -= 1
             dist = float(st[0])
-        if count >= 0:
+        if count > 0:
             count -= 1
             dir = float(st[1])
-        if count >= 0:
+        if count > 0:
             count -= 1
             # 最新のプロトコルに合わせるコード
             dist_change = st[2]
@@ -70,13 +70,13 @@ class Player22(player21.Player21, threading.Thread):
                 count = -1
             else:
                 dist_change = float(dist_change)
-        if count >= 0:
+        if count > 0:
             count -= 1
             dir_change = float(st[3])
-        if count >= 0:
+        if count > 0:
             count -= 1
             body = float(st[4])
-        if count >= 0:
+        if count > 0:
             count -= 1
             neck = float(st[5])
         rad = math.radians(self.normalizeAngle(dir + self.m_dNeck[t]))
