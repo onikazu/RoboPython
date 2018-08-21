@@ -72,7 +72,7 @@ class Player24(player23.Player23, threading.Thread):
 
 if __name__ == "__main__":
     player24s = []
-    for i in range(22):
+    for i in range(11):
         p24 = Player24()
         player24s.append(p24)
         teamname = str(p24.__class__.__name__)
@@ -83,7 +83,7 @@ if __name__ == "__main__":
         player24s[i].initialize((i % 11 + 1), teamname, "localhost", 6000)
         player24s[i].start()
 
-    player24s[2].m_debugLv24 = True
+    player24s[9].m_debugLv24 = True
 
     print("試合登録完了")
 
