@@ -51,19 +51,20 @@ class Player22(player21.Player21, threading.Thread):
                 str_var = str_var.replace("goalie", " ", 1)
             # print("str_var:", str_var)
             number = int(float(str_var))
-        str_var = obj[index0 + 1:index1]
+        # pythonに対応のために変更
+        str_var = obj[index0 + 2:index1]
         st = str_var.split(" ")
         count = len(st)
         if count >= 0:
             count -= 1
-            dist = float(st[count])
+            dist = float(st[0])
         if count >= 0:
             count -= 1
-            dir = float(st[count])
+            dir = float(st[1])
         if count >= 0:
             count -= 1
             # 最新のプロトコルに合わせるコード
-            dist_change = st[count]
+            dist_change = st[2]
             if dist_change == "k":
                 dist_change = 0
                 count = -1
@@ -71,13 +72,13 @@ class Player22(player21.Player21, threading.Thread):
                 dist_change = float(dist_change)
         if count >= 0:
             count -= 1
-            dir_change = float(st[count])
+            dir_change = float(st[3])
         if count >= 0:
             count -= 1
-            body = float(st[count])
+            body = float(st[4])
         if count >= 0:
             count -= 1
-            neck = float(st[count])
+            neck = float(st[5])
         rad = math.radians(self.normalizeAngle(dir + self.m_dNeck[t]))
         X = self.m_dX[t] + dist * math.cos(rad)
         Y = self.m_dY[t] + dist * math.sin(rad)
