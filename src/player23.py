@@ -43,8 +43,8 @@ class Player23(player22.Player22, threading.Thread):
             print("位置{0:.4f}, {1:.4f}".format(self.m_dBallX[self.m_iTime], self.m_dBallY[self.m_iTime]))
             print("速度{0:.4f}, {1:.4f}".format(self.m_dBallVX[self.m_iTime], self.m_dBallVY[self.m_iTime]))
             print("自分")
-            print("位置{0:.4f}, {0:.4f}".format(self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
-            print("速度{0:.4f}, {0:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
+            print("位置{0:.4f}, {1:.4f}".format(self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
+            print("速度{0:.4f}, {1:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
             print("体{0:.4f}".format(self.m_dNeck[self.m_iTime]))
             print("首{0:.4f}".format(self.m_dBody[self.m_iTime]))
 
