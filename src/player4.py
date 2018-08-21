@@ -30,7 +30,10 @@ class Player4(player3.Player3, threading.Thread):
         index1 = message.find(" ", index0 + len(key))
         if number == 4:
             index1 = message.find(" ", index1 + 1)
+            index1 = message.find(" ", index1 + 1)
+            index1 = message.find(" ", index1 + 1)
         elif number == 3:
+            index1 = message.find(" ", index1 + 1)
             index1 = message.find(" ", index1 + 1)
         elif number == 2:
             index1 = message.find(" ", index1 + 1)
