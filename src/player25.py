@@ -7,6 +7,8 @@ import math
 class Player25(player24.Player24, threading.Thread):
     def __init__(self):
         super(Player25, self).__init__()
+        # 自己流
+        self.m_listPlayer = []
         self.m_debugLv25 = False
 
     def setKickTarget(self):
