@@ -50,6 +50,12 @@ class Player17(player16.Player16, threading.Thread):
             else:
                 self.m_dBallAX[i] = 0.0
                 self.m_dBallAY[i] = 0.0
+        # debug用変数
+        a = self.m_dBallVY[i]
+        b = self.m_dBallAY[i]
+        c = self.ball_decay
+
+
         self.m_dBallVX[next] = (self.m_dBallVX[i] + self.m_dBallAX[i]) * self.ball_decay
         self.m_dBallVY[next] = (self.m_dBallVY[i] + self.m_dBallAY[i]) * self.ball_decay
         self.m_dBallX[next] = self.m_dBallX[i] + self.m_dBallVX[i] + self.m_dBallAX[i]
