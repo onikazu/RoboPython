@@ -52,8 +52,8 @@ class Player17(player16.Player16, threading.Thread):
                 self.m_dBallAY[i] = 0.0
         self.m_dBallVX[next] = (self.m_dBallVX[i] + self.m_dBallAX[i]) * self.ball_decay
         self.m_dBallVY[next] = (self.m_dBallVY[i] + self.m_dBallAY[i]) * self.ball_decay
-        self.m_dBallX[next] = self.m_dBallX[i] + self.m_dBallVX[i] + self.m_dBallAX[i]
-        self.m_dBallY[next] = self.m_dBallY[i] + self.m_dBallVY[i] + self.m_dBallAY[i]
+        # self.m_dBallX[next] = self.m_dBallX[i] + self.m_dBallVX[i] + self.m_dBallAX[i]
+        # self.m_dBallY[next] = self.m_dBallY[i] + self.m_dBallVY[i] + self.m_dBallAY[i]
 
     def predict(self, start, end):
         super().predict(start, end)
