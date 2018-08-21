@@ -81,16 +81,16 @@ class Player18(player17.Player17, threading.Thread):
             # print(type(self.m_dBallVY), type(vy_r), type(self.m_dVY))
             self.m_dBallVY[t] = vy_r + self.m_dVY[t]
 
-        if self.m_debugLv18 and t < 30:
-            print("時刻{0:.4f}, 位置{1:.4f}, {2:.4f}".format(self.m_iTime, self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
-            print("速度{0:.4f},{1:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
-            print("ball_dist{}".format(ball_dist))
-            print("ball_dir{}".format(ball_dir))
-            print("ボール位置{0:.4f}, {1:.4f}".format(self.m_dBallX[self.m_iTime], self.m_dBallY[self.m_iTime]))
-            print("ボール速度{0:.4f}, {1:.4f}".format(self.m_dBallVX[self.m_iTime], self.m_dBallVY[self.m_iTime]))
-            print("ball = {}".format(ball))
-            print("ballR:", ballR)
-            print("ballRad", ballRad)
+            if self.m_debugLv18 and t < 30:
+                print("時刻{0:.4f}, 位置{1:.4f}, {2:.4f}".format(self.m_iTime, self.m_dX[self.m_iTime], self.m_dY[self.m_iTime]))
+                print("速度{0:.4f},{1:.4f}".format(self.m_dVX[self.m_iTime], self.m_dVY[self.m_iTime]))
+                print("ball_dist{}".format(ball_dist))
+                print("ball_dir{}".format(ball_dir))
+                print("ボール位置{0:.4f}, {1:.4f}".format(self.m_dBallX[self.m_iTime], self.m_dBallY[self.m_iTime]))
+                print("ボール速度{0:.4f}, {1:.4f}".format(self.m_dBallVX[self.m_iTime], self.m_dBallVY[self.m_iTime]))
+                print("ball = {}".format(ball))
+                print("ballR:", ballR)
+                print("ballRad", ballRad)
 
 
 if __name__ == "__main__":
