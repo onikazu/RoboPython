@@ -129,7 +129,7 @@ class Player20(player19.Player19, threading.Thread):
             self.setMoveTarget()
             self.move_0()
 
-        self.predict(t, t + 1)
+        # self.predict(t, t + 1)
         self.setFaceTarget()
         self.lookAt(self.m_dFaceX[t], self.m_dFaceY[t])
 
