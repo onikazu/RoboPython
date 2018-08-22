@@ -7,6 +7,8 @@ import math
 class Player20(player19.Player19, threading.Thread):
     def __init__(self):
         super(Player20, self).__init__()
+        # attribute error んｐ発生により移動
+        self.m_listPlayer = []
         # キック目標座標
         self.m_dKickX = []
         self.m_dKickY = []

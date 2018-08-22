@@ -7,7 +7,8 @@ import math
 class Player22(player21.Player21, threading.Thread):
     def __init__(self):
         super(Player22, self).__init__()
-        self.m_listPlayer = []
+        # attribute error の発生
+        # self.m_listPlayer = []
         self.m_debugLv22 = False
 
     def getObjectList(self, message, keyword):
