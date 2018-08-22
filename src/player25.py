@@ -13,8 +13,8 @@ class Player25(player24.Player24, threading.Thread):
 
     def setKickTarget(self):
         # m_list でattribute error
-        # if not len(self.m_listPlayer):
-        #     return
+        if not len(self.m_listPlayer):
+            return
         t = self.m_iTime
         if self.m_strTeamName.startswith("Player25"):
             print("===========================")
