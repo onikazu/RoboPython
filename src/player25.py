@@ -29,7 +29,7 @@ class Player25(player24.Player24, threading.Thread):
                 Y = self.getParam(player, "y", 1)
                 Dir = self.getDirection(self.m_dX[t], self.m_dY[t], X, Y)
                 Dist = self.getDistance(self.m_dX[t], self.m_dY[t], X, Y)
-                print("Dir={0:.4f}, Dist={0:.4f}".format(Dir, Dist))
+                print("Dir={0:.4f}, Dist={1:.4f}".format(Dir, Dist))
 
         for i in range(len(self.m_listPlayer)):
             player1 = str(self.m_listPlayer[i])
