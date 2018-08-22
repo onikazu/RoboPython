@@ -9,7 +9,8 @@ class Player23(player22.Player22, threading.Thread):
         super(Player23, self).__init__()
         self.m_iTrapMarginSteps = 3
         self.player_speed_max = 1.20
-        self.m_debugLv23 = False
+        # attribute error の発生により移動
+        # self.m_debugLv23 = False
         # for _ in range(self.GAME_LENGTH):
         #     self.setKickTarget()
         #     self.setMoveTarget()
