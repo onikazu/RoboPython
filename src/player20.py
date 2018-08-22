@@ -31,6 +31,8 @@ class Player20(player19.Player19, threading.Thread):
             self.m_iKickTime.append(0)
             self.m_iMoveTime.append(0)
 
+        # attribute error の発生により移動
+        self.m_debugLv23 = False
         for i in range(self.GAME_LENGTH):
             self.m_iTime = i
             self.setKickTarget()
@@ -38,8 +40,7 @@ class Player20(player19.Player19, threading.Thread):
             self.setFaceTarget()
         self.m_iTime = 0
         self.m_debugLv20 = False
-        # attribute error の発生により移動
-        self.m_debugLv23 = False
+
 
     def setKickTarget(self):
         t = self.m_iTime
