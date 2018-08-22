@@ -13,7 +13,7 @@ class Player21(player20.Player20, threading.Thread):
         t = self.m_iTime
         kickDir = self.getDirection(self.m_dX[t], self.m_dY[t], self.m_dKickX[t], self.m_dKickY[t])
         kickAngle = self.normalizeAngle(kickDir - self.m_dBody[t])
-        self.m_strCommand[t] = "(kick 100 {0:.4f})".format(kickAngle)
+        self.m_strCommand[t] = "(kick 100 {0:.2f})".format(kickAngle)
 
     def move_0(self):
         t = self.m_iTime
@@ -58,7 +58,7 @@ class Player21(player20.Player20, threading.Thread):
             dist = self.getDistance(self.m_dX[t], self.m_dY[t], self.m_dMoveX[t], self.m_dMoveY[t])
             # 更に遠ければ
             if dist > 0.75:
-                self.m_strCommand[t] = "(dash {0:.4f})".format(dash_power)
+                self.m_strCommand[t] = "(dash {0:.2f})".format(dash_power)
                 if self.m_debugLv21:
                     print("c :{} {}".format(turn, turn_moment))
         # もし目的地より反対方向を向いていて
@@ -66,11 +66,11 @@ class Player21(player20.Player20, threading.Thread):
             turn = 0.0
             # 遠ければ
             if dist > 0.75:
-                self.m_strCommand[t] = "(dash {0:.4f})".format(-dash_power)
+                self.m_strCommand[t] = "(dash {0:.2f})".format(-dash_power)
                 if self.m_debugLv21:
                     print("d :{} {}".format(turn, turn_moment))
         elif abs(turn_moment) <= 180.0:
-            self.m_strCommand[t] = "(turn {0:.4f})".format(turn_moment)
+            self.m_strCommand[t] = "(turn {0:.2f})".format(turn_moment)
             if self.m_debugLv21:
                 print("e :{} {}".format(turn, turn_moment))
             if self.m_debugLv21:

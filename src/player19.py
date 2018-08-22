@@ -27,11 +27,11 @@ class Player19(player18.Player18, threading.Thread):
                 self.m_iSearchCount = 9
 
     # 自己流視覚情報検査
-    def checkVisualTimeFresh(self):
-        if self.m_iTime - self.m_iVisualTime > 1:
-            return False
-        else:
-            return True
+    # def checkVisualTimeFresh(self):
+    #     if self.m_iTime - self.m_iVisualTime > 1:
+    #         return False
+    #     else:
+    #         return True
 
     # 時刻が最新の時刻であるか検査
     def checkFresh(self, time):
