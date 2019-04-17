@@ -1,9 +1,10 @@
 # RoboPython
-未完
 ## 概要
 robocupサッカーシミュレーション2Dリーグで使用できる選手エージェントのプログラム。
-参考文献１のサンプルのjavaで書かれたエージェントプログラムをpythonで書き換えたもの。
 フォルダsrc内にエージェントプログラムは格納されている
+
+## 動作の様子
+[game](https://github.com/onikazu/RoboPython/blob/master/rcs_trimed.gif)
 
 ## プログラムの説明
 以下のプログラムは若い数字から順々にプログラムを継承させていったものである。
@@ -105,9 +106,13 @@ dash（移動）コマンドを利用したときにエージェントの位置�
 パス地点を評価してキックするプログラム
 
 
+
+
 ## 参考文献
 1. 大島真樹「javaでつくるRoboCupサッカー選手プログラム」(2005) 森北出版株式会社
 http://www.morikita.co.jp/books/book/2189
+この本のjavaで書かれたエージェントプログラムをpythonにコンパイルしたものが本プログラムである。
+
 2. https://ameblo.jp/oyasai10/entry-10590541669.html
 3. http://edosha.hatenablog.jp/entry/2017/08/09/150636
 4. https://www.kannon.link/fuku/index.php/2017/02/22/01-34/
