@@ -4,7 +4,7 @@ robocupサッカーシミュレーション2Dリーグで使用できる選手�
 フォルダsrc内にエージェントプログラムは格納されている
 
 ## 動作の様子
-[game](https://github.com/onikazu/RoboPython/blob/master/rcs_trimed.gif)
+![game](https://github.com/onikazu/RoboPython/blob/master/rcs_trimed.gif)
 
 ## プログラムの説明
 以下のプログラムは若い数字から順々にプログラムを継承させていったものである。
